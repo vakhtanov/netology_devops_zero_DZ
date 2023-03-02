@@ -1,1 +1,2 @@
-# netology_devops_zero_DZ
+# Репозиторий для домашних заданий Netology
+## Курс DevOps с нуля
