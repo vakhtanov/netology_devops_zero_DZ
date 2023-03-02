@@ -1,0 +1,15 @@
+### Задание
+
+Если вы работаете в **ОС Windows**, то запустите командную строку и введите команды:
+- wmic cpu get caption, deviceid, name, numberofcores, maxclockspeed, status
+- winver
+- ver
+- выполните msinfo32
+- systeminfo
+
+
+Если вы работаете в **ОС Linux**, то запустите терминал и введите команды:
+- uname -a
+- lsb_release -a
+- lscpu
+- lshw
