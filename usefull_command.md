@@ -1,4 +1,5 @@
-### Стандартный пароль к VM Windows *Passw0rd!*
+### Стандартный пароль к VM Windows *Passw0rd!*  
+[коробки с операцинными системами(https://www.osboxes.org/ubuntu/)
 
 ### Инфа о системе
 
