@@ -14,6 +14,8 @@
 `pidof [proc name]` - показывает PID процесса с именем  
 `tee` - читает из stdin и напрвляет куда надо  
 `$$` - PID текущего процесса  
+`id, sudo id` - информация о текущем пользователе  
+
 
 ### Объединение комманд  
 [Справка по объединению](https://housecomputer.ru/os/unix/Operators_combining_teams.html)  
