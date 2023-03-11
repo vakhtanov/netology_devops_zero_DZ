@@ -38,7 +38,7 @@ _ctrl+b c_ - новое окно \
 `kill 6333`
 _ctrl+b 0_ - на экран nano \
 
-![nano terminate]()
+![nano terminate](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/mod1_IT-Lin/DZ4/nano_term.PNG)
 
 
 
@@ -47,7 +47,9 @@ _ctrl+b 0_ - на экран nano \
 1. Установите утилиту htop
 2. С помощью htop ответьте на вопросы:
    - Какие процессы занимают больше всего памяти?
+   ![max_mem](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/mod1_IT-Lin/DZ4/max_mem.PNG)
    - Какие процессы занимают больше всего процессорного времени?
+   ![max_cpu](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/mod1_IT-Lin/DZ4/max_cpu.PNG)
 
 *Приведите ответ в виде снимков экрана*
 
