@@ -64,5 +64,28 @@ _ctrl+b 0_ - на экран nano \
 
 *Приведите ответ в виде снимка экрана с выполненной командой ip addr*
 
+_Принтскрин из VirtualBox_\
+![VM](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/mod1_IT-Lin/DZ4/ip_conf_VM.PNG)\
+**Тут все понятно**
+
+Как основную систему использую Ubuntu с запуском через Vagrant, принт скрин ниже\
+![vagrant](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/mod1_IT-Lin/DZ4/ip_conf_vagr.PNG)
+
+Вагрант файл настроил по интернету))\
+```vagrant
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "bento/ubuntu-20.04"
+  config.vm.network "private_network", ip: "10.1.0.1", netmask:"255.0.0.0"
+  config.vm.network "private_network", ip: "10.2.0.1", netmask:"255.0.0.0"
+  
+  config.vm.provision "shell",
+  run:"always",
+  inline: "route add default gw 10.1.1.1"
+  
+end
+```
+**ПРОШУ КОММЕНТАРИЙ И ЗАМЕЧАНИЙ**
 
 
