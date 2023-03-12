@@ -40,10 +40,7 @@
  
 *Приведите подробный процесс перевода.*
 
-**Пример подробного процесса перевода из презентации к занятию:**
-
-![Alt text](https://github.com/netology-code/balgo-homeworks/blob/main/1/Example.png "Optional title")
-
+![ex1](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/balgo/DZ1/ex1.PNG "Optional title")
 
 ------
 
@@ -56,6 +53,8 @@
 
 *Приведите подробный процесс перевода.*
 
+![ex2](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/balgo/DZ1/ex2.PNG "Optional title")
+
 ------
 ### Задание 3. 
 
@@ -65,6 +64,8 @@
 
 
 *Приведите подробный процесс перевода.*
+
+![ex3](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/balgo/DZ1/ex3.PNG "Optional title")
 
 ------
 
@@ -76,6 +77,8 @@
 
 
 *Приведите ответы в десятичной системе счисления.*
+
+![ex4](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/balgo/DZ1/ex4.PNG "Optional title")
 
 ------
 
