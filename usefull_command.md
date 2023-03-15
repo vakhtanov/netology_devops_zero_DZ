@@ -147,6 +147,7 @@ stderr - 2
 `sudo apt install package` — установка пакета с названием package  
 `sudo apt remove package` — удаление пакета package из системы  
 `sudo apt autoremove` — удаление неиспользуемых зависимостей  
+`aptitude` - в псевдографике приложения сгруппированы по тематике  
 
 
 ### Работа с экранами и терминалами   
