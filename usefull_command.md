@@ -222,6 +222,18 @@ sysctl -a | grep dirty — найти в настройках Linux параме
 ●echo 2 > /proc/sys/vm/drop_caches — очистка inode и dentrie
 ●echo 3 > /proc/sys/vm/drop_caches — очистка inode, dentrie и PageCache
  
+ Программы mkswap, swapon, swapoff
+●swapon -s; grep Swap /proc/meminfo; free -h — показывают использование файла подкачки
+●mkswap /swapfile — размечает файл /swapfile как файловую систему SWAP
+●swapoff\swapon /swapfile — отключение/подключение файла подкачки в систему
+●cat /etc/fstab — выводит список устройств для монтирования. 
+
+Команды для тонкой настройки SWAPПосмотреть текущие / поменять до перезагрузки:
+●/proc/sys/vm/vfs_cache_pressure — размер дискового кеша
+●/proc/sys/vm/swappiness — процент переноса данных в SWAP
+Для сохранения изменений после перезагрузки:В файле /etc/sysctl.conf:
+●vm.vfs_cache_pressure ={ваше значение}
+ 
 
 __статус процессов__\
 `R — выполняется  
