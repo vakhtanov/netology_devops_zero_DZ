@@ -23,17 +23,17 @@
 ```
 ls /tmp /tmp1
 ```
-!(1)[https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/1ls.PNG]
+![1](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/1ls.PNG)
 
 так, чтобы:
 
 1. результат работы (список файлов) для текущего запуска команды выводился в файл /tmp/file_list
-2. 
- !(2)[https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/2ls.PNG]
+
+ ![2](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/2ls.PNG)
  
 3. ошибки для каждого запуска добавлялись в файл /tmp/file_errors
 
-!(3)[https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/3ls.PNG]
+![3](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/3ls.PNG)
 
 *Ответ приведите в виде снимка экрана с комментариями в свободной форме.*
 
@@ -46,7 +46,7 @@ ls /tmp /tmp1
 
 `ps aux | grep ^root > user_root_ps` - список процессов передаем в конвеер, ищем root в начале строки и записываем в файл
 
-!(4)[https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/4ps.PNG]
+![4](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/4ps.PNG)
 
 ------
 
@@ -61,7 +61,7 @@ ls /tmp /tmp1
 ps -U 2> user_2_ps
 ```
 
-__в это комманде ошибка цифра два работает как перенаправление потока ошибок в файл user_2_ps, туда собственно и пишется неправлиьное использование ps__\
+__в это комманде ошибка цифра два работает как перенаправление потока ошибок в файл user_2_ps, туда собственно и пишется неправbльное использование ps__\
 правильно так `ps -U 2 > user_2_ps` - после двойки - пробел
 
 Затем, он аналогично повторил для пользователя с логином "5" вывод в файл "user_5_ps":
@@ -79,7 +79,7 @@ __в это комманде ошибка цифра пять работает �
 
 
 *Ответ приведите в виде снимка экрана с комментариями в свободной форме.*
-!(5)[https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/5ps.PNG]
+![5](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ1/5ps.PNG)
 
 ------
 
