@@ -99,8 +99,8 @@ sudo swapon /swapfile2
 
 *В качестве ответа приведите скрин вывода команды df- h до и после монтирования диска tmpfs.*
 
-![]()
-![]()
+![df1](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/8df1.PNG)
+![df2](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/9df2.PNG)
 
 ------
 
