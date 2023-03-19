@@ -94,6 +94,9 @@ sudo swapon /swapfile2
 
 Создайте диск `tmpfs` (размер выберите исходя из объёма ОЗУ на ПК: 512Мб-1Гб), смонтируйте его в директорию `/mytmpfs`.
 
+`sudo mkdir /mytmpfs`\
+`sudo mount -t tmpfs -o size=512M tmpfs /mytmpfs`
+
 *В качестве ответа приведите скрин вывода команды df- h до и после монтирования диска tmpfs.*
 
 ![]()
