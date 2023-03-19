@@ -37,7 +37,7 @@
 Определите объём используемой памяти и файла подкачки в вашей системе. Вывод сделайте в человекочитаемом формате.
 
 *Приведите снимок экрана и ответ в свободной форме.*
-![mem]()
+![mem](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/1mem.PNG)
 
 ------
 
@@ -49,14 +49,14 @@
 
 *Приведите снимок экрана и ответ в свободной форме.*
 `grep -i inactive /proc/meminfo` \
-![inactive]()
+![inactive](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/2inactive.PNG)
 
 ------
 
 ### Задание 4
 
 1. Создайте скрин вывода команды `free -h -t`
-![free1]()
+![free1](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/3free_ht.PNG)
 3. Создайте swap-файл размером 1Гб
 ```bash
 sudo fallocate -l 1G /swapfile2 
@@ -65,13 +65,13 @@ sudo mkswap /swapfile2
 sudo swapon /swapfile2 
 ```
 5. Добавьте настройку чтобы swap-файл подключался автоматически при  перезагрузке виртуальной машины (подсказка: необходимо внести изменения в файл `/etc/fstab`)
-![fstab]()
+![fstab](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/4fstab.PNG)
 
 7. Создайте скрин вывода команды `free -h -t`
-![free2]()
+![free2](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/5free.PNG)
 
 7. Создайте скрин вывода команды `swapon -s`
-![swapon2]()
+![swapon2](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ2/6swapon.PNG)
 
 9. Измените процент свободной оперативной памяти, при котором начинает  использоваться раздел подкачки до 30%. Сделайте скрин внесенного  изменения.
 ![mem30]()
