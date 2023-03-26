@@ -45,7 +45,7 @@ __VFS дает единый универсальный инструмент до
 
 *В качестве ответа приложите скриншоты, на которых будет видно разметку диска (например, командами lsblk -a; fdisk -l)*
 
-
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/1fdisk.PNG)
 
 ### Задание 4
 
@@ -55,6 +55,7 @@ __VFS дает единый универсальный инструмент до
 
 *В качестве ответа приложите скриншот вывода команды `mdadm -D /dev/md0`, где md0 - это название вашего рейд массива (может быть любым).*
 
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/2raid.PNG)
 ---
 
 ## Дополнительные задания (со звездочкой*)
@@ -71,26 +72,58 @@ __на параметр load average влиялет количество про�
 ### Задание 6*
 
 1. Сделайте скриншоты вывода комманд df -h, pvs, lvs, vgs.
-  ![]()
-  ![]()
-  ![]()
-  ![]()
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_1.PNG)
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_1b.PNG)
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_1c.PNG)
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_1d.PNG)
+  
 2. Подключите к ОС 2 новых диска.  
-  ![]()
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_2.PNG)
 
 3. Создайте новую VG, добавьте в него 1 диск.
-  ![]()
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_3.PNG)
 
 4. Создайте 2 LV, распределите доступное пространство между ними поровну.
-  ![]()
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_4.PNG)
 
 5. Создайте на обоих томах файловую систему `xfs`.
-6. Создайте две точки монтирования и смонтируйте каждый из томов.
+
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_5.PNG)
+  
+6. Создайте две точки монтирования и смонтируйте каждый из томов.  
 7. Сделайте скриншот вывода комманд df -h.
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_6.PNG)
+
 8. Добавьте в VG второй оставшийся диск.
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_8.PNG)
+
 9. Расширьте первый LV на объем нового диска.   
-10. Расширьте файловую систему на размер нового доступного пространства.    
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_9.PNG)
+
+10. Расширьте файловую систему на размер нового доступного пространства.   
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_10.PNG)
+
 11. Сделайте скриншоты вывода комманд df -h, pvs, lvs, vgs.
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_11a.PNG)
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_11b.PNG)
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_11c.PNG)
+  
+  ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ4/zd6_11d.PNG)
+
 
 *В качестве ответа приложите созданные скриншоты и скриншоты выполнения.*
 
