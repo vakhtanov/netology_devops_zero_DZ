@@ -333,6 +333,67 @@ __SWAP удобно делать как файл__\
 `vmstat 5 5` — утилита отображает информацию об использовании CPU, памяти, дисков\
 `sar -p -d 5 3` — утилита для отображения различных параметров (статистики) работы системы
  
+ 
+ #### Файловые сисетмы
+ * cat /proc/filesystems – вывести список файловых систем, которые поддерживаются ядром \
+* fsck – утилита, с помощью которой можно проверить ФС на ошибки\
+* file -s /dev/sda1 – выводит тип файловой системы\
+* df -T – выводит тип файловой системы\
+
+* yum install dosfstools\
+* fdisk /dev/sd*\
+* mkfs.vfat -F 32 -n MyDrive /dev/sd*\
+* fatresize -s /dev/sd*\
+
+Для работы с NTFS может потребоваться установка пакетов:\
+* yum install ntfs-3g — установка необходимых пакетов\
+* mount -t ntfs-3g /dev/sdb1 /mnt — монтирование NTFS в Linux\
+
+Команда для создания ext2 на разделе /dev/hdb1: 'mkfs -t ext2 /dev/hdb1'\
+Команда для создания ext4 на разделе /dev/hdb1: 'mkfs -t ext4 /dev/hdb1'\
+
+Команды для работы с XFS\
+* mkfs.xfs /dev/sda1 — создание файловой системы\
+* xfs_info /dev/sda1 — выводит информацию про метаданные файловойсистемы.\
+* xfs_growfs / -d — увеличивает файловую систему на все доступное пространство\
+* xfs_check /dev/sdb1, xfs_repair /dev/sdb1 — проверяет файловую систему на ошибки\
+
+Команды для работы с Btrfs\
+* mkfs.btrfs /dev/sdc -L single_drive — создание ФС на одном диске\
+* mkfs.btrfs /dev/sdc /dev/sdd -L double_drive — создание ФС на двух дисках\
+* sudo mkfs.btrfs /dev/sdc /dev/sdd -d raid1 -m raid1 -L raid1_drive — создать рейд средствами btrfs\
+* btrfs filesystem df / — получить информацию о ФС\
+* btrfs filesystem resize -2g /mnt — изменить размер тома в реальном времени\
+
+Команды для начала работы с автомонтированием:\
+* yum install autofs – установка пакета\
+* man auto.master – получение справки по пакету\
+
+Команды для начала работы с systemd-монтированием:\
+* systemctl list-units -t mount --all – вывести состояние всех описанных в systemd точек монтирования\
+* systemctl edit --full boot.mount – открыть на редактирование unit-файл\
+
+Команды Linux для работы с mount\
+* mount -t ext4 -o noexec /dev/sdb6 /mnt – монтировать фс ext4 без возможности запускать исполняемые файлы на разделе\
+* mount --uuid="b386d309-05c1-42c8-8364-8d37270b69e0" /mnt – смонтировать раздел используя UUID\
+* mount --label="home" /mnt/ – монтировать раздел используя лейбл\
+* mount – вывести список всех смонтированных устройств\
+* umount /mnt – отмонтировать раздел, смонтированный по указанному пути\
+
+1 Regular file touch file1\
+2 Directory mkdir mydir1\
+3 Symbol link ln -s file1 link_to_file1\
+4 Pipe mkfifo mypipe\
+5 Socket -\
+6 Block/symbol special file mknod <name> c/b <major> <minor>\
+Создаем жесткую ссылку\
+7 Hard link ln file1 second_name_file1\
+
+stat – утилита позволяет просматривать состояние файла и даже файловой системы\
+* df -i – утилита выводит информацию о файловых системах, их размере,занятом и свободном пространстве и точках монтирования\
+* ls -i – утилита отображает список файлов в каталоге\
+* file -s /dev/sda3 – отобразить информацию о разделе\
+ 
 __статус процессов__\
 `R — выполняется  
 D — uninterruptible sleep (ожидает ввод-вывод)  
