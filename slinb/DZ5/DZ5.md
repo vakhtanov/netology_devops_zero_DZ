@@ -24,14 +24,23 @@
 2. Создайте символическую ссылку на каталог ~/test по пути /tmp/soft_link.
 3. Используя ссылку /tmp/soft_link, скопируйте файл test_123 в каталог /tmp с тем же именем. Создайте жёсткую ссылку на файл /tmp/test_123 с именем /tmp/hard_link.
 
+![]https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/1rezult.PNG()
+
 *Вопрос 1. Файл ~/test и /tmp/test_123 — это один и тот же файл (одинаковые inode)?*
+
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/2pic.PNG)
 
 *Вопрос 2. Файл /tmp/soft_link и /tmp/hard_link — это один и тот же файл (одинаковые inode)?*
 
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/3pic.PNG)
+
 *Вопрос 3. Файл /tmp/test_123 и /tmp/hard_link — это один и тот же файл (одинаковые inode)?*
+
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/4pic.PNG)
 
 *Вопрос 4. Докажите, что одна из ссылок символическая, а другая жёсткая. Обязательно приложите к ответу скриншоты команд, которые иллюстрируют различия ссылок разного типа, или, если не уверены, ход решения задания.*
 
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/5pic.PNG)
 
 ### Задание 2
 
@@ -40,6 +49,8 @@
 3. Поместите файл `netology` в каталог `netology`.
 
 *Какое или какие из трёх действий невозможно выполнить? Почему?*
+
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/6neto1.PNG)
 
 ---
 
@@ -50,23 +61,31 @@
 
 *Запишите ответ в свободной форме.*
 
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/3zd3.PNG)
+
 ---
 
 ### Задание 4
 
 Задание не предполагает использования LVM.
 
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/8zd4.PNG)
+
 1. Подключите к системе новый диск 3 Гб.
 2. Создайте на диске один раздел размером 2 Гб.
 3. Разметьте раздел как `xfs`.
 4. Смонтируйте раздел по пути /mnt. Создайте любой файл на смонтированной файловой системе. Сделайте скриншот вывода команды df -hT.
-5. Увеличьте раздел до 3 Гб.
-6. Расширьте файловую систему на новое свободное пространство.
-7. Убедитесь, что после всех манипуляций созданный вами файл остался внутри раздела и файловой системы.
-8. Сделайте скриншот вывода команды df -hT.
+
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/9zd4.PNG)
+
+6. Увеличьте раздел до 3 Гб.
+7. Расширьте файловую систему на новое свободное пространство.
+8. Убедитесь, что после всех манипуляций созданный вами файл остался внутри раздела и файловой системы.
+9. Сделайте скриншот вывода команды df -hT.
 
 *В качестве ответа приложите два сделанных скриншота.*
 
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/10zd4.PNG)
 
 ## Задание со звёздочкой*
 Дополнительное задание необязательно к выполнению и не повлияет на получение зачёта по этой домашней работе. Вы можете его выполнить, чтобы глубже разобраться в материале.
@@ -76,6 +95,8 @@
 ### Задание 5*
 
 Создайте файловую систему `Btrfs` на двух дисках по 5 Гб каждый.
+
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/11dz5.PNG)
 
 *Сколько места будет доступно для работы с файлами? Сколько места займут метаданные?*
 
