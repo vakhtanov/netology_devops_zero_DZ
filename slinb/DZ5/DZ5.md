@@ -28,14 +28,17 @@
 
 *Вопрос 1. Файл ~/test и /tmp/test_123 — это один и тот же файл (одинаковые inode)?*
 
+__РАЗНЫЕ__\
 ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/2pic.PNG)
 
 *Вопрос 2. Файл /tmp/soft_link и /tmp/hard_link — это один и тот же файл (одинаковые inode)?*
 
+__РАЗНЫЕ__\
 ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/3pic.PNG)
 
 *Вопрос 3. Файл /tmp/test_123 и /tmp/hard_link — это один и тот же файл (одинаковые inode)?*
 
+__ОДИНАКОВЫЕ__\
 ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/4pic.PNG)
 
 *Вопрос 4. Докажите, что одна из ссылок символическая, а другая жёсткая. Обязательно приложите к ответу скриншоты команд, которые иллюстрируют различия ссылок разного типа, или, если не уверены, ход решения задания.*
@@ -52,6 +55,8 @@
 
 ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/6neto1.PNG)
 
+__нельзя создать папку с именем netology - потому, что есть такой файл, переместить на прямц тоже нельзя - только через переименвоание_
+
 ---
 
 ### Задание 3
@@ -62,6 +67,8 @@
 *Запишите ответ в свободной форме.*
 
 ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/3zd3.PNG)
+
+__btrfs и xfs? - динамически меняет количество inode__ 
 
 ---
 
@@ -99,5 +106,7 @@
 ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/11dz5.PNG)
 
 *Сколько места будет доступно для работы с файлами? Сколько места займут метаданные?*
+
+__
 
 ----
