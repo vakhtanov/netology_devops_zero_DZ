@@ -33,6 +33,8 @@
 
 *В качестве ответа приложите снимок экрана с выводом команды.*
 
+![autor](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ6/1Autor.PNG)
+
 ---
 
 ### Задание 3
@@ -45,6 +47,10 @@
  2. При выводе `strace` вы можете увидеть много системных вызовов. Чтобы разобраться, за что отвечает каждый из них, можете воспользоваться встроенной помощью `man`.
 
 *В качестве ответа напишите название системного вызова.*
+
+`chdir("/tmp")`
+
+![chdir](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ6/2cd.PNG)
 
 ---
 
