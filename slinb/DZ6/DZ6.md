@@ -121,5 +121,11 @@ insmod path/to/module.ko
 
 *В качестве ответа приложите скриншот вывода установки модуля в `dmesg`.*
 
+загрузили\
+![insmod](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ6/3modinst.PNG)
+
+выгрузили\
+![remove](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ6/3unload.PNG)
+
 -----
 
