@@ -196,6 +196,7 @@ stderr - 2
 `ctrl+r` - поиск комманд  
 
 ## Работа с APT
+https://www.dmosk.ru/miniinstruktions.php?mini=aptly-repo - инструкции по созданию локального репозитория  
 `sudo apt update` — обновление индекса пакетов: скачивание информации из репозитория о имеющихся версиях  
 `sudo apt upgrade` — обновление самих пакетов  
 `sudo apt install package` — установка пакета с названием package  
