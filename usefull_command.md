@@ -154,6 +154,8 @@ __Работа с dkms__\
 `systemd-analyze plot > test.svg` - дерево загрузки
 `sudo systemctl list-dependencies` - дерево загрузки 
 `systemctl get-default` - в каком состоянии загруки система  
+`systemctl --all -t service` - все сервисы  
+`systemctl status sshd.service` - просмотр конкретного сервиса  
 
 
 ## Типы файлов в системе\
