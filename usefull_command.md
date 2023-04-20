@@ -152,7 +152,8 @@ __Работа с dkms__\
 `file /sbin/init` - какая система инициализации  
 `systemctl status` - информация в графическом виде о службах  
 `systemd-analyze plot > test.svg` - дерево загрузки
-`sudo systemctl list-dependencies` - дерево загрузки
+`sudo systemctl list-dependencies` - дерево загрузки 
+`systemctl get-default` - в каком состоянии загруки система  
 
 
 ## Типы файлов в системе\
