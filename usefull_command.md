@@ -157,6 +157,13 @@ __Работа с dkms__\
 `systemctl --all -t service` - все сервисы  
 `systemctl status sshd.service` - просмотр конкретного сервиса  
 
+* `systemctl list-units` — список модулей
+* `systemctl list-units` --type=service — список модулей-служб
+* `systemctl status <модуль>` — состояние выбранного модуля
+* `systemctl enable\disable <модуль>` — разрешить/запретить модуль
+* `systemctl start\stop\restart <модуль>` — запустить/остановить/... модуль
+* `systemctl daemon-reload` — перезапуск конфигурации system
+
 
 ## Типы файлов в системе\
 *Обычные файлы* - `-`\
