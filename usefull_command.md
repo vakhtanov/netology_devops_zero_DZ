@@ -166,6 +166,12 @@ __Работа с dkms__\
 * `systemctl start\stop\restart <модуль>` — запустить/остановить/... модуль
 * `systemctl daemon-reload` — перезапуск конфигурации system
 
+* `journalctl -u=sshd` — сообщения для модуля ssh
+* `journalctl -b 0 -u ssh` — сообщения для модуля ssh только в текущем сеансе
+* `journalctl --list-boots` — загрузки
+* `journalctl -n 100 /usr/sbin/sshd` — показать внешний лог
+* `journalctl --since=yesterday --until=now` — временной период
+
 
 ## Типы файлов в системе\
 *Обычные файлы* - `-`\
