@@ -82,13 +82,13 @@
     
     sudo apt install php8.0
     
- ![php_repo]()
+ ![php_repo](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/php_repo.PNG)
 
 2. При помощи команды `php -v` убедитесь, что поставлена корректная версия PHP.
 
 *Приложите к ответу скриншот версии.*
 
-![php_version]()
+![php_version](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/php_version.PNG)
 
 
 ### Задание 5
