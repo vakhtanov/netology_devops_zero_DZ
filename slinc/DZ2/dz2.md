@@ -101,12 +101,18 @@
 
 ![py_dist](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/py_dist_util.PNG)
 
-установлен 3й питон
+    установлен 3й питон, установим pip
+    sudo apt install python3-pip
 
 
 **Примечение №2:** не забудьте выдать права на исполнение скачанному файлу. Если возникнет ошибка при установке с помощью Python версии 2, воспользуйтесь командой `python3`.
 
 *Приложите скриншоты  с установленным пакетом `python-distutils`, с версией `Pip` и установленными модулями, они должны быть видимы.*
+
+![pip_ver](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/pip_version.PNG)
+
+![module](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/module.PNG)
+
 
 ---
 
