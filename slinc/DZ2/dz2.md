@@ -58,16 +58,16 @@
 
 Какие зависимости требует `htop`?
 
-![hpot dep]()
+![hpot dep](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/htop1.PNG)
 
 *Ответ приведите в виде текста команды, которой вы это выполнили, а также приложите скриншот места расположения исполняемых файлов установленного ПО.*
 
     htop уже стоял, комманда будет 
     sudo apt install htop
     
-    ![hpot path]()
+ ![hpot path](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/htop2.PNG)
     
-    ![hpot files]()
+ ![hpot files](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ2/htop3.PNG)
 
 ### Задание 4
 
