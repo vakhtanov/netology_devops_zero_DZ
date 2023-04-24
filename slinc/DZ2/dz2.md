@@ -75,9 +75,20 @@
 
 *Приложите скриншот содержимого файла, в котором записан адрес репозитория.*
 
+    для ubuntu
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository ppa:ondrej/php
+    sudo apt-get update
+    
+    sudo apt install php8.0
+    
+ ![php_repo]()
+
 2. При помощи команды `php -v` убедитесь, что поставлена корректная версия PHP.
 
 *Приложите к ответу скриншот версии.*
+
+![php_version]()
 
 
 ### Задание 5
