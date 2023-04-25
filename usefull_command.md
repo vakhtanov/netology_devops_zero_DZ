@@ -158,7 +158,7 @@ __Работа с dkms__\
 `systemd-analyze blame` - время загрузки модулей  
 `sudo systemctl list-dependencies` - дерево загрузки  
 `systemctl get-default` - в каком состоянии загруки система    
-`systemctl --all -t service` - все сервисы  
+`systemctl --all -t service` - все сервисы список 
 `systemctl status sshd.service` - просмотр конкретного сервиса  
 
 `systemctl list-units` — список модулей
