@@ -153,24 +153,25 @@ __Работа с dkms__\
 ## Система инициализации
 `file /sbin/init` - какая система инициализации  
 `systemctl status` - информация в графическом виде о службах  
-`systemd-analyze plot > test.svg` - дерево загрузки
-`sudo systemctl list-dependencies` - дерево загрузки 
-`systemctl get-default` - в каком состоянии загруки система  
+`systemd-analyze plot > test.svg` - дерево загрузки  
+`systemd-analyze blame` - время загрузки модулей  
+`sudo systemctl list-dependencies` - дерево загрузки  
+`systemctl get-default` - в каком состоянии загруки система    
 `systemctl --all -t service` - все сервисы  
 `systemctl status sshd.service` - просмотр конкретного сервиса  
 
-* `systemctl list-units` — список модулей
-* `systemctl list-units` --type=service — список модулей-служб
-* `systemctl status <модуль>` — состояние выбранного модуля
-* `systemctl enable\disable <модуль>` — разрешить/запретить модуль
-* `systemctl start\stop\restart <модуль>` — запустить/остановить/... модуль
-* `systemctl daemon-reload` — перезапуск конфигурации system
+`systemctl list-units` — список модулей
+`systemctl list-units` --type=service — список модулей-служб
+`systemctl status <модуль>` — состояние выбранного модуля
+`systemctl enable\disable <модуль>` — разрешить/запретить модуль
+`systemctl start\stop\restart <модуль>` — запустить/остановить/... модуль
+`systemctl daemon-reload` — перезапуск конфигурации system
 
-* `journalctl -u=sshd` — сообщения для модуля ssh
-* `journalctl -b 0 -u ssh` — сообщения для модуля ssh только в текущем сеансе
-* `journalctl --list-boots` — загрузки
-* `journalctl -n 100 /usr/sbin/sshd` — показать внешний лог
-* `journalctl --since=yesterday --until=now` — временной период
+`journalctl -u=sshd` — сообщения для модуля ssh
+`journalctl -b 0 -u ssh` — сообщения для модуля ssh только в текущем сеансе
+`journalctl --list-boots` — загрузки
+`journalctl -n 100 /usr/sbin/sshd` — показать внешний лог
+`journalctl --since=yesterday --until=now` — временной период
 
 
 ## Типы файлов в системе\
