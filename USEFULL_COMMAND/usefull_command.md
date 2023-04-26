@@ -156,18 +156,18 @@ __Работа с dkms__\
 `systemctl --all -t service` - все сервисы список 
 `systemctl status sshd.service` - просмотр конкретного сервиса  
 
-`systemctl list-units` — список модулей
-`systemctl list-units` --type=service — список модулей-служб
-`systemctl status <модуль>` — состояние выбранного модуля
-`systemctl enable\disable <модуль>` — разрешить/запретить модуль
-`systemctl start\stop\restart <модуль>` — запустить/остановить/... модуль
-`systemctl daemon-reload` — перезапуск конфигурации system
+`systemctl list-units` — список модулей  
+`systemctl list-units` --type=service — список модулей-служб  
+`systemctl status <модуль>` — состояние выбранного модуля __включая пути до настроек__  
+`systemctl enable\disable <модуль>` — разрешить/запретить модуль  
+`systemctl start\stop\restart <модуль>` — запустить/остановить/... модуль  
+`systemctl daemon-reload` — перезапуск конфигурации system  
 
-`journalctl -u=sshd` — сообщения для модуля ssh
-`journalctl -b 0 -u ssh` — сообщения для модуля ssh только в текущем сеансе
-`journalctl --list-boots` — загрузки
-`journalctl -n 100 /usr/sbin/sshd` — показать внешний лог
-`journalctl --since=yesterday --until=now` — временной период
+`journalctl -u=sshd` — сообщения для модуля ssh  
+`journalctl -b 0 -u ssh` — сообщения для модуля ssh только в текущем сеансе  
+`journalctl --list-boots` — загрузки  
+`journalctl -n 100 /usr/sbin/sshd` — показать внешний лог  
+`journalctl --since=yesterday --until=now` — временной период  
 
 `loginctl user-status` - информация про пользователей в системе  
 
