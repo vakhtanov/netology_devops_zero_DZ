@@ -15,3 +15,6 @@ root - UID = 0, GUID = 0
 права на файл  
 -rwx rwx rwx  -r-- rw- rwx  
 -421 421 421   chmod 467  
+
+`sudo` - получить права суперпользователя  
+`sudo su`, `su -` - перейти под root  
