@@ -18,7 +18,7 @@
 *Приведите своё решение в виде снимков экрана.*
 
 ![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ4/1adusers.PNG)\
-![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ4/2passwd.PNG)
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinc/DZ4/2passwd2.PNG)
 
 ### Задание 2
 
