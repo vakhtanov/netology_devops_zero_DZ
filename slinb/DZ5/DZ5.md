@@ -24,7 +24,7 @@
 2. Создайте символическую ссылку на каталог ~/test по пути /tmp/soft_link.
 3. Используя ссылку /tmp/soft_link, скопируйте файл test_123 в каталог /tmp с тем же именем. Создайте жёсткую ссылку на файл /tmp/test_123 с именем /tmp/hard_link.
 
-![]https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/1rezult.PNG()
+![](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/slinb/DZ5/1rezult.PNG)
 
 *Вопрос 1. Файл ~/test и /tmp/test_123 — это один и тот же файл (одинаковые inode)?*
 
