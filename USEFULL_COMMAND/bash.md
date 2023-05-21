@@ -106,7 +106,7 @@ _опции с числами_\
 ## Условный оператор CASE
 синтаксис\
 ```bash
-case "$VAR1" in ( condidion1) com1; com2
+case "$VAR1" in  condidion1) com1; com2
 ;;
 condition2) com3
 ;;
