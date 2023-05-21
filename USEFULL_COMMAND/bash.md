@@ -5,3 +5,5 @@ read a
 a = $(..COMMAND...)
 a = '...COMMAND...'
 ```
+
+вызвать переменную ```$VARIBLE```
