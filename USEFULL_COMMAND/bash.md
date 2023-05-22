@@ -170,6 +170,51 @@ for ((i=0; i < 10; i++ )); do
 for ((i=0; i < 10; i+=2 )); do
 ```
 
+## Использование SELECT
+сама конструкция select - бесконечная
+
+```bash
+select pill in red blue; do
+  case $pill in
+    red)
+    echo "you will know the truth"; break;;
+    blue)
+    echo "you won't know anything"; break;;
+  esac
+done
+
+```
+
+```breake``` - выход из тела цикла ..
+
+## Функции в BASH
+
+FUNCTION_NAME () {
+  commands
+  ...
+  }
+  
+```bash
+division () {
+if [[ $2 -ne 0 ]] then
+echo "$1/$2 = $(($1/$2))"
+else
+echo "division by zero"
+fi
+}
+
+read_args() {
+echo $@
+for item in $@; do
+echo $item
+done
+}
+
+```
+в функцию можно передать любое количество параметров,и\
+обращаться к ним внутри $1 $2\
+в переменную $@ передаются все аргументы\
+
 ### Спецсимволы
 ```echo -e "asd\ndfg"```
 \045 - знак доллара
