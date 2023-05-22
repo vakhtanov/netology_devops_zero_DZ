@@ -196,24 +196,29 @@ FUNCTION_NAME () {
   
 ```bash
 division () {
-if [[ $2 -ne 0 ]] then
-echo "$1/$2 = $(($1/$2))"
-else
-echo "division by zero"
-fi
+  if [[ $2 -ne 0 ]] then
+    echo "$1/$2 = $(($1/$2))"
+  else
+    echo "division by zero"
+  fi
 }
 
 read_args() {
-echo $@
-for item in $@; do
-echo $item
-done
+  echo $@
+  for item in $@; do
+    echo $item
+  done
 }
 
 ```
 в функцию можно передать любое количество параметров,и\
 обращаться к ним внутри $1 $2\
 в переменную $@ передаются все аргументы\
+
+## Выход из функции и коды возврата
+
+```return КОД``` - выход из функции, по умолчанию код = 0
+```exit КОД``` - выход из скрипта, по умолчанию код = 0
 
 ### Спецсимволы
 ```echo -e "asd\ndfg"```
