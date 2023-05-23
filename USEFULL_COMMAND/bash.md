@@ -164,6 +164,8 @@ done
 
 for file in /tmp/*; do
 
+for file in "$DIRNAME"/*; do
+
 for file in *; do
 
 for ((i=0; i < 10; i++ )); do
