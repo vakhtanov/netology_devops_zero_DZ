@@ -308,6 +308,9 @@ _условие_\
 _цикл_\
 ``` cat /proc/loadavg awk '{ sum=0; i=1; while (i<4) {sum+=$i; i++} print $sum/3  }' ```
 
+```ps aux | awk '{ pid=0; if (pid < $2) pid=$2} END { print pid }'``` - поиск максимаьного pid
+```ps aux | awk '{ users[$1]+=$4} END {for (user in users) print user, users[user] }'``` - сумма памяти по пользователям
+
 _сортировка и вывод уникальных значений_\
 ``` cat access.log | awk '{ print $9 }' | sort | uniq```\
 ```sort -g``` - сортирует сроки как числа\
