@@ -1,3 +1,4 @@
+#!/bin/bash
 log_file=sys_status.log
 echo timestamp loadavg1 loadavg5 loadavg15 memfree memtotal diskfree disktotal > $log_file
 while true; do
