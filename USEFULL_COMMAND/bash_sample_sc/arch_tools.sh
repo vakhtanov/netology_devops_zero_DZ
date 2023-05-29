@@ -34,7 +34,7 @@ case $0 in
 	*zmore* ) eval more $newargs ;;
 	*zgrep* ) eval grep $newargs ;;
 	* ) echo "$0: unknown options" >&2
-	exit 1
+	exit_code=1
 esac
 
 if [ ! -z "$Zlist" ] ; then
@@ -48,3 +48,4 @@ fi
 if [ ! -z "$bzlist" ] ; then
 	eval $bz $bzlist
 fi
+exit {exit_code:-$&}
