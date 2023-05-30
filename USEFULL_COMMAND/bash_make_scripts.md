@@ -37,14 +37,14 @@ fi
 `test -z` = `[[  ]]` - проверяет условие\
 `xargs COMMAND {}` - выполняет комманду для каждой  строки полученной передачей параметров или переводом выводаб строка подставляется в фигутные скобки\
 
-[kill_all.sh](kill_all.sh)
+[bash_sample_sc/kill_all.sh](bash_sample_sc/kill_all.sh)
 
 ## Работа с устройствами
 `username='id -nu` - имя пользователя от которго запущен скрипт\
 `if [["$username" = 'root']]; then - проверка что юзер root\
 `sudo !!` - выполнить с правами root предыдущую комманду\
 
-[create_ram.sh](create_ram.sh)
+[bash_sample_sc/create_ram.sh](bash_sample_sc/create_ram.sh)
 
 ## Генератор паролей
 `${n:=1}` - используем либо переменную n  или 1, при первом запуске\
