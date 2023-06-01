@@ -1,5 +1,5 @@
 # Уровни представления информации
-![levels.JPG](levels.JPG)
+![pict/levels.JPG](pict/levels.JPG)
 
 * физический уровень - витые пары и хабы (биты и боды)
 * канальный уровень - стевые карты и коммутаторы (кадр)
@@ -9,3 +9,6 @@
 * уровень представления - формат данных. ASCII,EBCDIC.  JPG, TXT, EXE (файл)
 * прикладной - доступ к сетевым службам SSH, HTTP, DHS, Telnet
 
+![pict/net_model.JPG](pict/net_model.JPG)
+
+![pict/net_model_pict.JPG](pict/net_model_pict.JPG)
