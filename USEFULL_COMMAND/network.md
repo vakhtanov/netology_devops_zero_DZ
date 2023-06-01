@@ -12,3 +12,5 @@
 ![pict/net_model.JPG](pict/net_model.JPG)
 
 ![pict/net_model_pict2.JPG](pict/net_model_pict2.JPG)
+
+![pict/osi-tcp-ip.JPG](pict/osi-tcp-ip.JPG)
