@@ -12,6 +12,7 @@
 `pytty` - ssh клиент для подключения
 
 `wireshark` - анализ сетевого трафика
+[инструкция по wireshark](https://losst.pro/kak-polzovatsya-wireshark-dlya-analiza-trafika)
 
 
 cifs шара для управления правами
