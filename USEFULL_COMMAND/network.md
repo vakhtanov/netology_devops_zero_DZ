@@ -16,7 +16,9 @@
 ![pict/osi-tcp-ip.JPG](pict/osi-tcp-ip.JPG)
 
 ## Канальный уровень
-![net2seg.JPG](pict/net2seg.JPG)\
+![net2seg.JPG](pict/net2seg.JPG)
+
+![hub.JPG](pict/hub.JPG) Хаб - раздает потоки всем
 
 ![comm.JPG](pict/comm.JPG) Коммутатор
 
