@@ -14,3 +14,10 @@
 ![pict/net_model_pict2.JPG](pict/net_model_pict2.JPG)
 
 ![pict/osi-tcp-ip.JPG](pict/osi-tcp-ip.JPG)
+
+## Канальный уровень
+![net2seg.JPG](pict/net2seg.JPG)\
+
+![comm.JPG](pict/comm.JPG) Коммутатор
+
+![route.JPG](pict/route.JPG) Маршрутизатор
