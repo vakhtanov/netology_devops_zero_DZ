@@ -26,6 +26,8 @@
 
 ![ethernet.JPG](pict/ethernet.JPG)
 
+**MTU - max transmition unit Максимальный размер кадра**
+
 Какой трафик Broadcast- всем кто в сети, Unicast - конкретному узлу, Multycast - нескольким узлам
 
 ![net2seg.JPG](./pict/net2seg.JPG)
