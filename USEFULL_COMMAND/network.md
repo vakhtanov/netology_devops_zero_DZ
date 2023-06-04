@@ -33,7 +33,7 @@
 
 ![route.JPG](pict/route.JPG) Маршрутизатор
 
-**Канальный уровень - L2 - протокол ETHERNET - передача кадрами
+**Канальный уровень - L2 - протокол ETHERNET IEEE 802.3 - передача кадрами
 
 ![ethernet.JPG](pict/ethernet.JPG)
 
