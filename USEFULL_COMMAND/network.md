@@ -37,6 +37,8 @@
 
 ![ethernet.JPG](pict/ethernet.JPG)
 
+ETHERNET - в рамках одного сегмента сети - адерсация по MAC адресам
+
 **MTU - max transmition unit Максимальный размер кадра**
 
 ![mtu.JPG](pict/mtu.JPG)
