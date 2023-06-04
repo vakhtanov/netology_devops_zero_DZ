@@ -77,4 +77,5 @@ Address Resolution Protocol - ARP -протокол опеределения а�
 `sudo arping -c 1 -I eth0 10.0.2.3`
 
 `tcpdump` - анализ трафика проходящего через сетевой интерфейс\
-
+`tcpdump -i any arp -nn -v -A -e`
+![tcpdump](pict/tcpdump.JPG)
