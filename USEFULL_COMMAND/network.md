@@ -161,6 +161,7 @@ IP адрес состоит из 2х частей: адрес сети и ад�
 Сейчас используется CIRD Classless Inter- Domain Routing - без классовая доменная машрутизация
 
 ![IP_head.JPG](pict/IP_head.JPG)
+
         vagrant@vagrant:~$ ip -4 addr show eth0
         2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP
         group default qlen 1000
