@@ -168,5 +168,16 @@ IP адрес состоит из 2х частей: адрес сети и ад�
             inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic eth0
                 valid_lft 49201sec preferred_lft 49201sec
 
+## Арес сети и маска CIDR
+для вычисления адреса сети и хоста есть специальная утилита\
+`ipcalc 192.168.0.10/24`
+
+![mask_adres.JPG](pict/mask_adres.JPG)
+
+![spec_adr.JPG](pict/spec_adr.JPG)
+
+IPv6 -128 бит вместо 32 в IPv4
+
+![samp_calc.JPG](pict/samp_calc.JPG)
 
 
