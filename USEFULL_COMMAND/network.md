@@ -401,11 +401,11 @@ Lsof поможет узнать, какому процессу принадле
 `ip domain-name ...`\
 `username admin secret admin` - шифрование сесии с ключем admin - проверка:
 #### настройка удаленного подклюячения
-`line vty 0 15` - виртуальыне лини подключения от 0 до 15
-`login local` - ? 
-`enable secret cisco` - задать пароль **cisco**
-`crypto key generate rsa` - сгенерировать ключ, шифровать сессию 2048
-`service password-encryption` - шифрование пароля
+`line vty 0 15` - виртуальыне лини подключения от 0 до 15\
+`login local` - ? \
+`enable secret cisco` - задать пароль **cisco**\
+`crypto key generate rsa` - сгенерировать ключ, шифровать сессию 2048\
+`service password-encryption` - шифрование пароля\
 
-`show run` - проверка параметров подключения
-[ПРИМЕР СЕТИ]()
+`show run` - проверка параметров подключения\
+[ПРИМЕР СЕТИ](task1.pkt)
