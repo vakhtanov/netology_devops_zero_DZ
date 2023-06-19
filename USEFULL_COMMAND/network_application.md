@@ -13,3 +13,5 @@
 ![Архитектура netfilter](./pict/firewall_path.JPG)\
 
 ![Архитектура netfilter таблицы](./pict/firewall_tables.JPG)
+
+**Iptables** - правила, цепочки, таблицы
