@@ -10,4 +10,6 @@
 ## Netfilter - встроен в ядро LInux начиная с вервии 2.4
 **Iptables** - специальная утилита для работы с фаирволом Netfilter [iptables](https://ru.wikibooks.org/wiki/Iptables)\
 аналог firewalld в операционных системах CentOS, Fedora, OpenSUSE, Red Hat Enterprise Linux, SUSE Linux Enterprise\
-![Архитектура netfilter](./pict/firewall_path.JPG)
+![Архитектура netfilter](./pict/firewall_path.JPG)\
+
+![Архитектура netfilter таблицы](./pict/firewall_tables.JPG)
