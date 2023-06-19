@@ -95,4 +95,4 @@ Ebtables предназначена для фильтрации трафика �
 `ebtables -A INPUT -s 08:00:27:47:88:CE -j DROP` - более бычтрый вариант
 
 Вариант, который мы использовали в iptables:\
-sudo iptables -A INPUT -m mac --mac-source 08:00:27:47:88:CE -j DROP
+`sudo iptables -A INPUT -m mac --mac-source 08:00:27:47:88:CE -j DROP`
