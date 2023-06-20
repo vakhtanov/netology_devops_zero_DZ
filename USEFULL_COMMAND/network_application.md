@@ -104,7 +104,12 @@ client eth1  172.28.128.60/26, remote eth1  172.28.128.90/26\
 разрешение доступа `sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT`\
 NAT-маскарадинг. ПО умолчанию на шлюзе запрещен обмен данными между сетевыми инерфейчасами\
 `sysctl net.ipv4.ip_forward` ... =0
-разрешить: \
+разрешить: `sysctl -w net.ipv4.ip_forward=1`\
+или отредактировать `nano /etc/sysctl.conf` и перечитать настройки `sysctl -p /etc/sysctl.conf` \
+и, далее разрешить пересылку пакетов между интерфецсами\
 ![разрешить обмен](./pict/firewall_access_forward.JPG)\
 разрешить доступ по 22 порту:
 ![22 порт](./pict/firewall_access_forward_port.JPG)
+
+блокировка по мак адресу:
+![мак блок](./pict/firewall_block_mac.JPG)
