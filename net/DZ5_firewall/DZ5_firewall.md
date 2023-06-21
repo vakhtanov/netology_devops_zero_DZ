@@ -67,7 +67,9 @@
 `sudo iptables -A FORWARD -j ACCEPT -i enp0s8 -o enp0s3 -m comment --comment "forward"`\
 `sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE -m comment --comment "masquerade"`
 
-![ping8888_vm2](ping8888_vm2.JPG)
+![ping8888_vm2](ping8888_vm2.JPG)\
+
+![iptables](iptables.JPG)
 
 11. Ответ внесите в комментарии к решению задания в личном кабинете Нетологии.
 
