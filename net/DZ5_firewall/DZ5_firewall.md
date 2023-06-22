@@ -88,10 +88,19 @@
 2. В программе VirtualBox используйте результат предыдущей практической работы.
 3. Настройте проброс портов из локальной сети компьютера с VirtualBox через vm1 порт 12322 в виртуальную сеть VirtualBox на 22 порт vm2.
 
-`sudo iptables -t nat -A PREROUTING -d 192.168.56.1 -p tcp --dport 12322 -j DNAT --to-destination 192.168.123.20:22`\
+`sudo iptables -t nat -A PREROUTING -d 192.168.1.234 -p tcp --dport 12322 -j DNAT --to-destination 192.168.123.20:22`\
 `sudo iptables -I FORWARD 1 -i enp0s3 -o enp0s8 -d 192.168.123.20 -p tcp -m tcp --dport 22 -j ACCEPT`
 
 4. Подключитесь к vm2 по ssh через Putty как было показано на уроке. Ответ внесите в комментарии к решению задания в личном кабинете Нетологии
+
+**на wm1 делаем сетевой интерфейс - мост на карту хоста. IP по DHCP 192.168.1.234**
+
+сетевые интерфейсы vm1 и маршруты\
+![vm1_ip_route](vm1_ip_route.JPG)\
+iptables на wm1\
+![vm1_iptables](vm1_iptables.JPG)\
+ssh подключение на хосте\
+![ssh_from_host](ssh_from_host.JPG)\
 
 ---
 
