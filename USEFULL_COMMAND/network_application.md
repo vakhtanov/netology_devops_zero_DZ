@@ -154,8 +154,19 @@ NAT - подменяет адрес отправителя на свой и до
 2 Разрешим пересылку пакетов из внутреннего на внещний интерфейс\
 `sudo iptables -A FORWARD -j ACCEPT -i enp0s8 -o enp0s3 -m comment --comment "forward"` - разрешаем пересылку пакетов с внутреннего на внешний интерфейс\
 `sudo iptables -A FORWARD -j ACCEPT -m state --state RELATED,ESTABLISHED -m comment --comment "established traffic"` - разрешаем для уже установленных или связанных соединений\
-`sudo iptables -t nat -A POSTROUTING -s 172.28.128.0/24 -o enp0s3 -j SNAT --to_source 10.0.2.15 -m comment --comment "SNAT"` - ко всем исходящим с интерфейса пакетам из подсети 172.24.172.0 будут преобразованы в адрес источника 10.0.2.15\ 
+`sudo iptables -t nat -A POSTROUTING -s 172.28.128.0/24 -o enp0s3 -j SNAT --to_source 10.0.2.15 -m comment --comment "SNAT"` - ко всем исходящим с интерфейса пакетам из подсети 172.24.172.0 будут преобразованы в адрес источника 10.0.2.15
+
+`sudo iptables -t nat -R POSTROUTING 1 -s 172.28.128.0/24 -o enp0s3 -j SNAT --to_source 10.0.2.15 -m comment --comment "SNAT"` - ЗАМЕНИТЬ правило с номером 1
 `-m` - подключение модуля
 
+### настройка NAT шлюза DNAT
+1 Разрешим пересылку между интерфейсами\
+до перезагрузки `sudo sysctl -w net.ipv4.ip_forward=1`\
+навсегда `nano /etc/sysctl.conf строка net.ipv4.ip_forward=1 раскоментировать` `sysctl -p /etc/sysctl.conf`\
+2 Разрешим пересылку пакетов из внутреннего на внещний интерфейс\
+`sudo iptables -A FORWARD -j ACCEPT -i enp0s8 -o enp0s3 -m comment --comment "forward"` - разрешаем пересылку пакетов с внутреннего на внешний интерфейс\
+`sudo iptables -I FORWARD 1 -j DROP -o enp0s3 -s 116.71.64.0/24 - блокировка запросов на интерфейс из подсети 64.0
+`sudo iptables -A FORWARD -j ACCEPT -m state --state RELATED,ESTABLISHED -m comment --comment "established traffic"` - разрешаем для уже установленных или связанных соединений\
+`sudo iptables -t nat -A POSTROUTING -s 172.28.128.0/24 -o enp0s3 -j SNAT --to_source 10.0.2.15 -m comment --comment "SNAT"` - ко всем исходящим с интерфейса пакетам из подсети 172.24.172.0 будут преобразованы в адрес источника 10.0.2.15
 
 
