@@ -165,7 +165,7 @@ NAT - подменяет адрес отправителя на свой и до
 навсегда `nano /etc/sysctl.conf строка net.ipv4.ip_forward=1 раскоментировать` `sysctl -p /etc/sysctl.conf`\
 2 Разрешим пересылку пакетов из внутреннего на внещний интерфейс\
 `sudo iptables -A FORWARD -j ACCEPT -i enp0s8 -o enp0s3 -m comment --comment "forward"` - разрешаем пересылку пакетов с внутреннего на внешний интерфейс\
-`sudo iptables -I FORWARD 1 -j DROP -o enp0s3 -s 116.71.64.0/24 - блокировка запросов на интерфейс из подсети 64.0
+`sudo iptables -I FORWARD 1 -j DROP -o enp0s3 -s 116.71.64.0/24` - блокировка запросов на интерфейс из подсети 64.0
 `sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -i enp0s3 -j DNAT --to_destination 172.28.128.60 -m comment --comment "DNAT"` - все входящие на интерфейс пакеты на порт 80 будут перенаправлены на 172.28.128.60 с заменой адреса назначения.
 `sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -i enp0s3 -j DNAT --to_destination 172.28.128.60:80 -m comment --comment "DNAT"` - все входящие на интерфейс пакеты на порт 443 будут перенаправлены на 172.28.128.60:80 с заменой адреса назначения и порта.
 
