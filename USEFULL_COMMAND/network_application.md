@@ -169,4 +169,7 @@ NAT - подменяет адрес отправителя на свой и до
 `sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -i enp0s3 -j DNAT --to_destination 172.28.128.60 -m comment --comment "DNAT"` - все входящие на интерфейс пакеты на порт 80 будут перенаправлены на 172.28.128.60 с заменой адреса назначения.
 `sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -i enp0s3 -j DNAT --to_destination 172.28.128.60:80 -m comment --comment "DNAT"` - все входящие на интерфейс пакеты на порт 443 будут перенаправлены на 172.28.128.60:80 с заменой адреса назначения и порта.
 
+![SNAT](./pict/![image](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/78f5ca6c-ffa0-4f2c-85b6-e00218daca4c)
+)
+
 
