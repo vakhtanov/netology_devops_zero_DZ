@@ -84,12 +84,12 @@
 ---
 [Сеть для задания 2](NAT-1%20(8.2.0)_task2.pkt)
 
-**Доступность роутеров от провайдера**\
-![ISP_router_to_nets.JPG](ISP_router_to_nets.JPG)\
-**Доступность роутеров из большого офиса**\
-![big_office-provider.JPG](big_office-provider.JPG)\
-**Доступность роутеров из малого офиса**\
-![small_office-provider.JPG](small_office-provider.JPG)\
+**Доступность малого офиса с компа большого**\
+![ping_from_big_to_small.JPG](ping_from_big_to_small.JPG)\
+**Доступность сайта из большого офиса**\
+![site_from_big.JPG](site_from_big.JPG)\
+**Доступность сервера по telnet из большого офиса**\
+![telnet_check.JPG](telnet_check.JPG)\
 
 ---
 
