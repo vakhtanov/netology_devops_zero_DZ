@@ -400,7 +400,7 @@ Lsof поможет узнать, какому процессу принадле
 `hostname ...`\
 `ip domain-name ...`\
 `username admin secret admin` - шифрование сесии с ключем admin - проверка:
-#### настройка удаленного подклюячения
+#### настройка удаленного подключения
 `line vty 0 15` - виртуальыне лини подключения от 0 до 15\
 `login local` - ? \
 `enable secret cisco` - задать пароль **cisco**\
@@ -411,3 +411,28 @@ Lsof поможет узнать, какому процессу принадле
 [ПРИМЕР СЕТИ](task1.pkt)
 
 [Статья по IP адреса и маски](https://habr.com/ru/articles/350878/)
+
+### Настройка NAT (PAT) port address translation
+[Руководство по настройкеъ(https://caexpert.ru/laboratornaya-rabota-8-cisco-packet-tracer-nastrojka-nat.html)
+`en` - привелегии\
+`config t` - режим конфиграции\
+**Определяем входной и выходной интерфейс**\
+`int NAME (fa0/0)` - переключаемся на интерфейс\
+`ip nat outside` - внешний\
+`exit`\
+`int NAME (fa0/1.1)`- переключаемся на интерфейс\
+`ip nat inside` - внутренний\
+`exit`\
+**ACCESS LIST** - какие сети натим\
+в корне конфига\
+`ip access-list standart NAME` - создаем список доступа
+`permit 192.168.2.0 0.0.0.255` - добавляем в него сети
+`permit IP WILDCARD` - шаблон добавления
+`ip nat inside source list NAME interface fastEthernet0/0 overload` - включаем нат: изнутри, для списка через определенынй порт, overload - режим PAT
+`end`
+`show ip nat translation` - показать таблицу трансляции
+
+`show access-lists` - показать списки доступа с номерами сторк
+в корне конфига\
+`ip access-list standart NAME` - создаем список доступа
+`no 10` - удалить 10 строку
