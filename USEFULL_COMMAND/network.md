@@ -412,7 +412,7 @@ Lsof поможет узнать, какому процессу принадле
 
 [Статья по IP адреса и маски](https://habr.com/ru/articles/350878/)
 
-### Настройка NAT (PAT) port address translation
+### Настройка NAT 
 [Руководство по настройкеъ(https://caexpert.ru/laboratornaya-rabota-8-cisco-packet-tracer-nastrojka-nat.html)
 `en` - привелегии\
 `config t` - режим конфиграции\
@@ -428,6 +428,7 @@ Lsof поможет узнать, какому процессу принадле
 `ip access-list standart NAME` - создаем список доступа\
 `permit 192.168.2.0 0.0.0.255` - добавляем в него сети\
 `permit IP WILDCARD` - шаблон добавления\
+**(PAT) port address translation**\
 `ip nat inside source list NAME interface fastEthernet0/0 overload` - включаем нат: изнутри, для списка через определенынй порт, overload - режим PAT\
 `end`\
 `show ip nat translation` - показать таблицу трансляции\
@@ -436,3 +437,7 @@ Lsof поможет узнать, какому процессу принадле
 в корне конфига\
 `ip access-list standart NAME` - создаем список доступа\
 `no 10` - удалить 10 строку
+
+**(SNAT) static network address translation**\
+в корне конфига\
+`ip nat inside source static tcp INNER_IP INNER_PORT OUTER_IP OUTER_PORT ` -включаем статический нат: для публикации сервиса в интернете
