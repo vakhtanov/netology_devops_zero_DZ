@@ -48,6 +48,21 @@
 9. Ответ внесите в комментарии к решению задания в личном кабинете Нетологии
 
 --- 
+
+[Сеть для задания 1](NAT-1 (8.2.0)_task1.pkt)
+
+**Доступность роутеров от провайдера**\
+![ISP_router_to_nets.JPG](ISP_router_to_nets.JPG)\
+**Доступность роутеров из большого офиса**\
+![big_office-provider.JPG](big_office-provider.JPG)\
+**Доступность роутеров из малого офиса**\
+![small_office-provider.JPG](small_office-provider.JPG)\
+**Доступность провайдера из сети большого офиса**\
+![big_office_ping to ISP.JPG](big_office_ping_to_ISP.JPG)\
+**Доступность провайдера из сети малого офиса**\
+![small_office_ping to ISP.JPG](small_office_ping_to_ISP.JPG)\
+
+---
  
 ## Задание 2. Создание внутреннего web-сервера и доступа к нему 
 
