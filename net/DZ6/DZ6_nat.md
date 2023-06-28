@@ -82,6 +82,16 @@
 6. Ответ внесите в комментарии к решению задания в личном кабинете Нетологии.
  
 ---
+[Сеть для задания 2](NAT-1 (8.2.0)_task2.pkt)
+
+**Доступность роутеров от провайдера**\
+![ISP_router_to_nets.JPG](ISP_router_to_nets.JPG)\
+**Доступность роутеров из большого офиса**\
+![big_office-provider.JPG](big_office-provider.JPG)\
+**Доступность роутеров из малого офиса**\
+![small_office-provider.JPG](small_office-provider.JPG)\
+
+---
 
 ### Общие критерии оценки
 
