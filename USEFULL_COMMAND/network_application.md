@@ -130,20 +130,32 @@ NAT - подменяет адрес отправителя на свой и до
 * Static NAT / One-to-one NAT - публикация одной машины в интернете, все порты целиком. при прохождение маршрутизатора меняются IP адреса получателя и отправителя. Хост работает как внутри, так и с наружи
 * Dynamic NAT - при выходе во внещнюю сеть адреса компов подменятются на релаьыне, выданные провайдером IP адреса. Выдаются внутренним компад динамически - на время, в аренду. Больше компов, чем выдано адресов нуружу не выйдут
 * **Source NAT (SNAT)** / NAT Overload / **Masquerade** / Many-to-one NAT Формируется динамическая таблица тарнсляции которая содержит для преобразования наружу  IPисходный:port - IPназначения:port преобразуется в IPROUTER:NEWport - IPназначения:port, а затем в обратную сторону. ТО ЕСТЬ это NAT оперирует сокетами. SNAT - если есть статический белый IP - он должен быть прописан в правилах, Masquerade - если белый IP динамический берется из интерфейса.
-* Destination NAT (PAT)
+* Destination NAT (PAT) (DNAT) публикация одного внутреннего сервиса наружу по определенному порту. в таблице трансляции записан сокет для преобразования изнутри наружу.
 
-### настройка NAT шлюза
+### настройка NAT шлюза Маскарадинг
 1 Разрешим пересылку между интерфейсами\
 до перезагрузки `sudo sysctl -w net.ipv4.ip_forward=1`\
 навсегда `nano /etc/sysctl.conf строка net.ipv4.ip_forward=1 раскоментировать` `sysctl -p /etc/sysctl.conf`\
 2 Разрешим пересылку пакетов из внутреннего на внещний интерфейс\
 `sudo iptables -A FORWARD -j ACCEPT -m conntrack --ctstate ESTABLISHED,RELATED -m comment --comment "established traffic"` - пересылка уже установленных соединений\
 `sudo iptables -A FORWARD -j ACCEPT -i enp0s8 -o enp0s3 -m comment --comment "forward"` - разрешаем пересылку пакетов с внутреннего на внешний интерфейс\
+`sudo iptables -A FORWARD -j ACCEPT -m state --state RELATED,ESTABLISHED -m comment --comment "established traffic"` - разрешаем для уже установленных или связанных соединений\
 `sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE -m comment --comment "masquerade"` - ко всем исходящим с интерфейса пакетам применяем маскарадинг\ 
+`-m` - подключение модуля
 ### настройка NAT клиента
 `ip addr add 192.168.123.20/24 via 192.168.123.1` - добавляем маршрут на шлюз\
 проверяем\
 `sudo iptables -nvL --line-number` - таблица filter\
 `sudo iptables -t nat -nvL --line-number` - таблица nat\
+### настройка NAT шлюза SNAT
+1 Разрешим пересылку между интерфейсами\
+до перезагрузки `sudo sysctl -w net.ipv4.ip_forward=1`\
+навсегда `nano /etc/sysctl.conf строка net.ipv4.ip_forward=1 раскоментировать` `sysctl -p /etc/sysctl.conf`\
+2 Разрешим пересылку пакетов из внутреннего на внещний интерфейс\
+`sudo iptables -A FORWARD -j ACCEPT -i enp0s8 -o enp0s3 -m comment --comment "forward"` - разрешаем пересылку пакетов с внутреннего на внешний интерфейс\
+`sudo iptables -A FORWARD -j ACCEPT -m state --state RELATED,ESTABLISHED -m comment --comment "established traffic"` - разрешаем для уже установленных или связанных соединений\
+`sudo iptables -t nat -A POSTROUTING -s 172.28.128.0/24 -o enp0s3 -j SNAT --to_source 10.0.2.15 -m comment --comment "SNAT"` - ко всем исходящим с интерфейса пакетам из подсети 172.24.172.0 будут преобразованы в адрес источника 10.0.2.15\ 
+`-m` - подключение модуля
+
 
 
