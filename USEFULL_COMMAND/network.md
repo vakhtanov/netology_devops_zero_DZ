@@ -425,14 +425,14 @@ Lsof поможет узнать, какому процессу принадле
 `exit`\
 **ACCESS LIST** - какие сети натим\
 в корне конфига\
-`ip access-list standart NAME` - создаем список доступа
-`permit 192.168.2.0 0.0.0.255` - добавляем в него сети
-`permit IP WILDCARD` - шаблон добавления
-`ip nat inside source list NAME interface fastEthernet0/0 overload` - включаем нат: изнутри, для списка через определенынй порт, overload - режим PAT
-`end`
-`show ip nat translation` - показать таблицу трансляции
+`ip access-list standart NAME` - создаем список доступа\
+`permit 192.168.2.0 0.0.0.255` - добавляем в него сети\
+`permit IP WILDCARD` - шаблон добавления\
+`ip nat inside source list NAME interface fastEthernet0/0 overload` - включаем нат: изнутри, для списка через определенынй порт, overload - режим PAT\
+`end`\
+`show ip nat translation` - показать таблицу трансляции\
 
-`show access-lists` - показать списки доступа с номерами сторк
+`show access-lists` - показать списки доступа с номерами сторк\
 в корне конфига\
-`ip access-list standart NAME` - создаем список доступа
+`ip access-list standart NAME` - создаем список доступа\
 `no 10` - удалить 10 строку
