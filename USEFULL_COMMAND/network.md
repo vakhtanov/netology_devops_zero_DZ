@@ -441,3 +441,23 @@ Lsof поможет узнать, какому процессу принадле
 **(SNAT) static network address translation**\
 в корне конфига\
 `ip nat inside source static tcp INNER_IP INNER_PORT OUTER_IP OUTER_PORT ` -включаем статический нат: для публикации сервиса в интернете
+
+### Настройка VPN
+На маршрутизаторе главного офиса настройте политики ISAKMP:\
+*R1(config)#  crypto isakmp policy 1*\
+*R1(config-isakmp)# encr 3des - метод шифрования*\
+*R1(config-isakmp)# hash md5 - алгоритм хеширования*\
+*R1(config-isakmp)# authentication pre-share - использование предварительного общего ключа (PSK) в качестве метода проверки подлинности*\
+*R1(config-isakmp)# group 2 - группа Диффи-Хеллмана, которая будет использоваться*\
+*R1(config-isakmp)# lifetime 86400 - время жизни ключа сеанса*\
+И укажите **Pre-Shared** ключ для аутентификации с маршрутизатором филиала.Проверьте доступность с любого конечного устройства доступность роутера интернет-провайдера, командой ping.
+
+Создайте набор преобразования (Transform Set), используемого для защиты наших данных.\
+*crypto ipsec transform-set <название> esp-3des esp-md5-hmac*\
+
+Создайте крипто-карту с указанием внешнего ip-адреса интерфейса и привяжите его к интерфейсу.\
+*R1(config)# crypto map <название> 10 ipsec-isakmp*\
+*R1(config-crypto-map)# set peer <ip-address>*\
+*R1(config-crypto-map)# set transform-set <название>*\
+*R1(config-crypto-map)# match address <название access-листа>*\
+*R1(config- if)# crypto map <название крипто-карты>*
