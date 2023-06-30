@@ -457,7 +457,7 @@ Lsof поможет узнать, какому процессу принадле
 
 #### Расшыренный access list
 *R1(config)# ip access-list extended <NAME>*\
-*R1(config-ext-nacl)# permit ip <SOURCE-IP WILDCARD> <DEST-IP WILDCARD>*
+*R1(config-ext-nacl)# permit ip <SOURCE-IP /WILDCARD> <DEST-IP /WILDCARD>*
 
 #### IPsec
 Создайте набор преобразования (Transform Set), используемого для защиты наших данных.\
