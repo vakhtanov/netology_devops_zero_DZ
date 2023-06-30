@@ -443,6 +443,8 @@ Lsof поможет узнать, какому процессу принадле
 `ip nat inside source static tcp INNER_IP INNER_PORT OUTER_IP OUTER_PORT ` -включаем статический нат: для публикации сервиса в интернете
 
 ### Настройка VPN
+[руководство](https://wiki.merionet.ru/articles/nastrojka-site-to-site-ipsec-vpn-na-cisco)\
+#### Настройка ISAKMP 
 На маршрутизаторе главного офиса настройте политики ISAKMP:\
 *R1(config)#  crypto isakmp policy 1*\
 *R1(config-isakmp)# encr 3des - метод шифрования*\
@@ -451,10 +453,17 @@ Lsof поможет узнать, какому процессу принадле
 *R1(config-isakmp)# group 2 - группа Диффи-Хеллмана, которая будет использоваться*\
 *R1(config-isakmp)# lifetime 86400 - время жизни ключа сеанса*\
 И укажите **Pre-Shared** ключ для аутентификации с маршрутизатором филиала.Проверьте доступность с любого конечного устройства доступность роутера интернет-провайдера, командой ping.
+*crypto isakmp key <КЛЮЧ> address <АДРЕС ВТОРОЙ ТОЧКИ>*
 
+#### Расшыренный access list
+R1(config)# ip access-list extended <NAME>
+R1(config-ext-nacl)# permit ip <SOURCE-IP WILDCARD> <DEST-IP WILDCARD>
+
+#### IPsec
 Создайте набор преобразования (Transform Set), используемого для защиты наших данных.\
 *crypto ipsec transform-set <название> esp-3des esp-md5-hmac*\
 
+#### Cryptomap
 Создайте крипто-карту с указанием внешнего ip-адреса интерфейса и привяжите его к интерфейсу.\
 *R1(config)# crypto map <название> 10 ipsec-isakmp*\
 *R1(config-crypto-map)# set peer <ip-address>*\
