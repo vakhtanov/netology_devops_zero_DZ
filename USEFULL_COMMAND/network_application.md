@@ -215,3 +215,4 @@ NAT - подменяет адрес отправителя на свой и до
 * для браузера - Opera, Google Chrome + Browsec addon, Epic Privacy Browser, TOR
 * отдельыне приложения Hotspot, Shield Betternet — есть реклама, но бесплатная версия работает хорошо, Kaspersky Secure Connection, Hola VPN — много рекламы, не рекомендуется к установке
 * Опасные сервисы  в апреле 2022 года у 6 популярных VPN-сервисов (Surfshark, Atlas VPN, VyprVPN, VPN Proxy Master, Sumrando VPN и Turbo VPN) выявили проблему установки доверенных корневых сертификатов
+* Необходимо всегда быть в курсе локальных законодательств, чтобы избежать возможных последствий.
