@@ -470,3 +470,8 @@ Lsof поможет узнать, какому процессу принадле
 *R1(config-crypto-map)# set transform-set <название>*\
 *R1(config-crypto-map)# match address <название access-листа>*\
 *R1(config- if)# crypto map <название крипто-карты>*
+
+#### Отключить NAT для внутрених адесов
+список NAT
+access-list 100 deny ip 10.10.10.0 0.0.0.255 20.20.20.0 0.0.0.255
+access-list 100 deny ip 10.10.10.0 0.0.0.255 20.20.20.0 0.0.0.255
