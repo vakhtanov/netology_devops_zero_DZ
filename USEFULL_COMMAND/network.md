@@ -444,34 +444,50 @@ Lsof поможет узнать, какому процессу принадле
 
 ### Настройка VPN
 [руководство](https://wiki.merionet.ru/articles/nastrojka-site-to-site-ipsec-vpn-na-cisco)\
-#### Настройка ISAKMP 
-На маршрутизаторе главного офиса настройте политики ISAKMP:\
-*R1(config)#  crypto isakmp policy 1*\
-*R1(config-isakmp)# encr 3des - метод шифрования*\
-*R1(config-isakmp)# hash md5 - алгоритм хеширования*\
-*R1(config-isakmp)# authentication pre-share - использование предварительного общего ключа (PSK) в качестве метода проверки подлинности*\
-*R1(config-isakmp)# group 2 - группа Диффи-Хеллмана, которая будет использоваться*\
-*R1(config-isakmp)# lifetime 86400 - время жизни ключа сеанса*\
-И укажите **Pre-Shared** ключ для аутентификации с маршрутизатором филиала.Проверьте доступность с любого конечного устройства доступность роутера интернет-провайдера, командой ping\
-*crypto isakmp key <КЛЮЧ> address <АДРЕС ВТОРОЙ ТОЧКИ>*
+#### Настройка ISAKMP Phase 1
+На маршрутизаторе главного офиса настройте политики ISAKMP:
+```
+R1(config)#  crypto isakmp policy 1
+R1(config-isakmp)# encr 3des - метод шифрования
+R1(config-isakmp)# hash md5 - алгоритм хеширования
+R1(config-isakmp)# authentication pre-share - использование предварительного общего ключа (PSK) в качестве метода проверки подлинности
+R1(config-isakmp)# group 2 - группа Диффи-Хеллмана, которая будет использоваться
+R1(config-isakmp)# lifetime 86400 - время жизни ключа сеанса
+```
+**Pre-Shared** ключ\
+`crypto isakmp key <КЛЮЧ> address <АДРЕС ВТОРОЙ ТОЧКИ>` -  **Pre-Shared** ключ для аутентификации с маршрутизатором филиала.
 
-#### Расшыренный access list
-*R1(config)# ip access-list extended </NAME>*\
-*R1(config-ext-nacl)# permit ip <SOURCE-IP /WILDCARD> <DEST-IP /WILDCARD>*
 
-#### IPsec
+#### Расширенный access list - созается для гибкого задания адресов доступа, можно обычный
+```
+R1(config)# ip access-list extended <НАЗВАНИЕ>
+R1(config-ext-nacl)# permit ip <SOURCE-IP /WILDCARD> <DEST-IP /WILDCARD>
+```
+#### Пример расширенного access list для разделения NAT (для интернета) и VPN
+```
+R1(config)# ip nat inside source list 100 interface fastethernet0/1 overload
+R1(config)# access-list 100 deny ip 10.10.10.0 0.0.0.255 20.20.20.0 0.0.0.255
+R1(config)# access-list 100 permit ip 10.10.10.0 0.0.0.255 any
+```
+#### Настройка IPsec
 Создайте набор преобразования (Transform Set), используемого для защиты наших данных.\
 *crypto ipsec transform-set <название> esp-3des esp-md5-hmac*\
 
 #### Cryptomap
-Создайте крипто-карту с указанием внешнего ip-адреса интерфейса и привяжите его к интерфейсу.\
-*R1(config)# crypto map <название> 10 ipsec-isakmp*\
-*R1(config-crypto-map)# set peer <ip-address>*\
-*R1(config-crypto-map)# set transform-set <название>*\
-*R1(config-crypto-map)# match address <название access-листа>*\
-*R1(config- if)# crypto map <название крипто-карты>*
-
-#### Отключить NAT для внутрених адесов
-список NAT
+Создайте крипто-карту с указанием внешнего ip-адреса интерфейса и привяжите его к интерфейсу.
+```
+R1(config)# crypto map <название> 10 ipsec-isakmp
+R1(config-crypto-map)# set peer </ip-address>
+R1(config-crypto-map)# set transform-set <название>
+R1(config-crypto-map)# match address <название access-листа>
+```
+#### Присвоим интерфейсе Cryptomap
+```
+R1(config) interface <ИМЯ Интерфейса>
+R1(config- if)# crypto map <название крипто-карты>
+```
+#### Отключить NAT для внутрених адесов через список список NAT
+```
 access-list 100 deny ip 10.10.10.0 0.0.0.255 20.20.20.0 0.0.0.255
 access-list 100 deny ip 10.10.10.0 0.0.0.255 20.20.20.0 0.0.0.255
+```
