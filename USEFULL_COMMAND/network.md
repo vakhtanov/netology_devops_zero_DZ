@@ -477,7 +477,7 @@ R1(config)# access-list 100 permit ip 10.10.10.0 0.0.0.255 any
 Создайте крипто-карту с указанием внешнего ip-адреса интерфейса и привяжите его к интерфейсу.
 ```
 R1(config)# crypto map <название> 10 ipsec-isakmp
-R1(config-crypto-map)# set peer </ip-address>
+R1(config-crypto-map)# set peer </ip-address ВНУТРЕННИЙ>
 R1(config-crypto-map)# set transform-set <название>
 R1(config-crypto-map)# match address <название access-листа>
 ```
