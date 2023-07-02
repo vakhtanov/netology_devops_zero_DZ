@@ -86,18 +86,20 @@
 
 [настройки VPN для моего файла](set_vpn.md)
 
-[файл с настроеным VPN](VPN%20(8.2.0)_task1_VPN.pkt)
+[файл с настроеным VPN](VPN%20(8.2.0)_task1_VPN_v2.pkt)
 
+доступность роутеров\
 ![доступность роутеров](ping_route1-route0.JPG)
 
-**ЕСТЬ ПРОБЛЕМЫ, нужна помощь**
-Настройки выполнены по иснтукции, с привлечением [сайта](https://wiki.merionet.ru/articles/nastrojka-site-to-site-ipsec-vpn-na-cisco) 
+VPN тонель\
+![vpn_start.JPG](vpn_start.JPG)
 
-Но соединение vpn не устанавливается, комманда\
-`show crypto session` - не работает\
+Ping через VPN\
+![ping_throt_vpn.JPG](ping_throt_vpn.JPG)
 
-Пинг между роутерами по внутренним адерсам не проходит\
-В чем может быть ошибка?
+Работа NAT при настроенном VPN\
+![nat_start.JPG](nat_start.JPG)
+
 
 ---
 
