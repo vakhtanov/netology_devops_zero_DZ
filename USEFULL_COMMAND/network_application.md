@@ -309,3 +309,13 @@ openssl x509 -req -in certificate.csr -CA ca.pem -CAkey ca.key -CAcreateserial -
 ## ACME letsEncrypt
 ACME — протокол, который описывает методы тестирования домена, а также приватных и публичных ключей для запрашиваемого сертификата\
 ![ACME](./pict/acme.JPG)
+
+**Настройка LE для работы с Nginx**
+```bash
+Устанавливаем Сertbot:
+sudo yum install certbot
+Устанавливаем плагин для работы с Nginx:
+sudo yum install python-certbot-nginx
+Проверяем конфигурацию Nginx и запускаем Сertbot:
+sudo certbot --nginx -d example.com
+```
