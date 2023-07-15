@@ -208,3 +208,28 @@ ONBOOT=yes\
 Анализаторы трафика — снифферы:
 * Tcpdump — классическая утилита для сбора трафика. `tcpdump -i eth0 udp port 67 or port 68 -vvv -e -n`
 * Wireshark — кроссплатформенная программа, имеет графический интерфейс
+
+# PXE - ЗАгрузка и установка ОС по сети Preboot eXecution Environment
+Используется в тонких клиентах\
+Для запуска компьютера достаточно иметь:
+* Клиент, поддерживающий PXE Большинство современных компьютеров поддерживает PXE
+* DHCP-сервер Экземпляр сервера, который поддерживает необходимые опции и сконфигурирован для отправки ответов
+* TFTP-сервер Сервер, на котором размещены файлы загрузки
+
+## Установка 
+в Centos7
+```bash
+yum install tftp tftp-server syslinux wget
+vim /etc/xinetd.d/tftp
+vim /usr/lib/systemd/system/tftp.service
+vim /etc/dhcp/dhcpd.conf
+mkdir /tftpboot; mkdir /tftpboot/pxelinux.cfg; chmod 777 /tftpboot
+cp -v /usr/share/syslinux/pxelinux.0 /tftpboot
+cp -v /usr/share/syslinux/menu.c32 /tftpboot
+cp -v /usr/share/syslinux/memdisk /tftpboot
+cp -v /usr/share/syslinux/mboot.c32 /tftpboot
+cp -v /usr/share/syslinux/chain.c32 /tftpboot
+vim /tftpboot/pxelinux.cfg/default
+systemctl restart dhcpd
+systemctl restart tftp
+```
