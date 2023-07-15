@@ -174,7 +174,6 @@ host fantasia {
 hardware ethernet 08:00:07:26:c0:a5;
 fixed-address 192.168.1.55;
 }
-
 ```
 включим dhcp в ubuntu\
 ```bash
@@ -197,8 +196,7 @@ NETWORKING=yes
 
 `/etc/sysconfig/network- scripts/ifcfg-*`\
 DEVICE=eth0\
-BOOTPROTO=dhcp\
-ONBOOT=yes\
+OOTPROTO=dhp\ONBOOT=yes\
 
 ## Безопасность DHCP
 угрозы исходят из внутрененй сети
@@ -217,19 +215,55 @@ ONBOOT=yes\
 * TFTP-сервер Сервер, на котором размещены файлы загрузки
 
 ## Установка 
+добавим две строки в настройку DHCP сервера
+```
+default-lease-time 600;
+max-lease-time 7200;
+
+# подсеть для выделения адресов
+subnet 192.168.1.0 netmask 255.255.255.0 {
+range 192.168.1.26 192.168.1.30;
+option routers 192.168.1.1;
+option broadcast-address 192.168.1.255;
+default-lease-time 600;
+max-lease-time 7200;
+next-server 192.168.1.2; #TFTP сервер
+filename "pxelinux.0"; #файл для загрузки
+}
+
+#фиксация IP хоста
+host fantasia {
+hardware ethernet 08:00:07:26:c0:a5;
+fixed-address 192.168.1.55;
+}
+```
+
+`sysctl restart dhcp`
+
 в Centos7
 ```bash
 yum install tftp tftp-server syslinux wget
 vim /etc/xinetd.d/tftp
+    server_args = -s /tftpboot
+    disable = no
 vim /usr/lib/systemd/system/tftp.service
-vim /etc/dhcp/dhcpd.conf
+    ExecStart=...... -s /tftpboot
+vim /etc/dhcp/dhcpd.conf #конфигурация DHCP выше
 mkdir /tftpboot; mkdir /tftpboot/pxelinux.cfg; chmod 777 /tftpboot
+chmod 777 /tftpboot
 cp -v /usr/share/syslinux/pxelinux.0 /tftpboot
 cp -v /usr/share/syslinux/menu.c32 /tftpboot
+cp -v /usr/share/syslinux/vesamenu.c32 /tftpboot
 cp -v /usr/share/syslinux/memdisk /tftpboot
 cp -v /usr/share/syslinux/mboot.c32 /tftpboot
+cp -v /usr/share/syslinux/reboot.c32 /tftpboot
 cp -v /usr/share/syslinux/chain.c32 /tftpboot
-vim /tftpboot/pxelinux.cfg/default
+#можно устанвоить дополнительыне опции, напрмер memtest86 www.memtest86.com/downloads/
+vim /tftpboot/pxelinux.cfg/default - создаем меню 
 systemctl restart dhcpd
 systemctl restart tftp
 ```
+![пример части меню](./pict/pxe_menu.JPG]\
+![пример конца меню](./pict/pxe_menu_end.JPG]
+
+Дополнительно для загрузки больших образов можно использовать настройку FTP-сервера, как, например, VSFTPD Server
