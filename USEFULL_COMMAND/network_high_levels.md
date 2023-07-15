@@ -188,3 +188,23 @@ firewall-cmd --reload
 
 ## DHCP клиент
 настройка с помощью утилиты `nmtui` - в графическом интерфейсе указываем - автоматик\
+перезагрузить интерфейс `ifdown eth1; ifup eth1`\
+проверить, что после перезугрзуки DHCP работает\
+
+прверки конфиграйии для RHEl систем
+`/etc/sysconfig/networ`k \
+NETWORKING=yes
+
+`/etc/sysconfig/network- scripts/ifcfg-*`\
+DEVICE=eth0\
+BOOTPROTO=dhcp\
+ONBOOT=yes\
+
+## Безопасность DHCP
+угрозы исходят из внутрененй сети
+1. DHCP Starvation Исчерпание адресов - злонамерено. Защита DHCP SNOOPING - должна быть поддержка коммутарором
+2. Rogue DHCP Server - мошеннический DHCP. Защита - Защита DHCP SNOOPING - отслеживание DHCP
+
+Анализаторы трафика — снифферы:
+* Tcpdump — классическая утилита для сбора трафика. `tcpdump -i eth0 udp port 67 or port 68 -vvv -e -n`
+* Wireshark — кроссплатформенная программа, имеет графический интерфейс
