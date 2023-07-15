@@ -266,4 +266,7 @@ systemctl restart tftp
 ![пример части меню](./pict/pxe_menu2.JPG)\
 ![пример конца меню](./pict/pxe_menu_end.JPG)
 
+![дополнительное меню](./pict/pxe_menu_utis1.JPG)\
+![дополнительное меню](./pict/pxe_menu_utis2.JPG)
+
 Дополнительно для загрузки больших образов можно использовать настройку FTP-сервера, как, например, VSFTPD Server
