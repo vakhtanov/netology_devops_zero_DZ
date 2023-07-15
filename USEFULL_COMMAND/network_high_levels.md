@@ -263,7 +263,7 @@ vim /tftpboot/pxelinux.cfg/default - создаем меню
 systemctl restart dhcpd
 systemctl restart tftp
 ```
-![пример части меню](./pict/pxe_menu.JPG)\
+![пример части меню](./pict/pxe_menu2.JPG)\
 ![пример конца меню](./pict/pxe_menu_end.JPG)
 
 Дополнительно для загрузки больших образов можно использовать настройку FTP-сервера, как, например, VSFTPD Server
