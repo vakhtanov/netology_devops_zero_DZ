@@ -270,3 +270,8 @@ systemctl restart tftp
 ![дополнительное меню](./pict/pxe_menu_utis2.JPG)
 
 Дополнительно для загрузки больших образов можно использовать настройку FTP-сервера, как, например, VSFTPD Server
+
+# HTTP/HTTPS
+HyperText Transfer Protocol\
+Детальное описание протокола  содержится в RFC2616\
+TCP 80 порт\
