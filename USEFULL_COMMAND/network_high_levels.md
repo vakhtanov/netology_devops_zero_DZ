@@ -275,3 +275,4 @@ systemctl restart tftp
 HyperText Transfer Protocol\
 Детальное описание протокола  содержится в RFC2616\
 TCP 80 порт\
+`curl web.link` - утилита для загрузки содержимого по ссылке
