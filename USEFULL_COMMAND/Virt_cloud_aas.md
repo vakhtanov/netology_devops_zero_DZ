@@ -4,6 +4,7 @@
 
 ![image](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/fc151564-e110-43b1-9ff2-4de7681a7584)
 
+`service nginx reload`
 
 ## Программы для виртуализации
 ESXi, ProxMox, OpenNebula, HyperV, KVM, Xen - гипервизоры
