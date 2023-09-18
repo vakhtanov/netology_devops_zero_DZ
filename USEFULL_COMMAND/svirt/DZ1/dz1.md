@@ -116,5 +116,13 @@
 1. Создайте сервисный аккаунт.
 1. Отсканируйте SSH-ключ.
 1. Придумайте логин.
-1. Подключитесь к облаку через SSH. 
- 
+1. Подключитесь к облаку через SSH.
+   
+![6_vm](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/c4e40b73-353c-4f85-856a-0a9c3c28ae24)
+
+![7_ssh](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/adf25823-9817-43c1-a8c3-3070a0857e05)
+
+![8_info](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/1c8ec200-34a5-472f-ad47-f20b821b0359)
+
+
+
