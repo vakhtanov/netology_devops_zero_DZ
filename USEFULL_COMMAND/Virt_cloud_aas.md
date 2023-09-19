@@ -13,3 +13,8 @@ ESXi, ProxMox, OpenNebula, HyperV, KVM, Xen - гипервизоры
 Тип 1. Автономный гипервизор. (VMware ESXi)\
 Тип 2. Гипервизор под управлением хостовой ОС (Oracle VirtualBox, VMware Workstation, Parallels Desktop)\
 Тип 3. Гибридный гипервизор (Microsoft HyperV, XEN, KVM)
+
+технологии виртуализации:
+VT-x, VT-d (Intel);\
+AMD-V (AMD);\
+EL2 (ARM).\
