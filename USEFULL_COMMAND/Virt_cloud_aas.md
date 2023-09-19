@@ -14,7 +14,10 @@ ESXi, ProxMox, OpenNebula, HyperV, KVM, Xen - гипервизоры
 Тип 2. Гипервизор под управлением хостовой ОС (Oracle VirtualBox, VMware Workstation, Parallels Desktop)\
 Тип 3. Гибридный гипервизор (Microsoft HyperV, XEN, KVM)
 
-технологии виртуализации:
+## технологии виртуализации:
 VT-x, VT-d (Intel);\
 AMD-V (AMD);\
 EL2 (ARM).\
+
+## среды виртуализации
+Libvirt — это open-source набор инструментов, который предоставляет унифицированный и абстрактный интерфейс для взаимодействия с гипервизорами и системами виртуализации, включая KVM, Xen, VMware и другие.
