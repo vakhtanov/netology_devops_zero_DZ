@@ -67,7 +67,11 @@ Libvirt состоит из нескольких компонентов, каж�
 или
 
 `apt install libvirt-client libvirt-daemon qemu qemu-kvm`
-
+```
+sudo apt install qemu qemu-kvm libvirt-clients libvirt-daemon-system virtinst bridge-utils
+ sudo systemctl enable libvirtd
+ sudo systemctl start libvirtd
+```
  
 
 ### Утилита virsh
