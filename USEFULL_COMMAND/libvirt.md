@@ -24,7 +24,7 @@ virt-install \
 --os-variant centos7 \
 --memory 1024 \
 --graphics none \
---extra-args='console=ttyS0'
+--extra-args='console=ttyS0' \
 --location https://.....
 --disk path=/disk/VMs/centos.qcow2,size=10,bus=virtio,io=threads,cache=none
  ```
