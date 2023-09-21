@@ -26,7 +26,7 @@ virt-install \
 --graphics none \
 --extra-args='console=ttyS0'
 --location https://.....
---disk path=/disk/VMs/centos.qcow2,size=10,bus=virtio,io=threads,cach=none
+--disk path=/disk/VMs/centos.qcow2,size=10,bus=virtio,io=threads,cache=none
  ```
 
 ### Компоненты libvirt
