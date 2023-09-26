@@ -184,7 +184,7 @@ pgadmin:
 ```
 zabbix-server:
   image: zabbix/zabbix-server-pgsql
-  links:
+  links: # сервис запустится после указанного ниже севриса
     - netology-db
   container_name: netology-zabbix
   environment:
