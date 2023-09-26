@@ -34,7 +34,8 @@ Docker Image – это стандартизированный образ\
 `docker image ls` - посмотреть список DockerImage
 
 `docker run -d -p 80:80 id_созданного_образа` - создать из DockerImage DockerContainer  и запустить его\
-`docker image history id_образа` - посмотреть слои образа - как коммиты в гите - изменения в образе\
+`-d` - для постоянной работы\
+`docker image history id_образа` - посмотреть слои образа - как коммиты в гите - изменения в образе
 
 Docker Container – запущенный Image - изменения в нем не влияют на другие контейнеры и на его образ\
 Docker Hub - публичное хранилище DockerImage
