@@ -105,3 +105,119 @@ Status: Downloaded newer image for hello-world:latest
 удаляем образ \
 `docker image rm hello-world`
 
+# инфораструктура на Docker
+установим Zabbix \
+`docker run --name zabbix-appliance -p 80:80 -p 10051:10051 -d zabbix/zabbix-appliance:latest`
+
+настройки контенера \
+`sudo docker container inspect zabbix-appliance` \
+`sudo nano /etc/zabbix/zabbix_agentd.conf` - настраиваем zabbix agent (указываем IP zabbix aliance \
+` sudo service zabbiz-agent restart` - перезапускаем агента \
+
+## docker-compose - управление многоконтейнерными приложениями
+Скачиваем последний стабильный релиз из репозитория: \
+`sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose` \
+Устанавливаем права на запуск: \
+`sudo chmod +x /usr/local/bin/docker-compose` \
+Проверяем, что всё работает: \
+`docker-compose --version` 
+
+**docker-compose.yml - сценарий развертки контейнеров**
+```
+version: “3 # версия движка
+  services:
+networks: # сеть контейнеров
+  netology-lesson:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24
+
+services:
+  netology-db: база данных
+    image: postgres:latest # Образ, который мы будем использовать
+    container_name: netology-db # Имя, которым будет называться наш контейнер
+    ports: # Порты, которые мы пробрасываем с нашего докер сервера внутрь контейнера
+      - 5432:5432
+    volumes: # Папка, которую мы пробросим с докер сервера внутрь контейнера
+      - ./pg_data:/var/lib/postgresql/data/pgdata
+    environment: # Переменные среды
+      POSTGRES_PASSWORD: 123 # Задаём пароль от пользователя postgres
+      POSTGRES_DB: netology_db # БД которая сразу же будет создана
+      PGDATA: /var/lib/postgresql/data/pgdata # Путь внутри контейнера, где будет папка pgdata
+    networks:
+      netology-lesson:
+        ipv4_address: 172.19.0.2
+    restart: always # Режим перезапуска контейнера. Контейнер всегда будет  перезапускаться
+```
+
+проверка запуска\
+```
+sudo docker-compose up #запуск с выводом в консоль
+sudo docker-compose up -d #запуск в бэкграунде
+```
+проверка работы постгрес\
+```
+telnet localhost 5432 #Проверяем подключаясь на порт телнетом
+netstat -nlp | grep 5432 #Проверяем с помощью netstat. Если не стоит то apt install net-tools
+sudo docker ps # Ищем контейнер и его порт
+```
+
+`sudo docker exec -it <имя_контейнера_или_id> bash` - подключиться к контейнеру
+
+добавие еще сервис \
+```
+pgadmin:
+  image: dpage/pgadmin4
+  container_name: netology-pgadmin
+  environment:
+    PGADMIN_DEFAULT_EMAIL: netology@mymail.me
+    PGADMIN_DEFAULT_PASSWORD: 123
+  ports:
+    - "8080:80"
+  networks:
+    netology-lesson:
+      ipv4_address: 172.19.0.3
+  restart: always
+```
+
+```
+zabbix-server:
+  image: zabbix/zabbix-server-pgsql
+  links:
+    - netology-db
+  container_name: netology-zabbix
+  environment:
+    DB_SERVER_HOST: '172.19.0.2'
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: 123
+  ports:
+    - "10051:10051"
+  networks:
+    netology-lesson:
+      ipv4_address: 172.19.0.4
+  restart: always
+```
+
+```
+zabbix_wgui: # Фронт забикса
+  image: zabbix/zabbix-web-apache-pgsql
+  links:
+    - netology-db
+    - zabbix-server
+  container_name: netology_zabbix_wgui
+  environment:
+    DB_SERVER_HOST: '172.19.0.2'
+    POSTGRES_USER: 'postgres'
+    POSTGRES_PASSWORD: 123
+    ZBX_SERVER_HOST: "zabbix_wgui"
+    PHP_TZ: "Europe/Moscow"
+  ports:
+    - "80:8080"
+    - "443:8443"
+  networks:
+    netology-lesson:
+      ipv4_address: 172.19.0.5
+  restart: always
+```
+
