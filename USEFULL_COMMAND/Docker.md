@@ -113,9 +113,10 @@ Status: Downloaded newer image for hello-world:latest
 `docker run --name zabbix-appliance -p 80:80 -p 10051:10051 -d zabbix/zabbix-appliance:latest`
 
 настройки контенера \
+`sudo apt install zabbix-agent` \
 `sudo docker container inspect zabbix-appliance` \
 `sudo nano /etc/zabbix/zabbix_agentd.conf` - настраиваем zabbix agent (указываем IP zabbix aliance \
-` sudo service zabbiz-agent restart` - перезапускаем агента \
+` sudo service zabbix-agent restart` - перезапускаем агента \
 
 логин пароль по умолчанию Admin:zabbix
 
