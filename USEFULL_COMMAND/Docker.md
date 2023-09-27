@@ -109,13 +109,15 @@ Status: Downloaded newer image for hello-world:latest
 Репозиторий Zabbix
 [https://hub.docker.com/r/zabbix/zabbix-appliance](https://hub.docker.com/r/zabbix/zabbix-appliance)
 
-установим Zabbix \
+**установим Zabbix** \
 `docker run --name zabbix-appliance -p 80:80 -p 10051:10051 -d zabbix/zabbix-appliance:latest`
 
 настройки контенера \
 `sudo docker container inspect zabbix-appliance` \
 `sudo nano /etc/zabbix/zabbix_agentd.conf` - настраиваем zabbix agent (указываем IP zabbix aliance \
 ` sudo service zabbiz-agent restart` - перезапускаем агента \
+
+логин пароль по умолчанию Admin:zabbix
 
 ## docker-compose - управление многоконтейнерными приложениями
 Скачиваем последний стабильный релиз из репозитория: \
