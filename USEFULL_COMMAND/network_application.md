@@ -19,6 +19,8 @@
 [https://losst.pro/kak-otkryt-port-ubuntu](https://losst.pro/kak-otkryt-port-ubuntu)
 [https://losst.pro/nastrojka-iptables-dlya-chajnikov#%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D1%82%D1%8C_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_Iptables](https://losst.pro/nastrojka-iptables-dlya-chajnikov#%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D1%82%D1%8C_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_Iptables)
 
+` sudo /sbin/iptables-save` - СОХРАНИТЬ ПРАВИЛА
+
 цепочки, правила = условие - действие - счетчик
 
 **В зависимоти от адреса пакета он проходит разные таблицы по определенной цепочке**
