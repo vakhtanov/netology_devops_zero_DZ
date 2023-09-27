@@ -106,6 +106,9 @@ Status: Downloaded newer image for hello-world:latest
 `docker image rm hello-world`
 
 # инфораструктура на Docker
+Репозиторий Zabbix
+[https://hub.docker.com/r/zabbix/zabbix-appliance](https://hub.docker.com/r/zabbix/zabbix-appliance)
+
 установим Zabbix \
 `docker run --name zabbix-appliance -p 80:80 -p 10051:10051 -d zabbix/zabbix-appliance:latest`
 
