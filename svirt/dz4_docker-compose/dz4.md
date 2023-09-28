@@ -105,6 +105,24 @@
 * текст конфига текущего сервиса;
 * скриншот админки pgAdmin.
 
+```
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: vakhtanov-as-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: vakhtanov-as@ilove-netology.com
+      PGADMIN_DEFAULT_PASSWORD: 123
+    ports:
+      - 61231:80
+    networks:
+      vakhtanov-as-my-netology-hw:
+        ipv4_address: 172.22.0.3
+    restart: always
+
+```
+![2pgadmin](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/9ae1287e-fdf0-43c5-ac5a-f78e7c7f8e26)
+
+
 ---
 
 ### Задание 5 
