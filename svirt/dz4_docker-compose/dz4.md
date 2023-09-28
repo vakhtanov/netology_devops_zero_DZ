@@ -133,6 +133,22 @@
 2. Настройте его подключение к вашему СУБД.
 3. Назначьте для данного контейнера статический IP из подсети 172.22.0.0/24.
 
+```
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql
+    container_name: vakhtanov-as-zabbix-netology
+    environment:
+      DB_SERVER_HOST: '172.22.0.2'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12!3!!
+    ports:
+      - 10051:10051
+    networks:
+      vakhtanov-as-my-netology-hw:
+        ipv4_address: 172.22.0.4
+    restart: always
+```
+
 ---
 
 ### Задание 6
