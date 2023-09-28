@@ -46,34 +46,24 @@
 ![5KVM_inst](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/42abe063-9ff6-49a8-afda-7373181abf40)
    
 3. Создайте виртуальную машину.
-![6KVM_copy_dist](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/09b4fe75-0b48-413f-b489-01fc2d215050)
 
-**ПРОБЛЕМЫ с установкой виртуальной машины через lib-virt**\
-такой конфигруационный файл дает ошибку\
-![7KVM_virt_inst_cdrom](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/ca278502-459e-441c-8a95-a15424adbed5)\
-ошибка\
-![8_error](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/b19eb916-8f08-4715-9290-f062cfd6df8d)
+![1inst](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/a65a6f24-416f-4315-b35a-b882150c926e)
 
-такой конфигруационный файл дает ошибку\
-![9KVM_virt_inst_loc](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/1a6b6356-5565-4498-b1f9-d8c03131a410)\
-ошибка\
-![10_error](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/183ec5e9-f1b5-4e56-b7e8-eb21a671e5c4)
 
-*поиск в интенете, вопросы в Discord, на сайте нетологии под ДЗ - результатов не дали*
-*пока ТУПИК((((*
-   
 5. Установите виртуальную машину. 
 Можете использовать пример [по ссылке](https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86/alpine-standard-3.13.5-x86.iso). Пример взят [с сайта](https://alpinelinux.org). 
 
 В случае использования `virt-install` используйте параметр `--virt-type=kvm`.
 
 
+![2fin](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/90e2ba43-48cd-4280-b249-0f7da329f1ef)
+
 
 ### Задание 3 
 
 Напишите, как изменилось время установки и старта системы при аппаратной виртуализации (KVM) по сравнению с программной эмуляцией (QEMU).
 
-*Судя по лекции KVM должен работать в несколько раз быстрее*
+*При создании в режиме KVM - машина создалась практически мгновенно*
 
 ---
 
