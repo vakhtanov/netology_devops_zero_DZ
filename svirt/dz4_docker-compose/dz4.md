@@ -57,6 +57,8 @@
         
         services:
 
+![1check](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/53a6bf96-8ef3-4b99-bd71-22a70090e0c2)
+
 ---
 
 ### Задание 3 
