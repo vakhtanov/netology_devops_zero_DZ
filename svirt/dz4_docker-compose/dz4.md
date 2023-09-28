@@ -71,6 +71,22 @@
 4. Пример названия контейнера: ivanovii-netology-db.
 5. Назначьте для данного контейнера статический IP из подсети 172.22.0.0/24.
 
+  netology-db: база данных
+    image: postgres:latest # Образ, который мы будем использовать
+    container_name: vakhtanov-as-netology-db # Имя, которым будет называться наш контейнер
+    ports: # Порты, которые мы пробрасываем с нашего докер сервера внутрь контейнера
+      - 5432:5432
+    volumes: # Папка, которую мы пробросим с докер сервера внутрь контейнера
+      - ./pg_data:/var/lib/postgresql/data/pgdata
+    environment: # Переменные среды
+      POSTGRES_PASSWORD: 12!3!! # Задаём пароль от пользователя postgres
+      POSTGRES_DB: vakhtanov-as-db # БД которая сразу же будет создана
+      PGDATA: /var/lib/postgresql/data/pgdata # Путь внутри контейнера, где будет папка pgdata
+    networks:
+      netology-lesson:
+        ipv4_address: 172.22.0.2
+    restart: always # Режим перезапуска контейнера. Контейнер всегда будет  перезапускаться
+
 ---
 
 ### Задание 4 
