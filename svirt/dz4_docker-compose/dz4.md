@@ -74,7 +74,7 @@
 
 ```
   netology-db: база данных
-    image: postgres:latest # Образ, который мы будем использовать
+    image: postgres:15 # Образ, который мы будем использовать
     container_name: vakhtanov-as-netology-db # Имя, которым будет называться наш контейнер
     ports: # Порты, которые мы пробрасываем с нашего докер сервера внутрь контейнера
       - 5432:5432
@@ -159,6 +159,25 @@
 2. Настройте его подключение к вашему СУБД.
 3. Назначьте для данного контейнера статический IP из подсети 172.22.0.0/24.
 
+```
+  zabbix_wgui: # Фронт забикса
+    image: zabbix/zabbix-web-apache-pgsql
+    container_name: vakhtanov-as-netology-zabbix-frontend
+    environment:
+      DB_SERVER_HOST: '172.22.0.2'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 12!3!!
+      ZBX_SERVER_HOST: "zabbix_wgui"
+      PHP_TZ: "Europe/Moscow"
+    ports:
+      - "80:8080"
+      - "443:8443"
+    networks:
+      vakhtanov-as-my-netology-hw:
+        ipv4_address: 172.22.0.5
+    restart: always
+```
+
 ---
 
 ### Задание 7 
@@ -172,6 +191,13 @@
 * текст конфига **целиком**;
 * скриншот команды docker ps;
 * скриншот авторизации в админке Zabbix.
+
+[ссылка на конфиг]()
+
+![3comp_ps](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/3dac72d2-d6c1-4b46-8951-168b25a87b55)
+
+![4_agent](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/9ece6ef2-bc7b-44d1-bdc9-e732d7b1947b)
+
 
 ---
 
