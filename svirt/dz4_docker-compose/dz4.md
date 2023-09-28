@@ -208,6 +208,11 @@
 1. Убейте все контейнеры и потом удалите их.
 1. Приложите скриншот консоли с проделанными действиями.
 
+![5_end](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/4879f466-349a-4f62-a300-e851a43a47bd)
+
+![6_end](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/150ba19b-b1f7-4a0f-9979-4e62bbfb1214)
+
+
 ---
 
 ## Дополнительные задания* (со звёздочкой)
