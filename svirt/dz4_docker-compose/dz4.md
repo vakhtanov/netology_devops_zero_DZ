@@ -213,6 +213,9 @@
 ![6_end](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/150ba19b-b1f7-4a0f-9979-4e62bbfb1214)
 
 
+**Помогите, пожалуйста с ДЗ по libvirt. Не получается создать файл настройки для создания ВМ с alpine-linux.iso**
+
+
 ---
 
 ## Дополнительные задания* (со звёздочкой)
