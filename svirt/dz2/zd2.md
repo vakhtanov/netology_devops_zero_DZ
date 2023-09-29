@@ -44,6 +44,10 @@
 1. Установите KVM и библиотеку libvirt.
 
 ![5KVM_inst](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/42abe063-9ff6-49a8-afda-7373181abf40)
+
+аппаратная виртуализация включена \
+![KVM_on](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/cdfaa97d-6f14-406a-9f7d-628063cb420d)
+
    
 3. Создайте виртуальную машину.
 
@@ -57,6 +61,9 @@
 
 
 ![2fin](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/90e2ba43-48cd-4280-b249-0f7da329f1ef)
+
+новый домен есть\
+![virtual](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/5ae126cc-819d-4dfc-b6df-471e7d03fb4a)
 
 
 ### Задание 3 
