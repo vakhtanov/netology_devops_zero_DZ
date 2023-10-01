@@ -221,7 +221,7 @@ KVM позволяет виртуальным машинам использов�
 `sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager`
 
 Скачаем iso образ Alpinelinux и запомним, где он лежит, на пример :\
-`wget [dl-cdn.alpinelinux.org...86_64.iso](https://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-standard-3.12.3-x86_64.iso%60)`
+`wget `[dl-cdn.alpinelinux.org...86_64.iso](https://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-standard-3.12.3-x86_64.iso%60)
 
 Создайте жёсткий диск для последующей установки образа:\
 `qemu-img create -f qcow2 Alpinelinux 4G`\
