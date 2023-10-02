@@ -43,34 +43,35 @@
 
 1. Установите KVM и библиотеку libvirt.
 
-![5KVM_inst](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/42abe063-9ff6-49a8-afda-7373181abf40)
+![KVM_on](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/ed75fae9-76b5-45d2-b1ba-dca7c2fbb9da)
 
-аппаратная виртуализация включена \
-![KVM_on](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/cdfaa97d-6f14-406a-9f7d-628063cb420d)
+![packinst](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/2c25245d-bf4d-4ba2-8d71-b8f40ebeb096)
 
    
 3. Создайте виртуальную машину.
 
-![1inst](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/a65a6f24-416f-4315-b35a-b882150c926e)
+![alpine_dist](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/5c455c12-ac34-4e72-bfd3-905751981b4f)
+
+![make_disk](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/37c8194f-6e92-498b-851d-de69fb412625)
+
 
 
 5. Установите виртуальную машину. 
-Можете использовать пример [по ссылке](https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86/alpine-standard-3.13.5-x86.iso). Пример взят [с сайта](https://alpinelinux.org). 
+![alpine_install](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/f837128d-5e00-40b8-bc93-5f8657993208)
+
+![alpine_login](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/337732b0-3585-4d81-8773-255e85a1652f)
+
 
 В случае использования `virt-install` используйте параметр `--virt-type=kvm`.
 
 
-![2fin](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/90e2ba43-48cd-4280-b249-0f7da329f1ef)
-
-новый домен есть\
-![virtual](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/5ae126cc-819d-4dfc-b6df-471e7d03fb4a)
 
 
 ### Задание 3 
 
 Напишите, как изменилось время установки и старта системы при аппаратной виртуализации (KVM) по сравнению с программной эмуляцией (QEMU).
 
-*При создании в режиме KVM - машина создалась практически мгновенно*
+*При создании в режиме KVM - машина создалась значительно быстрее*
 
 ---
 
