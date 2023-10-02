@@ -387,7 +387,7 @@ spec:
       targetPort: 9376
 ```
 
-POD
+Ingress 
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
