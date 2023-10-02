@@ -2,6 +2,9 @@
 
 Kubernetes (k8s) — фреймворк для запуска и управления приложениями в среде контейнеров.
 
+[https://kubernetes.io/ru/docs/home/](https://kubernetes.io/ru/docs/home/)\
+[https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/)
+
 * Объединяет несколько серверов в кластер с единым управлением и единым хранилищем конфигураций.
 * Для запуска контейнеров использует docker (или другие).
 * Основные принципы — это декларативный подход к описанию и идемпотентность.
@@ -58,6 +61,21 @@ spec: # параметры объекта
 
 **ConfigMap** — используется для хранение конфигурации (констант, настроек с именами, которые можно вызывать из контейнеров). Можно хранить как переменные окружения, так и файлы конфига целиком.
 
+**Secret** — используется для хранения любой чувствительной информации (пароли, ключи и.т.п). В etcd хранится в зашифрованном виде (base64). Может иметь один из нескольких типов:
+  ● Opaque
+  ● kubernetes.io/service-account-token
+  ● kubernetes.io/dockercfg
+  ● kubernetes.io/dockerconfigjson
+  ● kubernetes.io/basic-auth
+  ● kubernetes.io/ssh-auth
+  ● kubernetes.io/tlsdata
+  ● bootstrap.kubernetes.io/token
+
+**Service** — используется для направления трафика на под и балансировки в случае, если подов несколько. По умолчанию сетевой доступ будет обеспечен только внутри
+кластера. Имя сервиса будет использоваться в качестве DNS. По сути - Внешний доступ к поду внешенее подключение
+
+**Ingress** — объект, обрабатываемый ingress контроллером, реализует внешнюю балансировку (обычно по HTTP). Балансировка нагрузки на сервис?
+
 ## Некоторые комманды Kubernetes
 ```bash
 kubectl apply -f nginx.yaml
@@ -74,7 +92,10 @@ kubectl expose deploy/nginx --port 80
 kubectl run --rm -it test --image=curlimages/curl -- sh
 ```
 
-# Установка minikub
+# Установка minikub — компактная версия k8s, созданная для тестирования и разработки в среде k8s. А также в учебных целях
+инструкция по установке
+[https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
+
 ```bash
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -107,6 +128,40 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 minikube start
 ```
 
+# аналоги minikube k3s
+k3s — аналог minikube, эмулирующий k8s. Запускается с помощью одного бинарного файла.
+Установка возможна на linux с помощью bash скрипта:
+`curl -sfL https://get.k3s.io | sh -`
+
+Полная инструкция по установке доступна по ссылке:
+[https://rancher.com/docs/k3s/latest/en/quick-start/](https://rancher.com/docs/k3s/latest/en/quick-start/)
+
+Запуск: `service k3s start`
+
+# Kubectl — основная утилита для работы с k8s кластером.
+[https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/)
+
+Использует конфигурацию, расположенную в файле `~/.kube/config`\
+Переопределить расположение этого файла можно с помощью переменной KUBECONFIG.
+
+Oбщий синтаксис: `kubectl действие объект флаги`\
+Например: `kubectl get pods -n kube-system`\
+
+Действия: get,  create,  edit,  delete,  describe,  apply\
+Объекты: pods, deploy, svc,  secrets,  ...\
+Флаги могут различаться для различных команд, из основных необходимо указывать namespace:  -n, --all-namespaces
+
+Создаем файл: `nginx.yaml`\
+Деплоим с помощью: `kubectl apply -f nginx.yaml`
+Смотрим за статусом: `kubectl get po`
+Смотрим подробный статус пода: `kubectl describe po имя_под`
+
+Аналогом docker logs в k8s является команда `kubectl logs`:\
+`kubectl logs --tail 100 имя_пода`\
+Для того чтобы выполнить внутри пода какую-либо команду, используется:\
+`kubectl exec -it имя_пода команда`\
+Пример: `kubectl exec -it nginx-ans2l bash`
+
 # Создание виртуальных машин Yandex из коммандной строки
 ```bash
 #!/bin/bash
@@ -136,6 +191,9 @@ END
 
 # create-vm "kubeadm1"
 # create-vm "kubeadm2"
+# create-vm "kubeadm3"
+
+create-vm "minikube" # --memory 4
 ```
 
 # Примеры примитивов Kubernetes
@@ -164,16 +222,16 @@ kind: ReplicaSet
 metadata:
   name: redis
   labels:
-    tier: redis
+    tier: redis 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      tier: redis
+      tier: redis #эти имена должны совпадать
   template:
     metadata:
       labels:
-        tier: redis
+        tier: redis #эти имена должны совпадать
     spec:
       containers:
       - name: redis
@@ -302,14 +360,50 @@ data:
     db_user: root
 ```
 
-POD
+Secret
 ```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-basic-auth
+type: kubernetes.io/basic-auth
+stringData:
+  username: admin
+  password: t0p-Secret
+```
+
+Service
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: MyApp # Куда присоединятся
+  ports: # проброс портов
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
 ```
 
 POD
 ```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+spec:
+  rules:
+  - http:
+    paths:
+    - path: /testpath
+      pathType: Prefix
+      backend:
+        service:
+          name: test
+          port:
+            number: 80
 ```
-# create-vm "kubeadm3"
 
-create-vm "minikube" # --memory 4
-```
+
