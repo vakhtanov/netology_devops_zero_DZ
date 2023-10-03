@@ -129,6 +129,8 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 minikube start
 ```
+Вариант установки KubeCTL
+`minikube kubectl -- get pods -A`
 
 # аналоги minikube k3s
 k3s — аналог minikube, эмулирующий k8s. Запускается с помощью одного бинарного файла.
