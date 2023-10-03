@@ -85,6 +85,8 @@ kubectl get po
 kubectl describe po
 kubectl logs --tail 100 nginx
 
+kubectl get po -n kube-system # поды в наймспеййсе
+
 kubectl exec -it nginx -- bash
 
 kubectl expose deploy/nginx --port 80
