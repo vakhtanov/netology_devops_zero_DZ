@@ -84,6 +84,7 @@ kubectl get rs #реплики
 kubectl get po #поды
 kubectl describe po
 kubectl logs --tail 100 nginx
+kubectl get service
 
 kubectl get po -n kube-system # поды в наймспеййсе
 
