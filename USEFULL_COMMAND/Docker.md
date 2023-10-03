@@ -43,6 +43,7 @@ Docker Hub - публичное хранилище DockerImage
 
 ## Установка Docker Engine на Debian
 Можно попробовать простой способ работает в **UBUNTU**
+**Это НЕ ОФИЦИАЛЬНЫЕ пакеты**
 ```bash
 # Обновляем кеш
 sudo apt update
@@ -67,6 +68,7 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o 
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
 https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo \
 tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 
 # Устанавливаем Docker Engine
 sudo apt update
