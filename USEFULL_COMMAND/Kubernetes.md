@@ -97,6 +97,7 @@ kubectl run --rm -it test --image=curlimages/curl -- sh
 [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
 
 **УСТАНОВКА с ОФИЦИАЛЬНОЙ версией докера**
+[https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)\
 
 ```bash
 # Add Docker's official GPG key:
