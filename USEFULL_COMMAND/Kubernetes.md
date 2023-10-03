@@ -87,6 +87,7 @@ kubectl logs --tail 100 nginx
 kubectl get service
 или
 kubectl get svc
+kubectl get ep - соединился ли сервис с подом
 kubectl delete service nginx-service
 
 kubectl get po -n kube-system # поды в наймспеййсе
