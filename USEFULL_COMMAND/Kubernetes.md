@@ -95,9 +95,9 @@ kubectl get po -n kube-system # поды в наймспеййсе
 
 kubectl exec -it nginx -- bash
 
-kubectl expose deploy/nginx --port 80
+kubectl expose deploy/nginx --port 80 # открыть порт 80 - типа сервиса
 
-kubectl run --rm -it test --image=curlimages/curl -- sh
+kubectl run --rm -it test --image=curlimages/curl -- sh #временный под с curl
 ```
 [https://itshaman.ru/articles/715/shpargalka-po-komandam-kubernetes](https://itshaman.ru/articles/715/shpargalka-po-komandam-kubernetes)
 
