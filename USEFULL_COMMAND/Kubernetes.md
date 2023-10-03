@@ -85,6 +85,7 @@ kubectl get po #поды
 kubectl describe po
 kubectl logs --tail 100 nginx
 kubectl get service
+kubectl delete service nginx-service
 
 kubectl get po -n kube-system # поды в наймспеййсе
 
@@ -94,6 +95,7 @@ kubectl expose deploy/nginx --port 80
 
 kubectl run --rm -it test --image=curlimages/curl -- sh
 ```
+[https://itshaman.ru/articles/715/shpargalka-po-komandam-kubernetes](https://itshaman.ru/articles/715/shpargalka-po-komandam-kubernetes)
 
 # Установка minikub — компактная версия k8s, созданная для тестирования и разработки в среде k8s. А также в учебных целях
 инструкция по установке
