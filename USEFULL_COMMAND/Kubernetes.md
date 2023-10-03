@@ -95,6 +95,8 @@ kubectl get po -n kube-system # поды в наймспеййсе
 
 kubectl exec -it nginx -- bash
 
+kubectl port-forward redis-7bfccd74cd-cdnd8 6379:6379 # проброс порта локлаьной машины для отладки
+
 kubectl expose deploy/nginx --port 80 # открыть порт 80 - типа сервиса
 
 kubectl run --rm -it test --image=curlimages/curl -- sh #временный под с curl
