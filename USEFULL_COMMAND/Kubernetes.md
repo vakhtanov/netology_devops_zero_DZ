@@ -99,7 +99,7 @@ kubectl expose deploy/nginx --port 80 # открыть порт 80 - типа с
 
 kubectl run --rm -it test --image=curlimages/curl -- sh #временный под с curl
 
-kubectl run --rm -it test --image=mikesplain/telnet -- sh
+kubectl run --rm -it test --image=mikesplain/telnet 10.99.40.193 6379
 ```
 [https://itshaman.ru/articles/715/shpargalka-po-komandam-kubernetes](https://itshaman.ru/articles/715/shpargalka-po-komandam-kubernetes)
 
