@@ -118,9 +118,24 @@ spec:
 1. Напишите команды kubectl для контейнера из предыдущего задания:
 
  - выполнения команды ps aux внутри контейнера;
+
+![31_ps_aux](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/efc880d2-e5e1-4fbd-a36b-40b64ba34b0f)
+   
  - просмотра логов контейнера за последние 5 минут;
+
+`kubectl logs --since=5m redis-7bfccd74cd-mbmsm`\
+*за 5 минут в логах ничего нет`
+   
  - удаления контейнера;
+
+![33_del](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/527829bc-8fc0-4f2d-90ee-20312b434f1e)
+   
  - проброса порта локальной машины в контейнер для отладки.
+
+   `kubectl port-forward redis-7bfccd74cd-cdnd8 6379:6379`
+
+   ![34](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/ba95afae-67ae-437a-808c-f308b15dbfb5)
+
 
 2. В качестве решения пришлите получившиеся команды.
 
