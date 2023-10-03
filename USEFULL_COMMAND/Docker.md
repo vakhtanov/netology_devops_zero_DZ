@@ -52,7 +52,7 @@ sudo apt install docker docker-compose docker.io -y
 ```
 
 
-
+[https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 Устанавливаем пакеты для работы apt через HTTPS
 ```bash
 # Обновляем кеш
