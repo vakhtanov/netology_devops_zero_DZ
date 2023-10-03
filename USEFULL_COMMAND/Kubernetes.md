@@ -79,9 +79,9 @@ spec: # параметры объекта
 ## Некоторые комманды Kubernetes
 ```bash
 kubectl apply -f nginx.yaml
-kubectl get deploy
-kubectl get rs
-kubectl get po
+kubectl get deploy #Деплои
+kubectl get rs #реплики
+kubectl get po #поды
 kubectl describe po
 kubectl logs --tail 100 nginx
 
