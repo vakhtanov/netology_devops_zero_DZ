@@ -85,6 +85,8 @@ kubectl get po #поды
 kubectl describe po
 kubectl logs --tail 100 nginx
 kubectl get service
+или
+kubectl get svc
 kubectl delete service nginx-service
 
 kubectl get po -n kube-system # поды в наймспеййсе
