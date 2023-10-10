@@ -84,6 +84,9 @@ Virsh — это утилита командной строки в libvirt, ко
 Создание виртуальной машины:
 `virsh create /path/to/vm.xml` Эта команда создаёт новую виртуальную машину из XML-файла конфигурации, который содержит параметры виртуализации.
 
+`virt-xml-validate /path/to/XML/file`\
+[https://libvirt.org/format.html](https://libvirt.org/format.html)
+
 Запуск и остановка виртуальной машины:\
 `virsh start <vm_name>`\
 `virsh shutdown <vm_name>`\
