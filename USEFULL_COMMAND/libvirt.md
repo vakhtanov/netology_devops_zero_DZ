@@ -34,6 +34,8 @@ virt-install \
 alpinelinux\
 [https://github.com/seia-soto/libvirtd-scripts/tree/master#requirements](https://github.com/seia-soto/libvirtd-scripts/tree/master#requirements)
 
+[https://ostechnix.com/how-to-enable-virsh-console-access-for-kvm-guests/](https://ostechnix.com/how-to-enable-virsh-console-access-for-kvm-guests/)
+
 ### Компоненты libvirt
 Libvirt состоит из нескольких компонентов, каждый из которых выполняет определённые функции в управлении виртуализированными средами.
 * Библиотека **libvirt (libvirt)** — основной компонент, реализующий API и набор инструментов для взаимодействия с гипервизорами и виртуализационными платформами. Библиотека libvirt обеспечивает унифицированный интерфейс на различных уровнях абстракции, позволяя приложениям управлять виртуальными машинами, хостами, хранилищами данных, сетями и другими ресурсами.
