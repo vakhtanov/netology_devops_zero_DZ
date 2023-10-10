@@ -31,6 +31,9 @@ virt-install \
 --disk path=/disk/VMs/centos.qcow2,size=10,bus=virtio,io=threads,cache=none
  ```
 
+alpinelinux\
+[https://github.com/seia-soto/libvirtd-scripts/tree/master#requirements](https://github.com/seia-soto/libvirtd-scripts/tree/master#requirements)
+
 ### Компоненты libvirt
 Libvirt состоит из нескольких компонентов, каждый из которых выполняет определённые функции в управлении виртуализированными средами.
 * Библиотека **libvirt (libvirt)** — основной компонент, реализующий API и набор инструментов для взаимодействия с гипервизорами и виртуализационными платформами. Библиотека libvirt обеспечивает унифицированный интерфейс на различных уровнях абстракции, позволяя приложениям управлять виртуальными машинами, хостами, хранилищами данных, сетями и другими ресурсами.
