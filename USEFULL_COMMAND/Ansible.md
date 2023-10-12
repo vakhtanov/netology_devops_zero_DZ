@@ -111,6 +111,10 @@ Ad-hoc команды — это самый быстрый способ нача
 ```
 ansible all -m ping
 ansible all -m command -a “cat /etc/hosts”
+ansible all -m apt -v -a “name=mc state=present” - на всех хостах проверить есть ли бибилиотека, ксли нет - поставить
+ansible all -m apt -v -a “name=mc state=present” -b - на всех хостах проверить есть ли бибилиотека, ксли нет - поставить с правами рута (-b)!
+-v - debag
+ansible all -m shell -v -a “whoami”
 ```
 ![modules](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/76acf02c-ee95-403a-8971-a0dd39ba230a)
 
