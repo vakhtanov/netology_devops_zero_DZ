@@ -57,6 +57,7 @@ another_servers
 ```
 
 Команды:\
+`https://www.ssh.com/academy/ssh/keygen` - ssh ключи\
 `ansible all -m ping --list-hosts — вывести список хостов`
 `ansible-playbook --list-hosts — вывести список хостов для playbook`
 
