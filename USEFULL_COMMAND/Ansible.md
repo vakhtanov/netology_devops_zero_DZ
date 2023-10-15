@@ -129,3 +129,7 @@ ansible all -m shell -v -a “whoami”
 
 ![yaml](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/eb5f9dbf-d45e-46f1-b6e9-8bd741b91ac3)
 
+**Разделение уровней только пробелами**
+
+**Самое главное не запутаться в уровнях!!!**
+
