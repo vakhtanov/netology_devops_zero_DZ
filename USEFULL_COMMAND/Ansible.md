@@ -133,3 +133,4 @@ ansible all -m shell -v -a “whoami”
 
 **Самое главное не запутаться в уровнях!!!**
 
+[ямл за 5 мин](https://tproger.ru/translations/yaml-za-5-minut-sintaksis-i-osnovnye-vozmozhnosti#part4)
