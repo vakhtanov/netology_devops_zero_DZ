@@ -137,3 +137,7 @@ ansible all -m shell -v -a “whoami”
 [ямл за 5 мин](https://tproger.ru/translations/yaml-za-5-minut-sintaksis-i-osnovnye-vozmozhnosti#part4)
 
 [пример плейбука](./ansible_dop/7-01.playbook.yml)
+
+## запуск плейбука
+
+`ansile-playbook ./palybook.yaml -v'
