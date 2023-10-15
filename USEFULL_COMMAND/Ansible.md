@@ -141,7 +141,8 @@ ansible all -m shell -v -a “whoami”
 
 ## запуск плейбука
 
-`ansile-playbook ./palybook.yaml -v'
+`ansile-playbook ./palybook.yaml -v' \
+`ansible-playbook myscript.yaml --syntax-check` - проверка синтаксиса
 
 **полезные фичи в плейбуках**
 
@@ -155,19 +156,148 @@ tags:
 - tag2
 - nginx
 ansile-playbook ./palybook.yaml -v -t nginx
+
+ansible-playbook -i hosts.ini --tags prod playbook.yml
+ansible-playbook -i hosts.ini --skip-tags prod playbook.yml
 ```
 
 ### Роли
 ansible - можно сгенерировать роль - особоая настройка сервиса - хранится в папке проекта\
-`ansible-galaxy init nginx`\
-роль как контейнер в докер хаб - структура папок в папке nginx, есть папка tasks - там кусок плейбука для роли\
-в плейбуке теперь вызываем роль\
+`ansible-galaxy init nginx` -p.\
+`-p .` - скачивание в текущую папку - в папку проекта\
+ansible-galaxy - хранилище ролей как контейнер в докер хаб - в системе - это структура папок в папке, например nginx, \
+[galaxy.ansible.com](galaxy.ansible.com)\
+```
+ansible-galaxy role list
+ansible-galaxy role init myrole
+ansible-galaxy role search nginx
+ansible-galaxy role install nginx
+ansible-galaxy role remove nginx
+```
+
+есть папка **tasks** - там кусок плейбука для роли в плейбуке теперь вызываем роль\
 ```
 roles:
   - include-role:
     name: nginx
     tasks_from: main
 ```
-в папке defaults можно задавать действия по умолчанию или переменные\
+
+● ./roles — самый высокий приоритет
+● ~/.ansible/roles
+● /etc/ansible/roles
+● /usr/share/ansible/roles — самый низкий приоритет
+
+
+в папке **defaults** можно задавать действия по умолчанию или переменные\
 переменные можно задавать во многих местах, максимальный уровень прекрития - ключ е\
 `ansile-playbook ./palybook.yaml -v -t nginx -e "name=Netology"
+
+[про переменные](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html)\
+[встроенные переменные](https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html)\
+`ansible_play_hosts_all` — вернёт список хостов из inventory файла
+
+у роли есть папка **vars** - в которой можно задавать переменные с максамальным приоритетом для роли\
+обращение к переменной в ansible - ` "{{name}}" `\
+
+папка **tests** - тесты для роль - ими оперирует МОЛЕКУЛА! \
+папка **meta** - общая информация о роли. Сюда можно включить dependencies - зависимоти от других ролей\
+папка **files** - из этой папки можно коммандой copy в роли скопировать файл куда надо\
+папка **templates** - шаблоны с переменными, куда при копирвоании ansible подставит значения. Например для настройки первоначальной страницы Nginx\
+расширение j2 - jinger2 - формат для шаблонов. в файле можно сслыласть на переменные как в ansible {{name}}\
+папка **handlers** - папка с событиями или обработчиками запускаются при возникновернии определенных событий, например - изменение странцы - nginx нужно перезапустить\
+в плейбуке роли - ` notify: "Reststart Nginx"`
+
+в тасках можно задавать условия выполнения\
+`when: os_name == "Ubuntu"` - ссылаемся на переменную или \
+`when: ansible_facts['os_family'] == "Ubuntu"` - ссылаемся факты - информацию об узлах\
+
+
+### Ansible-vault
+хранение чувствиельных переменых - паролей\
+можно зашировать любой файл, в том числе .yaml с паролями, потом при запуске плейбука указать ключ\
+`ansile-playbook ./palybook.yaml -v --ask-vault-password`
+
+```
+ansible-vault create file2.yml
+ansible-vault decrypt file2.yml - расшифровать
+ansible-vault encrypt file2.yml - зашифровать
+ansible-vault view file2.yml - посмотреть
+ansible-vault edit file2.yml - редактировать
+ansible-vault rekey file2.yml - изменить мастер палоль
+```
+
+
+## Донастройка ВМ вагранта 
+```
+Vagrant.configure("2") do |config|
+   config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+   end
+end
+```
+
+# Интерфейс для Ansible
+
+**Ansible Tower** (RedHat) - граф интрефейс для ansible - если только для ansible\
+бесплатный аналог **AWS project**
+
+Jenkins - управление разнородными инструментами
+
+Molecule - тестирование плуйбуков
+
+
+# ПРимеры
+```yaml
+playbook
+---
+- name: Playbook 1 name
+hosts: group1
+roles:
+- role1
+- name: Playbook 2 name
+hosts: group2,group3
+tasks:
+- name: task 1 in playbook 2
+debug:
+msg: “Hello World”
+- name: task 2 in playbook 2
+service:
+name: sshd
+state: restarted
+...
+
+```
+
+```
+roles
+---
+- name: roles example
+hosts: servers
+roles:
+- role: role1
+- role: role2
+var1: one
+var2: two
+```
+
+```yaml
+handler
+---
+- name: handlers example
+hosts: all
+become: yes
+tasks:
+- name: Change ssh config
+lineinfile:
+path: /etc/ssh/sshd_config
+regexp: '^PasswordAuthentication'
+line: PasswordAuthentication yes
+notify:
+- Restart sshd
+handlers:
+- name: Restart sshd
+service:
+name: sshd
+state: restarted
+```
