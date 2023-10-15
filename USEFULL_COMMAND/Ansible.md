@@ -39,6 +39,10 @@
 Смотрим версию и другие переменные запуска Ansible:\
 `ansible --version`\
 
+[руководство](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html)
+
+[конфиг ансибла](https://docs.ansible.com/ansible/latest/reference_appendices/config.html)
+
 **при установке выбирать один способ - либо APT либо PIP (через python)**
 
 ## Inventory
@@ -120,4 +124,8 @@ ansible all -m apt -v -a “name=mc state=present” -b - на всех хост
 ansible all -m shell -v -a “whoami”
 ```
 ![modules](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/76acf02c-ee95-403a-8971-a0dd39ba230a)
+
+# Плейбуки
+
+![yaml](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/eb5f9dbf-d45e-46f1-b6e9-8bd741b91ac3)
 
