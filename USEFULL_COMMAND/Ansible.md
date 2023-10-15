@@ -56,12 +56,13 @@
 192.168.1.[1:5]
 
 [another_servers]
-my[A:C].example.com
+my[A:C].example.com ansible_ssh_user=user # под каким пользователем подключаться по ssh
 
 [all_servers:children]
 servers
 another_servers
 ```
+[vagrant скрипт для развертывания виртуалок в VirtualBox](./ansible_dop/7-01.Vagrantfile)
 
 Команды:\
 `https://www.ssh.com/academy/ssh/keygen` - ssh ключи\
