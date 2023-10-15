@@ -98,6 +98,7 @@ ansible all -m ping -e "ansible_user=vagrant
 ansible_ssh_pass=vagrant" — вручную задаёт удалённого пользователя и пароль
 ansible all -u vagrant -m ping — вручную задаёт удалённого пользователя
 ansible web* -m ping — задаёт список хостов к выполнению через регулярные выражения
+ansible all -m setup - сбор информации с хостов
 ```
 
 Настройка подключения к ВМ Vagrant:
