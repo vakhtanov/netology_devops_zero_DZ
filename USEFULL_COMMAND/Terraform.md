@@ -37,3 +37,48 @@ Terraform — это программный инструмент с открыт
 Пчелайн
 VK облако
 МТС облако
+
+[тераформ от Яндекса](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart)
+[тераформ оффишел](https://www.terraform.io/downloads.html)
+
+`/usr/local/bin` - папка прописана в PATH - там могут лежать программы
+
+.terraformrc
+```HCL
+provider_installation {
+  network_mirror {
+    url = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}
+```
+```
+provider_installation {
+  network_mirror {
+    url = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}
+```
+
+main.tf
+```HCL
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+  required_version = ">= 0.13"
+}
+
+provider "yandex" {
+  zone = "<зона доступности по умолчанию>"
+}
+```
