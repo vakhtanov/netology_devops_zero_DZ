@@ -1,0 +1,1 @@
+zcat ARHIV newName
