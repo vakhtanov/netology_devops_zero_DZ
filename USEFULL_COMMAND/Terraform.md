@@ -68,6 +68,11 @@ sudo apt install terraform
 [тераформ от Яндекса](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart)
 Необходимо скачать тераформ и распаковать в `/usr/local/bin` - папка прописана в PATH - там могут лежать программы, для удобного запуска
 
+`zcat TERRAFORM123 > terraform`\
+включаем возможность запуска\
+`chmod 744 terraform`\
+`export PATH=$PATH:/path/to/terraform` - включаем запуск 
+
 В домашней папке проекта создайте файл ресурсов `.terraformrc` и добавьте блок (**Linux**)
 ```HCL
 provider_installation {
