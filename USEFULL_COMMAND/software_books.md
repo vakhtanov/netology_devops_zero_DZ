@@ -22,6 +22,12 @@ rsa
 samba4  
 контроллер домена под Линукс  
 https://adminguide.ru/2021/02/08/rezervnyj-kontroller-domena-linux-nachalo/
+
+## markdowd instuction
+[https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md)
+
+
+
 ```
 Список полезной литературы  
 «Unix и Linux: Руководство системного администратора», Эви Немет, Гарт Снайдер, Трент Хейн, Бен Уэйли, Дэн Макни.  
