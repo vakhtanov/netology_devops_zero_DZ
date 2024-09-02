@@ -8,11 +8,6 @@
 
 В связи с недоступностью ресурсов для загрузки Terraform на территории РФ, вы можете  воспользоваться VPN или использовать зеркало из репозитория по [ссылке](https://github.com/netology-code/devops-materials).
 
-![set_ya_cloud](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/cdaeb75a-5e19-4812-8abc-d918ace33e91)
+![01_download](https://github.com/user-attachments/assets/52e035ca-6056-4e42-8bfb-2f46c6b05588)
 
-![terraform_version](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/3ee0f550-2557-405f-b5b3-034ce9c85eac)
-
-![terraform_init](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/3f6346d1-a926-4637-8ab6-af501dc3d3ed)
-
-
-
+![02_unpuck](https://github.com/user-attachments/assets/fe0d18d1-4d46-4165-affa-8fa81f7336fa)
