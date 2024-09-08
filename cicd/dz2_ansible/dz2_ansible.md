@@ -49,7 +49,53 @@
 
 
 2. Установить пакет tuned из стандартного репозитория вашей ОС. Запустить его, как демон — конфигурационный файл systemd появится автоматически при установке. Добавить tuned в автозагрузку.
+
+```yaml
+---
+- name: install, run tuned
+  hosts: net
+  become: true
+  
+  
+  tasks:
+    - name: install tuned
+      apt:
+        name: tuned
+        state: present
+    
+    - name: run and startup
+      service:
+        name: tuned
+        state: started
+        enabled: yes
+```
+
+![dz_play1-2_res](https://github.com/user-attachments/assets/08e59825-4d01-407a-897f-8711aa95e15d)
+
 3. Изменить приветствие системы (motd) при входе на любое другое. Пожалуйста, в этом задании используйте переменную для задания приветствия. Переменную можно задавать любым удобным способом.
+
+```yaml
+---
+- name: change motd
+  hosts: net
+  become: true
+  
+  vars:
+    string: Have a nice day!
+    user: Vakhtanov
+  
+  tasks:
+    - name: change motd
+      copy:
+        content: "{{ string }} \n {{ user }} \n"
+        dest: /etc/motd
+```
+
+
+![dz_play1-3_res](https://github.com/user-attachments/assets/6efcc37e-e1cf-4832-a72d-6870c116679f)
+
+
+![dz_play1-3_res2](https://github.com/user-attachments/assets/8465961e-fac1-4a38-abf1-65070e912dec)
 
 
 
@@ -59,6 +105,27 @@
 
 Модифицируйте плейбук из пункта 3, задания 1. В качестве приветствия он должен установить IP-адрес и hostname управляемого хоста, пожелание хорошего дня системному администратору. 
 
+```yaml
+---
+- name: change motd2
+  hosts: net
+  become: true
+  
+  vars:
+    string: Have a nice day!
+    user: Vakhtanov
+  
+  tasks:
+    - name: change motd
+      copy:
+        content: "{{ string }} \n You IP: {{ ansible_facts.default_ipv4.address }} \n Host name: {{ ansible_facts.hostname }} \n" 
+
+        dest: /etc/motd
+```
+
+![dz_play2_res](https://github.com/user-attachments/assets/f4521796-411c-417c-8329-112eb2177b8b)
+
+![dz_play2_res2](https://github.com/user-attachments/assets/c0c0c9a8-36fb-4467-b2b8-614446ebf2a5)
 
 
 ### Задание 3
