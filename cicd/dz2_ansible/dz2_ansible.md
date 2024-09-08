@@ -160,6 +160,8 @@
 
 [specific-apache.zip](https://github.com/user-attachments/files/16922455/specific-apache.zip)
 
+
+
 - предоставьте скриншоты выполнения плейбука;
 
 ![dz_play3_res1](https://github.com/user-attachments/assets/bdf966a7-9913-4133-be29-4f240453fb8c)
