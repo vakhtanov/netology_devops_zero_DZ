@@ -144,6 +144,30 @@
 
 В качестве решения:
 - предоставьте плейбук, использующий роль;
+
+```yaml
+---
+- name: apache_role
+  hosts: net
+  become: true
+  
+
+  roles:
+    - role: specific-apache
+```
+
 - разместите архив созданной роли у себя на Google диске и приложите ссылку на роль в своём решении;
+
+[specific-apache.zip](https://github.com/user-attachments/files/16922455/specific-apache.zip)
+
 - предоставьте скриншоты выполнения плейбука;
+
+![dz_play3_res1](https://github.com/user-attachments/assets/bdf966a7-9913-4133-be29-4f240453fb8c)
+
 - предоставьте скриншот браузера, отображающего сконфигурированный index.html в качестве сайта.
+
+![dz_play3_res4](https://github.com/user-attachments/assets/6a788518-e1c1-4bf6-ac3a-e9a203941e93)
+
+![dz_play3_res5](https://github.com/user-attachments/assets/b7d2590d-d5c2-4484-9718-154173d57d16)
+
+
