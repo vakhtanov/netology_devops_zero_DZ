@@ -160,7 +160,7 @@
 
 [specific-apache.zip](https://github.com/user-attachments/files/16922455/specific-apache.zip)
 
-
+[specific-apache.tar](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz2_ansible/specific-apache.tar)
 
 - предоставьте скриншоты выполнения плейбука;
 
