@@ -19,6 +19,35 @@
 Плейбуки должны: 
 
 1. Скачать какой-либо архив, создать папку для распаковки и распаковать скаченный архив. Например, можете использовать [официальный сайт](https://kafka.apache.org/downloads) и зеркало Apache Kafka. При этом можно скачать как исходный код, так и бинарные файлы, запакованные в архив — в нашем задании не принципиально.
+
+```yaml
+---
+- name: download_extract
+  hosts: net
+  become: true
+  
+  
+  tasks:
+    - name: Download archive
+      get_url:
+        url: "https://downloads.apache.org/kafka/3.8.0/kafka-3.8.0-src.tgz"
+        dest: "/tmp/kafka-3.8.0-src.tgz"
+    
+    - name: mkdir
+      file:
+        path: "/tmp/unpack"
+        state: directory
+
+    - name: unpack
+      unarchive:
+        remote_src: yes
+        src: "/tmp/kafka-3.8.0-src.tgz"
+        dest: "/tmp/unpack"
+```
+
+![dz_play1-1_res](https://github.com/user-attachments/assets/4678d828-3be7-4e8c-b4e2-3945ce8ae664)
+
+
 2. Установить пакет tuned из стандартного репозитория вашей ОС. Запустить его, как демон — конфигурационный файл systemd появится автоматически при установке. Добавить tuned в автозагрузку.
 3. Изменить приветствие системы (motd) при входе на любое другое. Пожалуйста, в этом задании используйте переменную для задания приветствия. Переменную можно задавать любым удобным способом.
 
