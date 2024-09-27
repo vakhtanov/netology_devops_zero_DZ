@@ -39,7 +39,14 @@
 
 #### Требования к результаты 
 1. Прикрепите в файл README.md скриншот авторизации в админке.
-2. Приложите в файл README.md текст использованных команд в GitHub.
+![pars](https://github.com/user-attachments/assets/84839ca5-833b-4426-b4c9-943ecf56cb20)
+
+   
+![adminka](https://github.com/user-attachments/assets/362fe65e-92b2-4504-8294-6ea7f8e41277)
+
+   
+3. Приложите в файл README.md текст использованных команд в GitHub.
+![commands](https://github.com/user-attachments/assets/d4d52373-94a0-42b4-bf72-de0ede80ed3b)
 
 ---
 
