@@ -63,9 +63,15 @@
 
 #### Требования к результаты 
 1. Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу
-2. Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
-3. Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
-4. Приложите в файл README.md текст использованных команд в GitHub
+   ![zabix_hosts](https://github.com/user-attachments/assets/02a4dd51-bcf2-4913-82a2-d8d259410d82)
+
+3. Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
+   ![zabbix_agent](https://github.com/user-attachments/assets/d9a2b41a-ded0-4339-9622-b7d530c44286)
+
+5. Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
+   ![zabbix_latest](https://github.com/user-attachments/assets/55c03c60-9b21-4074-838c-a103b02e3d90)
+
+7. Приложите в файл README.md текст использованных команд в GitHub
 
 ```bash
 sudo -s
