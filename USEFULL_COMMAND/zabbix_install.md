@@ -9,6 +9,7 @@
 для автоматизации `su - postgres -c 'psql --command "CREATE DATABASE zabbix OWNER zabbix;"' `\
 Отредактируйте файл /etc/zabbix/zabbix_server.conf\
 DBPassword=password\
+отредактирвоать из скрипта `sed -i 's/# DBPassword=/DBPassword=123456789/g' /etc/zabbix/zabbix_server.conf`\
 `systemctl restart zabbix-server zabbix-agent apache2`\
 `ystemctl enable zabbix-server zabbix-agent apache2`\
 The default URL for Zabbix UI when using Apache web server is http://host/zabbix
