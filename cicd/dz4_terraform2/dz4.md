@@ -111,11 +111,12 @@ output "external_ip_address_vm_1" {
   value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
 ```
-**ОТВЕТ**  
+**ОТВЕТ**\
 ![1makecloud](https://github.com/user-attachments/assets/6a99d399-b29c-42bb-b8dc-66cf6d8d8507)\
 ![2cloud](https://github.com/user-attachments/assets/55278a40-9c76-4681-ac40-57283ab242a7)\
 ![3vm](https://github.com/user-attachments/assets/81bf3920-7698-41a2-bd91-949ac223ed55)\
 
+_ФАЙЛЫ ДЛЯ TERRAFORM_\
 [main.tf](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/main.tf)\
 [meta.txt](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/meta.txt)\
 
@@ -141,7 +142,7 @@ output "external_ip_address_vm_1" {
 [hosts](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/hosts)\
 [ansible.cfg](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/ansible.cfg)\
 [ngnx_terr.yaml](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/ngnx_terr.yaml)\
-[index.html]()\
+[index.html](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/index.html)\
 
 
 
