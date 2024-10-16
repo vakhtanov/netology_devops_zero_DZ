@@ -1,0 +1,27 @@
+- name: install nginx from zero
+  hosts: 89.169.160.101
+  remote_user: user
+  become: true
+
+  tasks:
+    - name: update repo and cache
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+        cache_valid_time: 3600
+
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: run and startup nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+    
+    - name: set user web content
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.html

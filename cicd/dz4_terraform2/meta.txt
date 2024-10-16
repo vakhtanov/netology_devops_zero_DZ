@@ -1,0 +1,11 @@
+#cloud-config
+datasource:
+ Ec2:
+  strict_id: false
+ssh_pwauth: no
+users:
+- name: user
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  shell: /bin/bash
+  ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDorceCU+eCc0yKO9WFvqcqZHBd0QfW25kU+XNKu8jhIzox5bWueODH+n3XwyfpRnUzbTnVmUDcIpgPNNUzRV7EO9p3ewtNQXc3xKoI9UPJHyo4+er/BQUctfP2OT5kYnPuqVXbsrwhKWcHIt89aghwineSGL4AwneXkEYbj4doJHG74fL4L7iLu0xJguQM1jUgVsbjqb4qFFfKqBnEaDuZ5M/AsRZt9GJMVVU/uylRiJ4a1Hrly/HyiatEzqx3vnmSar9XsRRFISVE2gdqaY2LBBFKnvljcsR6Uz0h1SMW2r5Pd49jwDPe2QQlPAi+87LactdDpg5Y75yy1tuQ4FtQ7kBKlNWApBhc4I0Gis69FDT7WtuRrZC4aghEOrZfvlX1+Eqx4bKsVrp7Wn9S2+Pe72+9TO0fSNPwp705jNDVmUtoUjfWeb1bwuURInC+gZSbAxSHmpk3Dv8/ntx6rSiDW/JBPantT6qfTwIfK7bGEPUEsbNM/fTzTglZVYegc48= user@terraform-ubuntu-desktop
