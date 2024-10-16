@@ -136,9 +136,10 @@ _ФАЙЛЫ ДЛЯ TERRAFORM_\
       become: yes
       become_method: sudo
 ```
-**ОТВЕТ**
-![4ansible](https://github.com/user-attachments/assets/1bf98a08-b804-4d66-ba70-1f50e17f5f5f)
+**ОТВЕТ**\
+![4ansible](https://github.com/user-attachments/assets/1bf98a08-b804-4d66-ba70-1f50e17f5f5f)\
 
+_ФАЙЛЫ ДЛЯ ANSIBLE_\
 [hosts](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/hosts)\
 [ansible.cfg](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/ansible.cfg)\
 [ngnx_terr.yaml](https://github.com/vakhtanov/netology_devops_zero_DZ/blob/main/cicd/dz4_terraform2/ngnx_terr.yaml)\
