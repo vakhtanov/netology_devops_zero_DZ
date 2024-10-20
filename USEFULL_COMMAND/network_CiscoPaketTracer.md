@@ -131,3 +131,36 @@ R1(config- if)# crypto map <название крипто-карты>
 access-list 100 deny ip 10.10.10.0 0.0.0.255 20.20.20.0 0.0.0.255
 access-list 100 deny ip 10.10.10.0 0.0.0.255 20.20.20.0 0.0.0.255
 ```
+
+#### Настройка протокола резервирования HSRP
+```
+The following IOS commands are available :
+* standby  <0-4095> ip : Enable HSRP and set the virtual IP address
+* standby  <0-4095> preempt : Overthrow lower priority Active routers
+* standby  <0-4095> priority :Priority level
+* standby  <0-4095> timers :Hello and hold timers
+* standby  <0-4095> track :Priority Tracking
+* standby version <1-2>  :HSRP version
+```
+router0
+```
+interface GigabitEthernet0/0
+ ip address 192.168.1.2 255.255.255.0
+ duplex auto
+ speed auto
+ standby version 2
+ standby 1 ip 192.168.1.1
+ standby 1 priority 120
+ standby 1 preempt
+!
+```
+router1
+```
+interface GigabitEthernet0/0
+ ip address 192.168.1.3 255.255.255.0
+ duplex auto
+ speed auto
+ standby version 2
+ standby 1 ip 192.168.1.1
+!
+```
