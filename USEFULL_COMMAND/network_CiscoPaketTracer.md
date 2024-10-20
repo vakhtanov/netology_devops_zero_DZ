@@ -164,3 +164,6 @@ interface GigabitEthernet0/0
  standby 1 ip 192.168.1.1
 !
 ```
+```
+show standby brief - посмотреть настройки резервирвоания
+```
