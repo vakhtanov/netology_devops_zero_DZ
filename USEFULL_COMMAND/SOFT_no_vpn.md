@@ -2,4 +2,4 @@
 
 
 
-команда `python3 -m http.server` запустит простой HTTP-сервер
+команда `python3 -m http.server 8888 --bind 0.0.0.0` запустит простой HTTP-сервер
