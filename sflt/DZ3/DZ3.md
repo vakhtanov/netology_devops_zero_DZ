@@ -47,7 +47,7 @@
 rsync -a --delete --exclude='.*' --checksum /home/user/ /tmp/backup/
 ```
 
-![task1](img/task1.jpg)
+![task1](img/task1.JPG)
 ---------
 
 
