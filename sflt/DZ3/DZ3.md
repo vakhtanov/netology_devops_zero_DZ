@@ -58,6 +58,13 @@ rsync -a --delete --exclude='.*' --checksum /home/user/ /tmp/backup/
 - Резервная копия размещается локально, в директории `/tmp/backup`
 - На проверку направить файл crontab и скриншот с результатом работы утилиты.
 
+-----
+**ОТВЕТ**
+
+[файл crontab](cron_user)
+
+
+![task2](img/task2.JPG)
 
 ---
 
