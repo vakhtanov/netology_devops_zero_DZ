@@ -1,0 +1,35 @@
+#cloud-config
+datasource:
+  Ec2:
+    strict_id: false
+ssh_pwauth: no
+
+users:
+    - name: user
+      sudo: 'ALL=(ALL) NOPASSWD:ALL'
+      shell: /bin/bash
+      ssh_authorized_keys:
+      - <публичный_SSH-ключ_1>
+
+    - name: ansible
+      sudo: 'ALL=(ALL) NOPASSWD:ALL'
+      shell: /bin/bash
+      ssh_authorized_keys:
+      - <публичный_SSH-ключ_2>
+
+
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+apt:
+  preserve_sources_list: true
+
+packages:
+  - nginx
+
+runcmd:
+  - [ systemctl, nginx-reload ]
+  - [ systemctl, enable, nginx.service ]
+  - [ systemctl, start, --no-block, nginx.service ]
+  - [ sh, -c, "echo $(hostname | cut -d '.' -f 1 ) > /var/www/html/index.html" ]
