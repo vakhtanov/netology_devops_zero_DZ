@@ -56,7 +56,7 @@
 
 4. Сделайте запрос на 80 порт на внешний IP-адрес балансировщика и убедитесь, что вы получаете ответ в виде дефолтной страницы Nginx.
 
-![4_curl.JPG](img/4_curl.JPG]
+![4_curl](img/4_curl.JPG]
 
 *В качестве результата пришлите:*
 
@@ -67,16 +67,16 @@
 настройка после создания\
 [cloud_init.yml](cloud_config/cloud_init.yml)
 
-![1_terra_result.JPG](img/1_terra_result.JPG]
+![1_terra_result](img/1_terra_result.JPG]
 
 
 *2. Скриншот статуса балансировщика и целевой группы.*
 
-![2_balancer.JPG](img/2_balancer.JPG]
+![2_balancer](img/2_balancer.JPG]
 
 *3. Скриншот страницы, которая открылась при запросе IP-адреса балансировщика.*
 
-![3_page.JPG](img/3_page.JPG]
+![3_page](img/3_page.JPG]
 
 ---
 
