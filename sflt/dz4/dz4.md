@@ -56,16 +56,16 @@
 
 4. Сделайте запрос на 80 порт на внешний IP-адрес балансировщика и убедитесь, что вы получаете ответ в виде дефолтной страницы Nginx.
 
-   ![4_curl.JPG](img/4_curl.JPG]
+![4_curl.JPG](img/4_curl.JPG]
 
 *В качестве результата пришлите:*
 
 *1. Terraform Playbook.*
 
-[main_task1.tf](main_task1.tf)
+[main_task1.tf](cloud_config/main_task1.tf)
 
 настройка после создания\
-[cloud_init.yml](cloud_init.yml)
+[cloud_init.yml](cloud_config/cloud_init.yml)
 
 ![1_terra_result.JPG](img/1_terra_result.JPG]
 
