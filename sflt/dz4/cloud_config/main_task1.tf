@@ -6,13 +6,14 @@ terraform {
   }
 }
 
-variable "yandex_cloud_token" {
-  type = string
-  description = "Данная переменная потребует ввести секретный токен в консоли при запуске terraform plan/apply"
-}
+#variable "yandex_cloud_token" {
+#  type = string
+#  description = "Данная переменная потребует ввести секретный токен в консоли при запуске terraform plan/apply"
+#}
 
 provider "yandex" {
-  token     = var.yandex_cloud_token #секретные данные должны быть в сохранности!! Никогда не выкладывайте токен в публичный доступ.
+  #token     = var.yandex_cloud_token #секретные данные должны быть в сохранности!! Никогда не выкладывайте токен в публичный доступ.
+  token     = "${file("yandexx.key")}"
   cloud_id  = "b1gbnkafeirsgsvi0dtd" #org-wahha
   folder_id = "b1gq311m27k0shv7g9gl" #netology-terraform
   zone      = "ru-central1-b"
@@ -27,6 +28,8 @@ resource "yandex_compute_instance" "vm" {
   scheduling_policy {
   preemptible = true
   }
+  
+
   
   resources {
     core_fraction = 20
@@ -46,9 +49,7 @@ resource "yandex_compute_instance" "vm" {
     nat       = true
   }
   
-  metadata = {
-    user-data = "${file("./meta.txt")}"
-  }
+
 #  metadata = {
 #  ssh-keys = "user:${file("~/.ssh/id_rsa.pub")}"
 #  }
@@ -65,15 +66,15 @@ resource "yandex_lb_target_group" "group1" {
 
 # В замен этой группы - dynamic
 #  target {
-#    subnet_id = yandex_vpc_subnet.subnet1.id 
+#    subnet_id = yandex_vpc_subnet.subnet-1.id 
 #    address = yandex_compute_instance.vm[0].network_interface.0.ip_address
 #  }
 
-    dynamic "target" {
+  dynamic "target" {
     for_each = yandex_compute_instance.vm
     content {
-        subnet_id = yandex_vpc_subnet1.id
-        address = target.value.network_inerface.0.ip_address
+        subnet_id = yandex_vpc_subnet.subnet-1.id
+        address = target.value.network_interface.0.ip_address
         }
     }
 }
@@ -82,7 +83,7 @@ resource "yandex_lb_network_load_balancer" "balancer1" {
   name = "balancer1"
   deletion_protection = "false"
   listener {
-    name = "my_loadbalance1"
+    name = "my-loadbalance1"
     port = 80
     external_address_spec {
         ip_version = "ipv4"
@@ -104,7 +105,7 @@ resource "yandex_vpc_network" "network-1" {
   name = "network1"
 }
 
-resource "yandex_vpc_subnet" "subnet1" {
+resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
   zone           = "ru-central1-b"
   network_id     = yandex_vpc_network.network-1.id
@@ -116,6 +117,6 @@ output "loadbalance_ip" {
 }
 output "vm-ips" {
   value = tomap ({
-  for name, vm in yandex_compute_instance.vm : network_interface.0.nat_ip_address
+    for name, vm in yandex_compute_instance.vm : name => vm.network_interface.0.nat_ip_address
   })
 }
