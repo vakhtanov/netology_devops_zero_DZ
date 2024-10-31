@@ -43,7 +43,7 @@ resource "yandex_compute_instance" "cloud-gitlab" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-1.id
-    ipv4_address = "192.168.56.10/24"
+    ip_address = "192.168.56.10"
     nat       = true
   }
   
@@ -54,7 +54,7 @@ resource "yandex_compute_instance" "cloud-gitlab" {
 
 #START UBUNTU MACHINE
 resource "yandex_compute_instance" "ubuntu-runner" {
-  name = "terraform1"
+  name = "ubuntu-runner"
   platform_id = "standard-v3"
   allow_stopping_for_update = true
   
@@ -77,7 +77,7 @@ resource "yandex_compute_instance" "ubuntu-runner" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-1.id
-    ipv4_address = "192.168.56.11/24"
+    ip_address = "192.168.56.11"
     nat       = true
   }
   
@@ -85,27 +85,27 @@ resource "yandex_compute_instance" "ubuntu-runner" {
     user-data = "${file("./meta.txt")}"
     }
     
-  provisioner "remote-exec" {
-    inline = [
-      "export DEBIAN_FRONTEND=noninteractive",
-      "sudo apt-get update",
-      "apt-get install -y docker.io docker-compose",
-      "apt-get install -y curl openssh-server ca-certificates tzdata perl",
-      "sudo systemctl start nginx",
-      "docker pull gitlab/gitlab-runner:latest",
-      "docker pull sonarsource/sonar-scanner-cli:latest",
-      "docker pull golang:1.17",
-      "docker pull docker:latest",
-      "",
-    ]
-
+#  provisioner "remote-exec" {
+#    inline = [
+#      "export DEBIAN_FRONTEND=noninteractive",
+#      "sudo apt-get update",
+#      "apt-get install -y docker.io docker-compose",
+#      "apt-get install -y curl openssh-server ca-certificates tzdata perl",
+#      "sudo systemctl start nginx",
+#      "docker pull gitlab/gitlab-runner:latest",
+#      "docker pull sonarsource/sonar-scanner-cli:latest",
+#      "docker pull golang:1.17",
+#      "docker pull docker:latest",
+#      "",
+#    ]
+#
 #    connection {
 #      type        = "ssh"
 #      user        = "your-username"
 #      private_key = file("~/.ssh/id_rsa")
 #      host        = self.network_interface[0].nat_ip_address
 #    }
-  }
+#  }
 }
 
 
@@ -120,9 +120,18 @@ resource "yandex_vpc_subnet" "subnet-1" {
   v4_cidr_blocks = ["192.168.56.0/24"]
 }
 
-output "internal_ip_address_vm_1" {
-  value = yandex_compute_instance.vm-1.network_interface.0.ip_address
+output "internal_ip_address_cloud-gitlab" {   
+  value = yandex_compute_instance.cloud-gitlab.network_interface.0.ip_address 
+} 
+
+output "external_ip_address_cloud-gitlab" {   
+  value = yandex_compute_instance.cloud-gitlab.network_interface.0.nat_ip_address 
 }
-output "external_ip_address_vm_1" {
-  value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
+  
+
+output "internal_ip_address_ubuntu-runner" {
+  value = yandex_compute_instance.ubuntu-runner.network_interface.0.ip_address
+}
+output "external_ip_address_ubuntu-runner" {
+  value = yandex_compute_instance.ubuntu-runner.network_interface.0.nat_ip_address
 }
