@@ -70,7 +70,7 @@ resource "yandex_compute_instance" "ubuntu-runner" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd82hhl9107fdlb8ojl1" ubuntu 18
+      image_id = "fd82hhl9107fdlb8ojl1" #ubuntu 18
       size = 15
     }
   }
