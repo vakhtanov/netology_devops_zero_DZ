@@ -27,11 +27,20 @@
 
 В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.
 
-![runner1.jpg](./runner1.jpg)
+------------
+**Машины запускал в облаке, ниже - файлы терраформа**
 
-![runner2.jpg](./runner2.jpg)
+[gitlab_runner.tf](gitlab_runner.tf)
 
-![runner3.jpg](./runner3.jpg)
+[meta.txt](meta.txt)
+
+
+
+![runner1.jpg](./img/runner1.jpg)
+
+![runner2.jpg](./img/runner2.jpg)
+
+![runner3.jpg](./img/runner3.jpg)
 
 ---
 
@@ -66,9 +75,9 @@ build:
 
  * скриншоты с успешно собранными сборками.
  
-![build_sucsess.jpg](./build_sucsess.jpg)
+![build_sucsess.jpg](./img/build_sucsess.jpg)
 
-![build_sucsess2.jpg](./build_sucsess2.jpg)
+![build_sucsess2.jpg](./img/build_sucsess2.jpg)
 
 ![]()
  
