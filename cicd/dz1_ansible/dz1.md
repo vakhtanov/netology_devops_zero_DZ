@@ -19,6 +19,8 @@
 **Выполните действия и приложите скриншоты действий.**
 
 1. Установите Ansible.
+
+   
 ![install](https://github.com/vakhtanov/netology_devops_zero_DZ/assets/26109918/170053e4-456f-4819-9086-b2b3509be9e0)
 
    
