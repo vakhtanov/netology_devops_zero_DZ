@@ -1,0 +1,13 @@
+#cloud-config
+datasource:
+ Ec2:
+  strict_id: false
+ssh_pwauth: no
+users:
+- name: user
+  sudo: 'ALL=(ALL) NOPASSWD:ALL'
+  shell: /bin/bash
+  ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCeFAltYoENxRmCjqR51grTO7PUrEt45QsdfXemY9xPNJg6oAkmqB12uYJd1152JEzy40YC0+IldjIeAgwc+TMALhfnvMpzyGdyRAxYM2o60whDYmMxGPVlO77mCqxPQp2R7TjyURdTZSSvR0qTzIVxz6CreXU/wPlvQH2NLpPwxJzUlqr1HIzuwF9E8AsDSxXKPB6mifHutKQtKYkSmUrZ3bvoeifYH4QYeis7M3s0Uy6WyIhCXydsbMjFRBpo1Ir71YsGS5VsVjrtFQm59mNG5P5C7IS99tmZ4VDq8JvAHYXsDTeXVn7jczu+8x9EBOAZrB5rE5nFAML0KzBD178HoDxoW6tWk9ZPh1eT7IYUbkmRl95BZ98GYEJjH58ZfTggLqSKmgbpmWRhlNR/gijm2SeVvnav0IL36Tf6/ybKyXgn8Zc5tSm41CzrCtRye9hDGAdyfJHqnBRPRs69C1uJD10ZZXEInzOGRnp/PIY4yPENQG5NlUbiz4/cOrKBmg0= wahha@FAST-PC
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ4NZxIMGwTNgE1BspqddgvklY7PU7wVNURJV1DzwaCC user@ub-server
+
