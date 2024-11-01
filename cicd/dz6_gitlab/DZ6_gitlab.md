@@ -34,7 +34,7 @@
 
 [meta.txt](meta.txt)
 
-
+**Скриншоты настроек**
 
 ![runner1.jpg](./img/runner1.jpg)
 
@@ -79,7 +79,7 @@ build:
 
 ![build_sucsess2.jpg](./img/build_sucsess2.jpg)
 
-![]()
+
  
 ---
 ## Дополнительные задания* (со звёздочкой)
