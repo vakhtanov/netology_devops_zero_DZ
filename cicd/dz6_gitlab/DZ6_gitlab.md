@@ -27,6 +27,12 @@
 
 В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.
 
+![runner1.jpg](./runner1.jpg)
+
+![runner2.jpg](./runner2.jpg)
+
+![runner3.jpg](./runner3.jpg)
+
 ---
 
 ### Задание 2
@@ -38,9 +44,33 @@
 
 В качестве ответа в шаблон с решением добавьте: 
    
- * файл gitlab-ci.yml для своего проекта или вставьте код в соответствующее поле в шаблоне; 
+ * файл gitlab-ci.yml для своего проекта или вставьте код в соответствующее поле в шаблоне;
+
+```ymlstages:
+  - test
+  - build
+
+test:
+  stage: test
+  image: golang:1.17
+  script:
+   - go test .
+
+build:
+  stage: build
+  image: docker:latest
+  script:
+   - docker build .
+```
+
+
  * скриншоты с успешно собранными сборками.
  
+![build_sucsess.jpg](./build_sucsess.jpg)
+
+![build_sucsess2.jpg](./build_sucsess2.jpg)
+
+![]()
  
 ---
 ## Дополнительные задания* (со звёздочкой)
