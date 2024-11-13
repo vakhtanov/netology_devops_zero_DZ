@@ -14,6 +14,8 @@
 `wireshark` - анализ сетевого трафика
 [инструкция по wireshark](https://losst.pro/kak-polzovatsya-wireshark-dlya-analiza-trafika)
 
+https://app.diagrams.net/ - программа для создания блок схем
+
 
 cifs шара для управления правами
 
