@@ -2,6 +2,8 @@
 
 есть две версии - корпоративная с поддержкой и бесплатная
 
+`https://devops.org.ru/docker-summary` - шпаргалки Devops
+
 ## альтернативы
 * LXC
 * Podman
@@ -33,10 +35,24 @@ Docker Image – это стандартизированный образ\
 `docker build -t netologytest1:1.1 .` - создать DockerImage из DockerFIle\
 `docker image ls` - посмотреть список DockerImage
 
-`docker run -d -p 80:80 id_созданного_образа` - создать из DockerImage DockerContainer  и запустить его\
-`-d` - для постоянной работы\
+`docker run --name CONTAINERNAME -d -p 80:80 id_созданного_образа` - создать из DockerImage DockerContainer  и запустить его\
+`-d` - для постоянной работы, фоновый режим\
 `-p` - порт нашей машины:порт докера
 `docker image history id_образа` - посмотреть слои образа - как коммиты в гите - изменения в образе
+
+```bash
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+[ OPTIONS ]
+-it — интерактивный режим. Перейти в контейнер и запустить внутри контейнера команду
+-d — запустить контейнер в фоне (демоном) и вывести его ID
+-p port_localhost:port_docker_image — порты из докера на локалхост
+-e «TZ=Europe/Moscow» — указываем нашему контейнеру timezone
+-h HOSTNAME — присвоить имя хоста контейнеру
+— link <имя контейнера> — связать контейнеры с другим
+-v /local/path:/container/path/ — прокидываем в контейнер докера директорию с локальной машины
+--name CONTAINERNAME — присвоить имя нашему контейнеру
+--restart=[no/on-failure/always/unless-stopped] — варианты перезапуска контейнера при крэше
+```
 
 Docker Container – запущенный Image - изменения в нем не влияют на другие контейнеры и на его образ\
 Docker Hub - публичное хранилище DockerImage
