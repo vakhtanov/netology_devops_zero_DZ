@@ -54,6 +54,18 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 --restart=[no/on-failure/always/unless-stopped] — варианты перезапуска контейнера при крэше
 ```
 
+**Подключиться к контейнеру**
+
+```bash
+docker exec -it <container_id_or_name> /bin/bash
+- Флаг -i позволяет взаимодействовать с контейнером (interactive), а флаг -t создает терминал (tty).
+- Убедитесь, что в вашем контейнере установлен нужный shell (bash или sh). Некоторые минималистичные образы могут не иметь bash.
+
+Если вы хотите выполнить одну команду без входа в интерактивный режим, вы можете сделать это так:
+docker exec <container_id_or_name> <command>
+```
+
+
 Docker Container – запущенный Image - изменения в нем не влияют на другие контейнеры и на его образ\
 Docker Hub - публичное хранилище DockerImage
 
