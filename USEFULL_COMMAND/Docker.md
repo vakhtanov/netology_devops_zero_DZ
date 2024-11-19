@@ -1,4 +1,4 @@
-# Docker - rконтейнеризация на уровне ОС
+# Docker - контейнеризация на уровне ОС
 
 есть две версии - корпоративная с поддержкой и бесплатная
 
@@ -52,6 +52,11 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 -v /local/path:/container/path/ — прокидываем в контейнер докера директорию с локальной машины
 --name CONTAINERNAME — присвоить имя нашему контейнеру
 --restart=[no/on-failure/always/unless-stopped] — варианты перезапуска контейнера при крэше
+```
+
+```bash
+docker run --name test-mem -d -p 11211:11211 memcached
+docker run --name test-redis -d -p 6379:6379 redis
 ```
 
 **Подключиться к контейнеру**
