@@ -196,6 +196,7 @@ services:
 ```
 sudo docker-compose up #запуск с выводом в консоль
 sudo docker-compose up -d #запуск в бэкграунде
+sudo docker-compose -f some-file.yml up -d #запуск в бэкграунде нестандратного файла
 ```
 проверка работы постгрес\
 ```
