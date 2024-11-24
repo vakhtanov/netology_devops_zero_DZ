@@ -1,0 +1,59 @@
+version: '3.9'
+services:
+  elasticsearch:
+    image: elasticsearch:8.14.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - cluster.name=vah-netology
+    ports:
+      - '9200:9200'
+    volumes:
+      - ./deploy/esdata:/usr/share/elasticsearch/data
+    depends_on:
+      - nginx
+    # helth curl -s http://127.0.0.1:9200/_cluster/health
+    # indexes curl http://127.0.0.1:9200/_cat/indices/
+
+  kibana:
+    image: kibana:8.14.3
+    environment:
+      - ELASTCSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - '5601:5601'
+
+
+  logstash:
+    image: logstash:8.14.3
+    environment:
+      # Так как сейчас вы хотите запустить logstash без Elasticsearch, 
+      # необходимо отключить встроенный мониторинг, отправляющий данные в ES
+      ES_HOST: "elasticsearch:9200"
+    ports:
+      - "5044:5044/udp"
+    volumes:
+      - ./configs/logstash/config.yml:/usr/share/logstash/config/logstash.yml
+      - ./configs/logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./configs/logstash/pipelines:/usr/share/logstash/config/pipelines
+      - ./nginx/log:/var/log/nginx
+    depends_on:
+          - elasticsearch
+
+  filebeat:
+    image: elastic/filebeat:8.14.3
+    volumes:
+      - ./nginx/log:/var/log/filebeat/:ro
+      - ./configs/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+    depends_on:
+      - logstash
+      - elasticsearch
+      - kibana
+
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/log:/var/log/nginx
+      - ./nginx/www/index.html:/usr/share/nginx/html/index.html 

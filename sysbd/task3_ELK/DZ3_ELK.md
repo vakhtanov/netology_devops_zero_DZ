@@ -58,6 +58,8 @@
 
 *Приведите скриншот интерфейса Kibana, на котором видны логи Nginx.*
 
+[Docker logstash](./docker_project/docker_nginx_logstash/)
+
 ![3nginx](img/3nginx.JPG)
 
 ---
@@ -68,6 +70,7 @@
 
 *Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.*
 
+[Docker filebeat](./docker_project/docker_nginx_filebeat/)
 
 ![4nginx_filebeat](img/4nginx_filebeat.JPG)
 

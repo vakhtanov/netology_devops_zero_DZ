@@ -1,0 +1,254 @@
+2024/11/23 07:51:26 [notice] 1#1: using the "epoll" event method
+2024/11/23 07:51:26 [notice] 1#1: nginx/1.27.2
+2024/11/23 07:51:26 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/11/23 07:51:26 [notice] 1#1: OS: Linux 5.15.0-125-generic
+2024/11/23 07:51:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/11/23 07:51:26 [notice] 1#1: start worker processes
+2024/11/23 07:51:26 [notice] 1#1: start worker process 30
+2024/11/23 07:51:26 [notice] 1#1: start worker process 31
+2024/11/23 07:51:26 [notice] 1#1: start worker process 32
+2024/11/23 07:51:26 [notice] 1#1: start worker process 33
+2024/11/23 07:51:51 [error] 32#32: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:03:10 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/11/23 08:03:10 [notice] 30#30: gracefully shutting down
+2024/11/23 08:03:10 [notice] 30#30: exiting
+2024/11/23 08:03:10 [notice] 30#30: exit
+2024/11/23 08:03:10 [notice] 32#32: gracefully shutting down
+2024/11/23 08:03:10 [notice] 31#31: gracefully shutting down
+2024/11/23 08:03:10 [notice] 32#32: exiting
+2024/11/23 08:03:10 [notice] 31#31: exiting
+2024/11/23 08:03:10 [notice] 31#31: exit
+2024/11/23 08:03:10 [notice] 32#32: exit
+2024/11/23 08:03:10 [notice] 33#33: gracefully shutting down
+2024/11/23 08:03:10 [notice] 33#33: exiting
+2024/11/23 08:03:10 [notice] 33#33: exit
+2024/11/23 08:03:14 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2024/11/23 08:03:14 [notice] 1#1: worker process 31 exited with code 0
+2024/11/23 08:03:14 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:03:14 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2024/11/23 08:03:14 [notice] 1#1: worker process 30 exited with code 0
+2024/11/23 08:03:14 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:03:16 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2024/11/23 08:03:16 [notice] 1#1: worker process 32 exited with code 0
+2024/11/23 08:03:16 [notice] 1#1: worker process 33 exited with code 0
+2024/11/23 08:03:16 [notice] 1#1: exit
+2024/11/23 08:04:54 [notice] 1#1: using the "epoll" event method
+2024/11/23 08:04:54 [notice] 1#1: nginx/1.27.2
+2024/11/23 08:04:54 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/11/23 08:04:54 [notice] 1#1: OS: Linux 5.15.0-125-generic
+2024/11/23 08:04:54 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/11/23 08:04:54 [notice] 1#1: start worker processes
+2024/11/23 08:04:54 [notice] 1#1: start worker process 29
+2024/11/23 08:04:54 [notice] 1#1: start worker process 30
+2024/11/23 08:04:54 [notice] 1#1: start worker process 31
+2024/11/23 08:04:54 [notice] 1#1: start worker process 32
+2024/11/23 08:05:06 [error] 30#30: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:05:06 [error] 30#30: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:18 [error] 32#32: *3 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:18 [error] 31#31: *4 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:19 [error] 31#31: *4 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:19 [error] 32#32: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:20 [error] 32#32: *3 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:20 [error] 32#32: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:20 [error] 32#32: *3 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:20 [error] 32#32: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/"
+2024/11/23 08:09:21 [error] 31#31: *4 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:09:21 [error] 32#32: *3 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:09:23 [error] 31#31: *4 open() "/usr/share/nginx/html/catalog.html" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /catalog.html HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:12:59 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/11/23 08:12:59 [notice] 29#29: gracefully shutting down
+2024/11/23 08:12:59 [notice] 32#32: gracefully shutting down
+2024/11/23 08:12:59 [notice] 29#29: exiting
+2024/11/23 08:12:59 [notice] 31#31: gracefully shutting down
+2024/11/23 08:12:59 [notice] 32#32: exiting
+2024/11/23 08:12:59 [notice] 29#29: exit
+2024/11/23 08:12:59 [notice] 31#31: exiting
+2024/11/23 08:12:59 [notice] 32#32: exit
+2024/11/23 08:12:59 [notice] 31#31: exit
+2024/11/23 08:12:59 [notice] 30#30: gracefully shutting down
+2024/11/23 08:12:59 [notice] 30#30: exiting
+2024/11/23 08:12:59 [notice] 30#30: exit
+2024/11/23 08:13:00 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2024/11/23 08:13:00 [notice] 1#1: worker process 30 exited with code 0
+2024/11/23 08:13:00 [notice] 1#1: worker process 31 exited with code 0
+2024/11/23 08:13:00 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:13:00 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2024/11/23 08:13:00 [notice] 1#1: worker process 29 exited with code 0
+2024/11/23 08:13:00 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:13:00 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2024/11/23 08:13:00 [notice] 1#1: worker process 32 exited with code 0
+2024/11/23 08:13:00 [notice] 1#1: exit
+2024/11/23 08:14:10 [notice] 1#1: using the "epoll" event method
+2024/11/23 08:14:10 [notice] 1#1: nginx/1.27.2
+2024/11/23 08:14:10 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/11/23 08:14:10 [notice] 1#1: OS: Linux 5.15.0-125-generic
+2024/11/23 08:14:10 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/11/23 08:14:10 [notice] 1#1: start worker processes
+2024/11/23 08:14:10 [notice] 1#1: start worker process 22
+2024/11/23 08:14:10 [notice] 1#1: start worker process 23
+2024/11/23 08:14:10 [notice] 1#1: start worker process 24
+2024/11/23 08:14:10 [notice] 1#1: start worker process 25
+2024/11/23 08:14:18 [error] 23#23: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:14:18 [error] 24#24: *2 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:14:46 [error] 24#24: *2 open() "/usr/share/nginx/html/catalog.html" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /catalog.html HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:14:56 [error] 24#24: *2 open() "/usr/share/nginx/html/catalog.html" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /catalog.html HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:15:00 [error] 24#24: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:15:00 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:15:06 [error] 23#23: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:15:06 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:18:12 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/11/23 08:18:12 [notice] 24#24: gracefully shutting down
+2024/11/23 08:18:12 [notice] 24#24: exiting
+2024/11/23 08:18:12 [notice] 24#24: exit
+2024/11/23 08:18:12 [notice] 23#23: gracefully shutting down
+2024/11/23 08:18:12 [notice] 23#23: exiting
+2024/11/23 08:18:12 [notice] 23#23: exit
+2024/11/23 08:18:12 [notice] 22#22: gracefully shutting down
+2024/11/23 08:18:12 [notice] 25#25: gracefully shutting down
+2024/11/23 08:18:12 [notice] 22#22: exiting
+2024/11/23 08:18:12 [notice] 25#25: exiting
+2024/11/23 08:18:12 [notice] 22#22: exit
+2024/11/23 08:18:12 [notice] 25#25: exit
+2024/11/23 08:18:12 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/11/23 08:18:12 [notice] 1#1: worker process 22 exited with code 0
+2024/11/23 08:18:12 [notice] 1#1: worker process 23 exited with code 0
+2024/11/23 08:18:12 [notice] 1#1: worker process 24 exited with code 0
+2024/11/23 08:18:12 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:18:12 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/11/23 08:18:12 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2024/11/23 08:18:12 [notice] 1#1: worker process 25 exited with code 0
+2024/11/23 08:18:12 [notice] 1#1: exit
+2024/11/23 08:18:38 [notice] 1#1: using the "epoll" event method
+2024/11/23 08:18:38 [notice] 1#1: nginx/1.27.2
+2024/11/23 08:18:38 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/11/23 08:18:38 [notice] 1#1: OS: Linux 5.15.0-125-generic
+2024/11/23 08:18:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/11/23 08:18:38 [notice] 1#1: start worker processes
+2024/11/23 08:18:38 [notice] 1#1: start worker process 22
+2024/11/23 08:18:38 [notice] 1#1: start worker process 23
+2024/11/23 08:18:38 [notice] 1#1: start worker process 24
+2024/11/23 08:18:38 [notice] 1#1: start worker process 25
+2024/11/23 08:19:03 [error] 22#22: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:19:03 [error] 25#25: *2 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:29:00 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/11/23 08:29:00 [notice] 22#22: gracefully shutting down
+2024/11/23 08:29:00 [notice] 22#22: exiting
+2024/11/23 08:29:00 [notice] 22#22: exit
+2024/11/23 08:29:00 [notice] 25#25: gracefully shutting down
+2024/11/23 08:29:00 [notice] 23#23: gracefully shutting down
+2024/11/23 08:29:00 [notice] 25#25: exiting
+2024/11/23 08:29:00 [notice] 24#24: gracefully shutting down
+2024/11/23 08:29:00 [notice] 23#23: exiting
+2024/11/23 08:29:00 [notice] 25#25: exit
+2024/11/23 08:29:00 [notice] 23#23: exit
+2024/11/23 08:29:00 [notice] 24#24: exiting
+2024/11/23 08:29:00 [notice] 24#24: exit
+2024/11/23 08:29:00 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2024/11/23 08:29:00 [notice] 1#1: worker process 25 exited with code 0
+2024/11/23 08:29:00 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:29:00 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/11/23 08:29:00 [notice] 1#1: worker process 22 exited with code 0
+2024/11/23 08:29:00 [notice] 1#1: worker process 23 exited with code 0
+2024/11/23 08:29:00 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:29:00 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2024/11/23 08:29:00 [notice] 1#1: worker process 24 exited with code 0
+2024/11/23 08:29:00 [notice] 1#1: exit
+2024/11/23 08:29:16 [notice] 1#1: using the "epoll" event method
+2024/11/23 08:29:16 [notice] 1#1: nginx/1.27.2
+2024/11/23 08:29:16 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/11/23 08:29:16 [notice] 1#1: OS: Linux 5.15.0-125-generic
+2024/11/23 08:29:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/11/23 08:29:16 [notice] 1#1: start worker processes
+2024/11/23 08:29:16 [notice] 1#1: start worker process 23
+2024/11/23 08:29:16 [notice] 1#1: start worker process 24
+2024/11/23 08:29:16 [notice] 1#1: start worker process 25
+2024/11/23 08:29:16 [notice] 1#1: start worker process 26
+2024/11/23 08:35:10 [error] 23#23: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:35:10 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:03 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:03 [error] 26#26: *2 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:04 [error] 24#24: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:04 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:04 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:04 [error] 24#24: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 24#24: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 24#24: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 26#26: *2 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 24#24: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:05 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:06 [error] 24#24: *3 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:37:06 [error] 26#26: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:38:49 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/11/23 08:38:49 [notice] 23#23: gracefully shutting down
+2024/11/23 08:38:49 [notice] 23#23: exiting
+2024/11/23 08:38:49 [notice] 24#24: gracefully shutting down
+2024/11/23 08:38:49 [notice] 24#24: exiting
+2024/11/23 08:38:49 [notice] 26#26: gracefully shutting down
+2024/11/23 08:38:49 [notice] 23#23: exit
+2024/11/23 08:38:49 [notice] 26#26: exiting
+2024/11/23 08:38:49 [notice] 24#24: exit
+2024/11/23 08:38:49 [notice] 26#26: exit
+2024/11/23 08:38:49 [notice] 25#25: gracefully shutting down
+2024/11/23 08:38:49 [notice] 25#25: exiting
+2024/11/23 08:38:49 [notice] 25#25: exit
+2024/11/23 08:38:49 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2024/11/23 08:38:49 [notice] 1#1: worker process 23 exited with code 0
+2024/11/23 08:38:49 [notice] 1#1: worker process 24 exited with code 0
+2024/11/23 08:38:49 [notice] 1#1: worker process 25 exited with code 0
+2024/11/23 08:38:49 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:38:49 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2024/11/23 08:38:49 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2024/11/23 08:38:49 [notice] 1#1: worker process 26 exited with code 0
+2024/11/23 08:38:49 [notice] 1#1: exit
+2024/11/23 08:41:05 [notice] 1#1: using the "epoll" event method
+2024/11/23 08:41:05 [notice] 1#1: nginx/1.27.2
+2024/11/23 08:41:05 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/11/23 08:41:05 [notice] 1#1: OS: Linux 5.15.0-125-generic
+2024/11/23 08:41:05 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/11/23 08:41:05 [notice] 1#1: start worker processes
+2024/11/23 08:41:05 [notice] 1#1: start worker process 22
+2024/11/23 08:41:05 [notice] 1#1: start worker process 23
+2024/11/23 08:41:05 [notice] 1#1: start worker process 24
+2024/11/23 08:41:05 [notice] 1#1: start worker process 25
+2024/11/23 08:42:28 [error] 23#23: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:42:28 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:23 [error] 23#23: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:23 [error] 25#25: *2 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:30 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:30 [error] 25#25: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:34 [error] 25#25: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:34 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:34 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:34 [error] 25#25: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:35 [error] 25#25: *2 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:35 [error] 23#23: *1 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:35 [error] 23#23: *1 open() "/usr/share/nginx/html/styles/style.css" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /styles/style.css HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:43:35 [error] 25#25: *2 open() "/usr/share/nginx/html/images/image.png" failed (2: No such file or directory), client: 192.168.10.1, server: localhost, request: "GET /images/image.png HTTP/1.1", host: "192.168.10.3", referrer: "http://192.168.10.3/index.html"
+2024/11/23 08:47:10 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/11/23 08:47:10 [notice] 23#23: gracefully shutting down
+2024/11/23 08:47:10 [notice] 22#22: gracefully shutting down
+2024/11/23 08:47:10 [notice] 23#23: exiting
+2024/11/23 08:47:10 [notice] 24#24: gracefully shutting down
+2024/11/23 08:47:10 [notice] 22#22: exiting
+2024/11/23 08:47:10 [notice] 24#24: exiting
+2024/11/23 08:47:10 [notice] 23#23: exit
+2024/11/23 08:47:10 [notice] 22#22: exit
+2024/11/23 08:47:10 [notice] 24#24: exit
+2024/11/23 08:47:10 [notice] 25#25: gracefully shutting down
+2024/11/23 08:47:10 [notice] 25#25: exiting
+2024/11/23 08:47:10 [notice] 25#25: exit
+2024/11/23 08:47:10 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/11/23 08:47:10 [notice] 1#1: worker process 23 exited with code 0
+2024/11/23 08:47:10 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:47:10 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/11/23 08:47:10 [notice] 1#1: worker process 22 exited with code 0
+2024/11/23 08:47:10 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:47:10 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2024/11/23 08:47:10 [notice] 1#1: worker process 24 exited with code 0
+2024/11/23 08:47:10 [notice] 1#1: signal 29 (SIGIO) received
+2024/11/23 08:47:10 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2024/11/23 08:47:10 [notice] 1#1: worker process 25 exited with code 0
+2024/11/23 08:47:10 [notice] 1#1: exit

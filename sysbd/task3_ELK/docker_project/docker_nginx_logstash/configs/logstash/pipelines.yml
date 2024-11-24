@@ -1,0 +1,9 @@
+#- pipeline.id: service_stamped_json_logs
+#  pipeline.workers: 1
+#  pipeline.batch.size: 1
+#  path.config: "/usr/share/logstash/config/pipelines/udp_service_logs_es.conf"
+
+- pipeline.id: service_stamped_nginx
+  pipeline.workers: 1
+  pipeline.batch.size: 1
+  path.config: "/usr/share/logstash/config/pipelines/nginx_ass_log.conf"
