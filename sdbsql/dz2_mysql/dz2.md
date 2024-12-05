@@ -36,7 +36,7 @@ CREATE USER 'sys_temp'@'%' IDENTIFIED BY 'parol';
 SELECT User,Host FROM mysql.user;
 ```
 
-![users](1users.JPG)
+![users](img/1users.JPG)
 
 1.4. Дайте все права для пользователя sys_temp. 
 
