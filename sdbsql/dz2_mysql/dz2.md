@@ -22,6 +22,8 @@
 ### Задание 1
 1.1. Поднимите чистый инстанс MySQL версии 8.0+. Можно использовать локальный сервер или контейнер Docker.
 
+[docker-compose.yml](docker-compose_mysql.yml)
+
 1.2. Создайте учётную запись sys_temp. 
 
 ```sql 
@@ -33,6 +35,8 @@ CREATE USER 'sys_temp'@'%' IDENTIFIED BY 'parol';
 ```sql
 SELECT User,Host FROM mysql.user;
 ```
+
+![users](1users.JPG)
 
 1.4. Дайте все права для пользователя sys_temp. 
 
