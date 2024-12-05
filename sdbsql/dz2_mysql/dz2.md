@@ -24,6 +24,8 @@
 
 [docker-compose.yml](docker-compose_mysql.yml)
 
+[справка по коммандам MySQL](https://losst.pro/sozdanie-polzovatelya-mysql)
+
 1.2. Создайте учётную запись sys_temp. 
 
 ```sql 
@@ -40,7 +42,15 @@ SELECT User,Host FROM mysql.user;
 
 1.4. Дайте все права для пользователя sys_temp. 
 
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'%';
+```
+
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
+
+```sql
+SHOW GRANTS FOR 'sys_temp'@'%';
+```
 
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
@@ -48,6 +58,9 @@ SELECT User,Host FROM mysql.user;
 ```sql
 ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
+
+![priveleges](img/2priveleges.JPG)
+
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
 1.7. Восстановите дамп в базу данных.
