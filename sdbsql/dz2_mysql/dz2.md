@@ -91,6 +91,11 @@ mysql -u sys_temp -p sakila < sakila-data.sql
 customer         | customer_id
 ```
 
+```sql
+SHOW TABLES
+```
+
+
 | Название таблицы | Название первичного ключа |
 |--|--|
 |actor|
