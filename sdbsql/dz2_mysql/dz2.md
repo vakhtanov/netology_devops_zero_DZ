@@ -52,6 +52,8 @@ GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'%';
 SHOW GRANTS FOR 'sys_temp'@'%';
 ```
 
+![priveleges](img/2priveleges.JPG)
+
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
 Для смены типа аутентификации с sha2 используйте запрос: 
@@ -59,7 +61,7 @@ SHOW GRANTS FOR 'sys_temp'@'%';
 ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 
-![priveleges](img/2priveleges.JPG)
+
 
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
