@@ -24,9 +24,15 @@
 
 1.2. Создайте учётную запись sys_temp. 
 
-`CREATE USER 'sys_temp'@'%' IDENTIFIED BY 'parol';`
+```sql 
+CREATE USER 'sys_temp'@'%' IDENTIFIED BY 'parol';
+```
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
+
+```sql
+SELECT User,Host FROM mysql.user;
+```
 
 1.4. Дайте все права для пользователя sys_temp. 
 
