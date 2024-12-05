@@ -92,37 +92,38 @@ customer         | customer_id
 ```
 
 ```sql
-SHOW TABLES
+SHOW FULL TABLES;
 ```
 
 
 | Название таблицы | Название первичного ключа |
 |--|--|
-|actor|
+|actor|actor_id|
+|address|address_id|
+|category|category_id|
+|city|city_id|
+|country|country_id|
+|customer|customer_id|
+|film||
+|film_actor||
+|film_category||
+|film_text||
+|inventory||
+|language||
+|payment||
+|rental||
+|staff||
+|store||
+
+| Название представления | Название первичного ключа |
+|---|---|
 |actor_info|
-|address|
-|category|
-|city|
-|country|
-|customer|
 |customer_list|
-|film|
-|film_actor|
-|film_category|
 |film_list|
-|film_text|
-|inventory|
-|language|
 |nicer_but_slower_film_list|
-|payment|
-|rental|
 |sales_by_film_category|
 |sales_by_store|
-|staff|
 |staff_list|
-|store|
-
-
 
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
