@@ -67,9 +67,19 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 
 1.7. Восстановите дамп в базу данных.
 
+```sql
+mysql -u sys_temp -p sakila < sakila-schema.sql
+mysql -u sys_temp -p sakila < sakila-data.sql
+```
+
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+
+![3diagramm.JPG](img/3diagramm.JPG)
+
+![4diagramm.JPG](img/4diagramm.JPG)
+
 
 
 ### Задание 2
