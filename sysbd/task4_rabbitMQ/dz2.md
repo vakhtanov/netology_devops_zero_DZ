@@ -81,6 +81,12 @@ $ rabbitmqctl cluster_status
 ```shell script
 $ rabbitmqadmin get queue='hello'
 ```
+----
+
+```bash
+docker exec -it rabbitmq-rabbitmq1-1 rabbitmqadmin --username=test --password=test get queue='hello'
+```
+----
 
 После чего попробуйте отключить одну из нод, желательно ту, к которой подключались из скрипта, затем поправьте параметры подключения в скрипте consumer.py на вторую ноду и запустите его.
 
