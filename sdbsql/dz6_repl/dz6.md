@@ -38,6 +38,18 @@
 
 *Приложите скриншоты конфигурации, выполнения работы: состояния и режимы работы серверов.*
 
+[**КОНФИГУРАЦИЯ DOCKER COMPOSE**](docker-compose/Master-slave)
+
+
+!(1docker_ps)[img/1docker_ps.JPG]
+
+!(2dbeaver)[img/2dbeaver.JPG]
+
+!(3master)[img/3master.JPG]
+
+!(4slave)[img/4slave.JPG]
+
+
 ---
 
 ## Дополнительные задания (со звёздочкой*)
