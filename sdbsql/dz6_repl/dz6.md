@@ -41,13 +41,13 @@
 [**КОНФИГУРАЦИЯ DOCKER COMPOSE**](docker-compose/Master-slave)
 
 
-!(1docker_ps)[img/1docker_ps.JPG]
+![1docker_ps](img/1docker_ps.JPG)
 
-!(2dbeaver)[img/2dbeaver.JPG]
+![2dbeaver](img/2dbeaver.JPG)
 
-!(3master)[img/3master.JPG]
+![3master](img/3master.JPG)
 
-!(4slave)[img/4slave.JPG]
+![4slave](img/4slave.JPG)
 
 
 ---
