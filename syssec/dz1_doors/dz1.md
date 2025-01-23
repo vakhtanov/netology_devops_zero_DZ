@@ -40,6 +40,14 @@
 
 ![img](1scan2.JPG)
 
+**Уязвимости**
+
+[OpenSSH < 7.4 - agent Protocol Arbitrary Library Loading](https://www.exploit-db.com/exploits/40963)
+
+[Webfroot Shoutbox < 2.32 (Apache) - Local File Inclusion / Remote Code Execution](https://www.exploit-db.com/exploits/34)
+
+[ProFTPd IAC 1.3.x - Remote Command Execution](https://www.exploit-db.com/exploits/15449)
+
 ### Задание 2
 
 Проведите сканирование Metasploitable в режимах SYN, FIN, Xmas, UDP.
@@ -52,3 +60,5 @@
 - Как отвечает сервер?
 
 *Приведите ответ в свободной форме.*
+
+
