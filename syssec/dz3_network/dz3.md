@@ -117,7 +117,8 @@ __ASK сканирование в логе не фиксируется, оста
 
 Дополнительная информация по **Fail2Ban**:https://putty.org.ru/articles/fail2ban-ssh.html.
 
-
+Подбор заблокирован
+![2stop_scan.JPG](2stop_scan.JPG)
 
 *В качестве ответа пришлите события, которые попали в логи Suricata и Fail2Ban, прокомментируйте результат.*
 
@@ -142,5 +143,9 @@ c Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146
 01/28/2025-20:21:27.299314  [**] [1:2003068:7] ET SCAN Potential SSH Scan OUTBOUND [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.1.146:57892 -> 192.168.1.124:22
 ```
 ругается на сканирвоание  SSH
+
+Лог Fail2ban
+![image](https://github.com/user-attachments/assets/50da5eab-13f1-4ef5-9cd6-9054816c0431)
+
 
 
