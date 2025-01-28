@@ -107,6 +107,8 @@ __ASK сканирование в логе не фиксируется, оста
 
 Дополнительная информация по **hydra**: https://kali.tools/?p=1847.
 
+![1pass_en](1pass_en.JPG)
+
 2. Включение защиты SSH для Fail2Ban:
 
 -  открыть файл /etc/fail2ban/jail.conf,
@@ -118,3 +120,27 @@ __ASK сканирование в логе не фиксируется, оста
 
 
 *В качестве ответа пришлите события, которые попали в логи Suricata и Fail2Ban, прокомментируйте результат.*
+
+Лог Suricata
+```
+c Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146:57772
+01/28/2025-20:21:26.291161  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146:57772
+01/28/2025-20:21:26.291161  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146:57772
+01/28/2025-20:21:26.292140  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.146:57772 -> 192.168.1.124:22
+01/28/2025-20:21:26.292140  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.146:57772 -> 192.168.1.124:22
+01/28/2025-20:21:26.479223  [**] [1:2003068:7] ET SCAN Potential SSH Scan OUTBOUND [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.1.146:57800 -> 192.168.1.124:22
+01/28/2025-20:21:26.479223  [**] [1:2003068:7] ET SCAN Potential SSH Scan OUTBOUND [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.1.146:57800 -> 192.168.1.124:22
+01/28/2025-20:21:26.538691  [**] [1:2003068:7] ET SCAN Potential SSH Scan OUTBOUND [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.1.146:57860 -> 192.168.1.124:22
+01/28/2025-20:21:26.538691  [**] [1:2003068:7] ET SCAN Potential SSH Scan OUTBOUND [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.1.146:57860 -> 192.168.1.124:22
+01/28/2025-20:21:26.557424  [**] [1:2260002:1] SURICATA Applayer Detect protocol only one direction [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146:57862
+01/28/2025-20:21:26.557424  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146:57862
+01/28/2025-20:21:26.557424  [**] [1:2260002:1] SURICATA Applayer Detect protocol only one direction [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146:57862
+01/28/2025-20:21:26.557424  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.124:22 -> 192.168.1.146:57862
+01/28/2025-20:21:26.572495  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.146:57862 -> 192.168.1.124:22
+01/28/2025-20:21:26.572495  [**] [1:2228000:1] SURICATA SSH invalid banner [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.1.146:57862 -> 192.168.1.124:22
+01/28/2025-20:21:27.299314  [**] [1:2003068:7] ET SCAN Potential SSH Scan OUTBOUND [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.1.146:57892 -> 192.168.1.124:22
+01/28/2025-20:21:27.299314  [**] [1:2003068:7] ET SCAN Potential SSH Scan OUTBOUND [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.1.146:57892 -> 192.168.1.124:22
+```
+ругается на сканирвоание  SSH
+
+
