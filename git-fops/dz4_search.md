@@ -20,14 +20,35 @@
 В клонированном репозитории:
 
 1. Найдите полный хеш и комментарий коммита, хеш которого начинается на `aefea`.
-2. Ответьте на вопросы.
+   
+![pic1](https://github.com/user-attachments/assets/364ba8eb-8587-4233-a0e1-c98dbad010ba)
+   
+3. Ответьте на вопросы.
 
 * Какому тегу соответствует коммит `85024d3`?
+
+![pic2](https://github.com/user-attachments/assets/a304240d-c48f-4780-85ec-0299566b561e)
+  
 * Сколько родителей у коммита `b8d720`? Напишите их хеши.
+
+  ![pic3](https://github.com/user-attachments/assets/fcfb2787-76fa-4096-b425-28430fcebbb6)
+
 * Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами  v0.12.23 и v0.12.24.
-* Найдите коммит, в котором была создана функция `func providerSource`, её определение в коде выглядит так: `func providerSource(...)` (вместо троеточия перечислены аргументы).
+
+  ![pic4](https://github.com/user-attachments/assets/0b6a81f6-2d5b-4ad3-924b-90c5ded4bb13)
+
+* Найдите коммит, в котором была создана функция `func providerSource`, её определение в коде выглядит так: `func providerSource(...)` (вместо троеточия перечислены аргументы).66
+
+  ![pic5](https://github.com/user-attachments/assets/6428091d-8d11-454d-bcc5-b7ccab2bf4d7)
+
 * Найдите все коммиты, в которых была изменена функция `globalPluginDirs`.
-* Кто автор функции `synchronizedWriters`? 
+
+  ![pic6](https://github.com/user-attachments/assets/2fbf4bf4-725d-43bf-a4c1-a7236aa23ec2)
+
+* Кто автор функции `synchronizedWriters`?
+
+  ![pic7](https://github.com/user-attachments/assets/f23fb83d-f0b6-4f31-8fe6-d381d4c5d213)
+
 
 *В качестве решения ответьте на вопросы и опишите, как были получены эти ответы.*
 
