@@ -27,6 +27,8 @@
 
 ---
 
+![yandex-vm](https://github.com/user-attachments/assets/2334384f-2fb9-40b7-b428-701c70f74d5c)
+
 
 ## Задача 2
 
