@@ -126,7 +126,7 @@ end
 ![2build_sucsess](https://github.com/user-attachments/assets/ad7ae9aa-94aa-4e35-8706-d02a2cc54d21)
 
 
-[Папка с кодом для Packer]([shvirtd/dz2_iaac/packer_cod](https://github.com/vakhtanov/netology_devops_zero_DZ/tree/main/shvirtd/dz2_iaac/packer_cod)
+[Папка с кодом для Packer](https://github.com/vakhtanov/netology_devops_zero_DZ/tree/main/shvirtd/dz2_iaac/packer_cod)
    
 3. Найдите свой образ в web консоли yandex_cloud
    
