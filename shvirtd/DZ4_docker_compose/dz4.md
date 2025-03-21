@@ -132,6 +132,27 @@ docker rm custom-nginx-t2 -f
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
+---------------------------------
+![task4](https://github.com/user-attachments/assets/e53860ee-ad63-40dc-abfb-12de0af5e798)
+
+```bash
+docker pull centos:centos8
+
+docker pull debian
+
+docker run -v $(pwd):/data -d --name centos centos:centos8 tail -f /dev/null
+
+docker run -v $(pwd):/data -d --name debian  debian tail -f /dev/null
+
+docker ps -a
+
+docker exec centos  touch /data/first_file
+
+echo some_text > second_file
+
+docker exec debian ls /data
+```
+-------------------------------
 
 ## Задача 5
 
@@ -159,11 +180,29 @@ services:
 
 И выполните команду "docker compose up -d". Какой из файлов был запущен и почему? (подсказка: https://docs.docker.com/compose/compose-application-model/#the-compose-file )
 
+```text
+запустился compose.yaml, в новых версиях если есть compose.yaml и docker-compose.yaml запускается первый
+```
+
 2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
 
-3. Выполните в консоли вашей хостовой ОС необходимые команды чтобы залить образ custom-nginx как custom-nginx:latest в запущенное вами, локальное registry. Дополнительная документация: https://distribution.github.io/distribution/about/deploying/
-4. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
-5. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
+"compose.yaml" с содержимым:
+```
+version: "3"
+include:
+  - docker-compose.yaml 
+
+services:
+  portainer:
+    network_mode: host
+    image: portainer/portainer-ce:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+```   
+
+4. Выполните в консоли вашей хостовой ОС необходимые команды чтобы залить образ custom-nginx как custom-nginx:latest в запущенное вами, локальное registry. Дополнительная документация: https://distribution.github.io/distribution/about/deploying/
+5. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
+6. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
 
 ```
 version: '3'
