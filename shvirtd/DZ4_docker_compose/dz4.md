@@ -269,7 +269,8 @@ sudo systemctl restart docker
 
 ![task5_8](https://github.com/user-attachments/assets/152011ae-8ea8-481e-9671-86ceb2435c31)
 
-![task5_9](https://github.com/user-attachments/assets/b17d18e0-334a-4f72-a7dc-742189a35315)
+![task5_10](https://github.com/user-attachments/assets/05162405-29bb-4387-bf04-389589084bd0)
+
 
 **найден сиротский контейнер, потому, что нет в compose файле. можно его очистить**
 
