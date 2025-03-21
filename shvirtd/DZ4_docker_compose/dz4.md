@@ -83,6 +83,8 @@ curl 127.0.0.1:8080
 **в поток ввода контейнера был отправлен сигнал SIGINT для прерывания процесса, то есть nginx. процесс завершился, контейнер завершился.**
 
 ![task3_2](https://github.com/user-attachments/assets/ea5eeb48-2e79-403c-bd37-4a3d0518a691)
+![task3_3](https://github.com/user-attachments/assets/644127bd-5aae-45bb-b4f1-2b5f7dc11c2b)
+
 
 **порт 8080 перенаправляется на 80 порт, а nginx слушает 81**
 
