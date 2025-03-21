@@ -272,7 +272,7 @@ sudo systemctl restart docker
 ![task5_10](https://github.com/user-attachments/assets/05162405-29bb-4387-bf04-389589084bd0)
 
 
-**найден сиротский контейнер, потому, что нет в compose файле. можно его очистить**
+**найден сиротский контейнер, потому, что нет в compose файле. можно его очистить опцией --remove-orphans**
 
 "compose.yaml" :
 
