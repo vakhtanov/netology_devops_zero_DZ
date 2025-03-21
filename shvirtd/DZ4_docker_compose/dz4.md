@@ -184,9 +184,9 @@ services:
 ![task5_1](https://github.com/user-attachments/assets/be237dd9-570d-461f-af7f-61218f9dfafa)
 
 
-```text
-запустился compose.yaml, в новых версиях если есть compose.yaml и docker-compose.yaml запускается первый
-```
+
+**запустился compose.yaml, коммандой docker compose приоритет запуска имеет compose.yaml перед docker-compose.yaml запускается только первый**
+
 -----------------------------
 2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
 
