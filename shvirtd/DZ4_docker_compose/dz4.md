@@ -44,6 +44,19 @@ Hey, Netology
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
+![task2](https://github.com/user-attachments/assets/c1d2eb4a-24a7-4323-9dff-0f4ebcb1af68)
+
+```bash
+docker run  -d -p 127.0.0.1:8080:80 --name VakhtanovAndreySergeevich-custom-nginx-t2 andreyvakhtanov/custom-nginx:1.0.0
+
+docker rename VakhtanovAndreySergeevich-custom-nginx-t2 custom-nginx-t2
+
+date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:8080  ;
+docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html
+
+curl 127.0.0.1:8080
+```
+
 
 ## Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
@@ -60,6 +73,46 @@ Hey, Netology
 12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+![task3_1](https://github.com/user-attachments/assets/28e196e5-fa76-43c0-b8d5-121b9ecfabdf)
+
+**в поток ввода контейнера был отправлен сигнал SIGINT для прерывания процесса, то есть nginx. процесс завершился, контейнер завершился.**
+
+![task3_2](https://github.com/user-attachments/assets/ea5eeb48-2e79-403c-bd37-4a3d0518a691)
+
+**порт 8080 перенаправляется на 80 порт, а nginx слушает 81**
+
+```bash
+docker attach custom-nginx-t2
+
+docker ps -a
+в поток ввода контейнера был отправлен сигнал SIGINT для прерывания процесса, то есть nginx. процесс завершился, контейнер завершился.
+
+docker start custom-nginx-t2
+
+docker exec -it custom-nginx-t2 bash
+
+apt-get update > /dev/null 2>&1
+
+apt-get install -y nano > /dev/null 2>&1
+
+nano /etc/nginx/conf.d/default.conf
+
+nginx -s reload
+
+curl http://127.0.0.1:80; curl http://127.0.0.1:81
+
+exit
+
+ss -tlpn | grep 127.0.0.1:8080; docker port custom-nginx-t2; curl http://127.0.0.1:8080
+
+порт 8080 перенаправляется на 80 порт, а nginx слушает 81
+
+docker rm custom-nginx-t2 -f
+```
+
+
+
 
 ## Задача 4
 
