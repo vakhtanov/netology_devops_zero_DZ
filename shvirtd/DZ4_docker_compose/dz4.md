@@ -180,10 +180,14 @@ services:
 
 И выполните команду "docker compose up -d". Какой из файлов был запущен и почему? (подсказка: https://docs.docker.com/compose/compose-application-model/#the-compose-file )
 
+-------------------------------------
+![task5_1](https://github.com/user-attachments/assets/be237dd9-570d-461f-af7f-61218f9dfafa)
+
+
 ```text
 запустился compose.yaml, в новых версиях если есть compose.yaml и docker-compose.yaml запускается первый
 ```
-
+-----------------------------
 2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
 
 "compose.yaml" с содержимым:
@@ -199,10 +203,26 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 ```   
+----------------------------------------
+![task5_2](https://github.com/user-attachments/assets/1c6bdc4d-93ba-4d1b-8cbd-56bbe6d9f9a8)
+
+--------------------------------------------------
+
 
 4. Выполните в консоли вашей хостовой ОС необходимые команды чтобы залить образ custom-nginx как custom-nginx:latest в запущенное вами, локальное registry. Дополнительная документация: https://distribution.github.io/distribution/about/deploying/
-5. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
-6. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
+--------------------------------------
+![task5_3](https://github.com/user-attachments/assets/116273ea-8200-48ab-835f-07abcb668879)
+
+```bash
+docker image ls
+docker tag andreyvakhtanov/custom-nginx:1.0.0 localhost:5000/custom-nginx:latest
+docker image ls
+docker push localhost:5000/custom-nginx:latest
+```
+
+
+6. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
+7. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
 
 ```
 version: '3'
@@ -213,13 +233,58 @@ services:
     ports:
       - "9090:80"
 ```
+
+------------------------------
+![task5_4](https://github.com/user-attachments/assets/6d9ef5e2-b041-46a4-8689-0fa1bbd970ba)
+
+возможно на хосте нужно будет сделать настройку
+
+```bash
+sudo nano /etc/docker/daemon.json
+
+{
+"insecure-registries": ["192.168.56.11:5000"]
+}
+
+sudo systemctl restart docker
+```
+
+---------------------------
+
 6. Перейдите на страницу "http://127.0.0.1:9000/#!/2/docker/containers", выберите контейнер с nginx и нажмите на кнопку "inspect". В представлении <> Tree разверните поле "Config" и сделайте скриншот от поля "AppArmorProfile" до "Driver".
 
-7. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
+---------------------------------
+![task5_5](https://github.com/user-attachments/assets/904cf998-145f-431d-85bc-3a94e611f4e6)
+
+---------------------------------
+
+8. Удалите любой из манифестов компоуза(например compose.yaml).  Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
 
 ---
+![task5_6](https://github.com/user-attachments/assets/b6b12818-29e9-4b7e-8db8-40e63cbcfa46)
+
+![task5_8](https://github.com/user-attachments/assets/152011ae-8ea8-481e-9671-86ceb2435c31)
+
+![task5_9](https://github.com/user-attachments/assets/b17d18e0-334a-4f72-a7dc-742189a35315)
+
+"compose.yaml" :
+
+```yml
+version: "3"
+include:
+  - docker-compose.yaml 
+
+services:
+  portainer:
+    network_mode: host
+    image: portainer/portainer-ce:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+```   
+
+
 
 ### Правила приема
 
