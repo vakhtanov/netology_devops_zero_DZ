@@ -190,7 +190,9 @@ services:
 -----------------------------
 2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
 
-"compose.yaml" с содержимым:
+----------------------------------------
+
+"compose.yaml" новый:
 ```
 version: "3"
 include:
@@ -203,7 +205,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 ```   
-----------------------------------------
+
 ![task5_2](https://github.com/user-attachments/assets/1c6bdc4d-93ba-4d1b-8cbd-56bbe6d9f9a8)
 
 --------------------------------------------------
@@ -219,7 +221,7 @@ docker tag andreyvakhtanov/custom-nginx:1.0.0 localhost:5000/custom-nginx:latest
 docker image ls
 docker push localhost:5000/custom-nginx:latest
 ```
-
+----------------------------------------
 
 6. Откройте страницу "https://127.0.0.1:9000" и произведите начальную настройку portainer.(логин и пароль адмнистратора)
 7. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local  окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
@@ -262,7 +264,7 @@ sudo systemctl restart docker
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод, файл compose.yaml , скриншот portainer c задеплоенным компоузом.
 
----
+-----------------------
 ![task5_6](https://github.com/user-attachments/assets/b6b12818-29e9-4b7e-8db8-40e63cbcfa46)
 
 ![task5_8](https://github.com/user-attachments/assets/152011ae-8ea8-481e-9671-86ceb2435c31)
@@ -283,7 +285,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 ```   
-
+---------------------------------------------------
 
 
 ### Правила приема
