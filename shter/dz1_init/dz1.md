@@ -51,17 +51,57 @@ personal.auto.tfvars
 ```
 
 8. Выполните код. В качестве ответа приложите: исправленный фрагмент кода и вывод команды ```docker ps```.
-
    
+```hcl
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.image_id
+  name  = "example_${random_password.random_string.result}"
+
+  ports {
+    internal = 80
+    external = 9090
+  }
+}
+```
+   ![04docker ps](https://github.com/user-attachments/assets/fc5b28ab-44db-45ed-a14f-975ecd8cc043)
+
 10. Замените имя docker-контейнера в блоке кода на ```hello_world```. Не перепутайте имя контейнера и имя образа. Мы всё ещё продолжаем использовать name = "nginx:latest". Выполните команду ```terraform apply -auto-approve```.
 Объясните своими словами, в чём может быть опасность применения ключа  ```-auto-approve```. Догадайтесь или нагуглите зачем может пригодиться данный ключ? В качестве ответа дополнительно приложите вывод команды ```docker ps```.
+```
+ключ -auto-approve позволяет изменять ресурсы без подтверждения, то есть терраформ сделает план и сразу его применит, отменить не получится
+в данном случае мы только переименовали контейнер, а терраформ старый удалил и сделал новый
 
+этот ключ полезен в скриптах при автоматизации развертывания
+
+```
+![06rename](https://github.com/user-attachments/assets/558177d3-bff0-4b5c-ac45-462858d8d6c3)
 
 12. Уничтожьте созданные ресурсы с помощью **terraform**. Убедитесь, что все ресурсы удалены. Приложите содержимое файла **terraform.tfstate**.
 
+```hcl
+{
+  "version": 4,
+  "terraform_version": "1.11.2",
+  "serial": 19,
+  "lineage": "76f5257f-f070-18aa-72b8-bcb94b157086",
+  "outputs": {},
+  "resources": [],
+  "check_results": null
+}
+```
 
 14. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ**, а затем **ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ** строчкой из документации [**terraform провайдера docker**](https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs).  (ищите в классификаторе resource docker_image )
 
+```
+потому, что опция - keep_locally = true
+
+
+```
 
 
 ------
