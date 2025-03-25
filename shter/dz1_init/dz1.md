@@ -138,6 +138,8 @@ keep_locally (Boolean) If true, then the Docker image won't be deleted on destro
 
 [создание VM](vm_yandex.tf)
 
+[meta.txt](meta.txt)
+
 [развертка базы данных](docker.tf)
 
 ---------------------
