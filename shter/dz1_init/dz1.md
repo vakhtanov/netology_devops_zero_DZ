@@ -131,6 +131,17 @@ keep_locally (Boolean) If true, then the Docker image won't be deleted on destro
 
 6. Зайдите на вашу ВМ , подключитесь к контейнеру и проверьте наличие секретных env-переменных с помощью команды ```env```. Запишите ваш финальный код в репозиторий.
 
+----------------------
+![07_dockps](https://github.com/user-attachments/assets/6cc60653-7152-4e62-adc9-34205594f83a)
+
+![08_mysql](https://github.com/user-attachments/assets/6a64db24-f5e9-4b82-ac65-f507d482eada)
+
+[создание VM](vm_yandex.tf)
+
+[развертка базы данных](docker.tf)
+
+---------------------
+
 ### Задание 3*
 1. Установите [opentofu](https://opentofu.org/)(fork terraform с лицензией Mozilla Public License, version 2.0) любой версии
 2. Попробуйте выполнить тот же код с помощью ```tofu apply```, а не terraform apply.
