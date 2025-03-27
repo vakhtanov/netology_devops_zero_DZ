@@ -89,6 +89,7 @@ core_fraction=5 - доля процессорного времени 5% - поз
 
 В качестве решения приложите вывод значений ip-адресов команды ```terraform output```.
 
+![08_output](https://github.com/user-attachments/assets/79e332d9-bae9-4e3f-a290-52c459eca3eb)
 
 ### Задание 5
 
@@ -96,7 +97,7 @@ core_fraction=5 - доля процессорного времени 5% - поз
 2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
 3. Примените изменения.
 
-![08_output](https://github.com/user-attachments/assets/79e332d9-bae9-4e3f-a290-52c459eca3eb)
+
 
 
 ### Задание 6
