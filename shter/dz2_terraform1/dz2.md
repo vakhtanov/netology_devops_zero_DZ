@@ -76,6 +76,11 @@ core_fraction=5 - доля процессорного времени 5% - поз
 2. Скопируйте блок ресурса и создайте с его помощью вторую ВМ в файле main.tf: **"netology-develop-platform-db"** ,  ```cores  = 2, memory = 2, core_fraction = 20```. Объявите её переменные с префиксом **vm_db_** в том же файле ('vms_platform.tf').  ВМ должна работать в зоне "ru-central1-b"
 3. Примените изменения.
 
+![06_vm2](https://github.com/user-attachments/assets/ea19db12-e065-4f76-9379-e8da096be22f)
+
+![07_ip2](https://github.com/user-attachments/assets/a0dc0957-5b3b-4c33-acc9-1445eb9f297f)
+
+
 
 ### Задание 4
 
