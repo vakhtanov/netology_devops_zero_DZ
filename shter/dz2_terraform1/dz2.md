@@ -145,9 +145,12 @@ db-name = "${local.base-name}-${local.sub_name_db}"
 5. Найдите и закоментируйте все, более не используемые переменные проекта.
 6. Проверьте terraform plan. Изменений быть не должно.
 
+ ![10_no_changes](https://github.com/user-attachments/assets/feb1abe3-3165-48fb-acec-3a4114d2d681)
+  
+
 ------
 
-**[ПАПКА ПРОЕКТА](./project/]**
+**[ПАПКА ПРОЕКТА](./project/)**
 
 -----------------------
 
