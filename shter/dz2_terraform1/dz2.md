@@ -97,7 +97,16 @@ core_fraction=5 - доля процессорного времени 5% - поз
 2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
 3. Примените изменения.
 
-
+```hcl
+locals {
+base-name = "netology-develop-platform"
+sub_name_web = "web"
+sub_name_db = "db"
+web-name = "${local.base-name}-${local.sub_name_web}"
+db-name = "${local.base-name}-${local.sub_name_db}"
+}
+```
+![09_local](https://github.com/user-attachments/assets/39017ab4-1436-4d03-8bd7-d64489d30471)
 
 
 ### Задание 6
