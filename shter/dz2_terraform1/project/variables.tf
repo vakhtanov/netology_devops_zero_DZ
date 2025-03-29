@@ -130,7 +130,7 @@ variable "metadata" {
   }
 }
 
-variable "test2" {
+variable "test" {
   type        = map(list(string))
   default     = {
     "dev1" = [
