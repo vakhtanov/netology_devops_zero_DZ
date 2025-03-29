@@ -205,8 +205,34 @@ test = [
   },
 ]
 ```
+
+```hcl
+variable "test" {
+  type        = map(list(string))
+  default     = {
+    "dev1" = [
+      "ssh -o 'StrictHostKeyChecking=no' ubuntu@62.84.124.117",
+      "10.0.1.7",
+    ]
+    "dev2" = [
+      "ssh -o 'StrictHostKeyChecking=no' ubuntu@84.252.140.88",
+      "10.0.2.29",
+    ] 
+    "prod1" = [
+      "ssh -o 'StrictHostKeyChecking=no' ubuntu@51.250.2.101",
+      "10.0.1.30",
+    ]
+    }
+}
+
+```
+![11var](https://github.com/user-attachments/assets/d5e4b647-c636-4fe4-b970-a0863315e306)
+
+
 2. Напишите выражение в terraform console, которое позволит вычленить строку "ssh -o 'StrictHostKeyChecking=no' ubuntu@62.84.124.117" из этой переменной.
 ------
+
+var.test.dev1[0]
 
 ------
 
