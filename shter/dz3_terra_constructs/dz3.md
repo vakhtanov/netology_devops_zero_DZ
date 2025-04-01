@@ -188,6 +188,14 @@ ${i["name"]} ansible_host=${i["network_interface"][0]["nat_ip_address"] platform
 %{~ endfor ~}
 ```
 
+**ответ - перенести самую последнюю скобку после ["nat_ip_address"]**
+```
+[webservers]
+%{~ for i in webservers ~}
+${i["name"]} ansible_host=${i["network_interface"][0]["nat_ip_address"]} platform_id=${i["platform_id "]}
+%{~ endfor ~}
+```
+
 ### Задание 9* (необязательное)
 Напишите  terraform выражения, которые сформируют списки:
 1. ["rc01","rc02","rc03","rc04",rc05","rc06",rc07","rc08","rc09","rc10....."rc99"] те список от "rc01" до "rc99"
