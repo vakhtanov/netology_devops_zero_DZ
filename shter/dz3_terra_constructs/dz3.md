@@ -30,6 +30,9 @@
 Приложите скриншот входящих правил «Группы безопасности» в ЛК Yandex Cloud .
 
 ------
+![01ingress](https://github.com/user-attachments/assets/3fcaa266-4c5b-48ac-a713-061cf597a732)
+
+------
 
 ### Задание 2
 
