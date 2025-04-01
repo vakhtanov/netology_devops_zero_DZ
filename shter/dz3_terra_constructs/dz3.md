@@ -49,11 +49,24 @@ variable "each_vm" {
 6. Инициализируйте проект, выполните код.  
 
 ------
+![02_terra](https://github.com/user-attachments/assets/d71b37b4-89ed-4db4-a3ba-b56061c7313c)
+
+
+![03_ya_vms](https://github.com/user-attachments/assets/b297a9d3-23cc-42fc-9fd6-6094b09e2071)
+
+------
 
 ### Задание 3
 
 1. Создайте 3 одинаковых виртуальных диска размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле **disk_vm.tf** .
 2. Создайте в том же файле **одиночную**(использовать count или for_each запрещено из-за задания №4) ВМ c именем "storage"  . Используйте блок **dynamic secondary_disk{..}** и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
+
+------
+![04_terra_disk](https://github.com/user-attachments/assets/5ca7c078-88dc-4767-8e7d-c86a9d67401f)
+
+![05_ya_vms](https://github.com/user-attachments/assets/b3ad110d-5a52-411d-bb61-d3f484c7a497)
+
+![06_ya_disks](https://github.com/user-attachments/assets/99077fb5-4000-49e2-bb65-1bf630a49dab)
 
 ------
 
