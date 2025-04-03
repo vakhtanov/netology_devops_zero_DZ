@@ -44,6 +44,10 @@ variable "vpc_name" {
 #   }
 # }
 
+data "yandex_compute_image" "ubuntu-2404" {
+  family = "ubuntu-2404-lts-oslogin"
+}
+
 variable "each_vm" {
   type = list(object({ 
      vm_name=string,
@@ -52,7 +56,7 @@ variable "each_vm" {
      cpu=number,
      core_fraction=number, 
      ram=number, 
-     image_id=string,
+
      disk_volume=number,
      }))
 
@@ -63,7 +67,7 @@ variable "each_vm" {
      cpu=4,
      core_fraction=20, 
      ram=4, 
-     image_id="fd8r7e7939o13595bpef" ,
+
      disk_volume=30,
      },
      {
@@ -91,7 +95,7 @@ variable "count_vm" {
      cpu=number,
      core_fraction=number, 
      ram=number, 
-     image_id=string,
+
      disk_volume=number,
      nat=bool,
      })
@@ -104,7 +108,7 @@ variable "count_vm" {
      cpu=2,
      core_fraction=20, 
      ram=2, 
-     image_id="fd8r7e7939o13595bpef" ,
+
      disk_volume=30,
      nat=true,
      }
@@ -121,7 +125,7 @@ variable "storage" {
      cpu=number,
      core_fraction=number, 
      ram=number, 
-     image_id=string,
+
      disk_volume=number,
      nat=bool,
      })
@@ -135,7 +139,7 @@ variable "storage" {
      cpu=2,
      core_fraction=20, 
      ram=2, 
-     image_id="fd8r7e7939o13595bpef" ,
+
      disk_volume=30,
      nat=true,
      }
