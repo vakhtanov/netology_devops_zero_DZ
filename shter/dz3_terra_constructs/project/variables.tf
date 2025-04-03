@@ -80,3 +80,63 @@ variable "each_vm" {
      
       ]
 }
+
+#count_vm params
+variable "count_vm" {
+  type = object({
+     vm_num=number,
+
+     platform_id=string,
+     preemptible=bool,  
+     cpu=number,
+     core_fraction=number, 
+     ram=number, 
+     image_id=string,
+     disk_volume=number,
+     nat=bool,
+     })
+
+     default = {
+     vm_num=2
+
+     platform_id="standard-v3",
+     preemptible=true,  
+     cpu=2,
+     core_fraction=20, 
+     ram=2, 
+     image_id="fd8r7e7939o13595bpef" ,
+     disk_volume=30,
+     nat=true,
+     }
+}
+
+#storage params
+variable "storage" {
+  type = object({
+     vm_name=string,
+     s_disk_count=number,
+     s_disk_size=number,
+     platform_id=string,
+     preemptible=bool,  
+     cpu=number,
+     core_fraction=number, 
+     ram=number, 
+     image_id=string,
+     disk_volume=number,
+     nat=bool,
+     })
+
+     default =  {
+     vm_name="storage",
+     s_disk_count=3,
+     s_disk_size=1,
+     platform_id="standard-v3",
+     preemptible=true,  
+     cpu=2,
+     core_fraction=20, 
+     ram=2, 
+     image_id="fd8r7e7939o13595bpef" ,
+     disk_volume=30,
+     nat=true,
+     }
+}

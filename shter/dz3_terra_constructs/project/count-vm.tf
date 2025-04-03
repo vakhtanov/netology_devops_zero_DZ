@@ -1,32 +1,32 @@
 resource "yandex_compute_instance" "web" {
-  count = 2
+  count = var.count_vm.vm_num
   depends_on = [ yandex_compute_instance.for-each ]
 
 
   name = "web-${count.index + 1}"
-  platform_id = "standard-v3"
+  platform_id = var.count_vm.platform_id
   #allow_stopping_for_update = true
   
   scheduling_policy {
-  preemptible = true
+  preemptible = var.count_vm.preemptible
   }
   
   resources {
-    core_fraction = 20
-    cores  = 2
-    memory = 2
+    core_fraction = var.count_vm.core_fraction
+    cores  = var.count_vm.cpu
+    memory = var.count_vm.ram
   }
 
   boot_disk {
     initialize_params {
-      image_id = "fd8r7e7939o13595bpef" #Ubuntu 22.04 LTS OS Login
-      size = 30
+      image_id = var.count_vm.image_id #Ubuntu 22.04 LTS OS Login
+      size = var.count_vm.disk_volume
     }
   }
 
   network_interface {
     subnet_id = yandex_vpc_subnet.develop.id
-    nat       = true
+    nat       = var.count_vm.nat
     security_group_ids = [yandex_vpc_security_group.example.id]
   }
   
