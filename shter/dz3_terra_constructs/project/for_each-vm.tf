@@ -20,7 +20,7 @@ resource "yandex_compute_instance" "for-each" {
 
   boot_disk {
     initialize_params {
-      image_id = each.value.image_id #Ubuntu 22.04 LTS OS Login
+      image_id = data.yandex_compute_image.ubuntu-2404.id
       size = each.value.disk_volume
     }
   }
