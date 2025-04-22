@@ -157,6 +157,20 @@ docker cp terraform:/bin/terraform terraform
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
 Предоставьте скриншоты  действий .
 
+```sh
+nano Dockerfile
+
+FROM hashicorp/terraform:latest  as source
+FROM scratch
+COPY --from=source /bin/terraform /output/
+
+docker build --output type=local,dest=. .
+
+```
+
+![62](https://github.com/user-attachments/assets/b954eae7-4e72-4cab-bccd-9471131f226d)
+
+
 ## Задача 7 (***)
 Запустите ваше python-приложение с помощью runC, не используя docker или containerd.  
 Предоставьте скриншоты  действий .
