@@ -40,6 +40,10 @@ See 'snap info docker' for additional versions.
 !!! В процессе последующего выполнения ДЗ НЕ изменяйте содержимое файлов в fork-репозитории! Ваша задача ДОБАВИТЬ 5 файлов: ```Dockerfile.python```, ```compose.yaml```, ```.gitignore```, ```.dockerignore```,```bash-скрипт```. Если вам понадобилось внести иные изменения в проект - вы что-то делаете неверно!
 ---
 
+![1build](https://github.com/user-attachments/assets/0675a0d1-540c-4c37-a787-facbf3b64985)
+
+![1test](https://github.com/user-attachments/assets/9bb88184-5b80-404d-b653-b879280dd7d6)
+
 ---------------------------------------------
 **[GIT REPO](https://github.com/vakhtanov/shvirtd-dz5_vah.git)**
 ---------------------------------------------
@@ -69,6 +73,16 @@ See 'snap info docker' for additional versions.
 
 -------------------------------------------
 **[GIT REPO](https://github.com/vakhtanov/shvirtd-dz5_vah.git)**
+
+![3task_local](https://github.com/user-attachments/assets/53c2771c-81f6-4111-8191-d4256438db65)
+
+![3task_host](https://github.com/user-attachments/assets/a37918c5-9ade-482b-9f31-0fc4a68e5ee7)
+
+![3task_1db](https://github.com/user-attachments/assets/488c8f42-a4ce-4c5b-9656-bda80ab05470)
+
+![3task_2db](https://github.com/user-attachments/assets/f54f8b34-c6de-4b5c-b931-09d282e16d41)
+
+
 ----------------------------------------------
 
 ## Задача 4
@@ -81,6 +95,15 @@ See 'snap info docker' for additional versions.
 
 ----------------------------------------------------
 **[GIT REPO](https://github.com/vakhtanov/shvirtd-dz5_vah.git)**
+
+![4start](https://github.com/user-attachments/assets/20b5d4ef-74a8-4109-952a-b1d95d49c76b)
+
+![4start2](https://github.com/user-attachments/assets/b8be3256-7ceb-4350-a753-c059aeb1b068)
+
+![4check](https://github.com/user-attachments/assets/9c0c42cd-f43b-420c-bbe5-f5eb733bd524)
+
+![4result](https://github.com/user-attachments/assets/fd56a4db-3388-4252-be2c-678641f3e425)
+
 -------------------------------------------
 
 ## Задача 5 (*)
@@ -92,6 +115,28 @@ See 'snap info docker' for additional versions.
 ## Задача 6
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
+
+---------------
+```bash
+docker pull hashicorp/terraform:latest
+docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest hashicorp/terraform:latest
+Слой sha256:e35d097131899af8095a52cc89db313d7d112e1264cb86961b2d60118c10ad8a
+docker save hashicorp/terraform:latest -o terraform.tar
+tar -xf terraform.tar
+tar -xf blobs/sha256/e35d097131899af8095a52cc89db313d7d112e1264cb86961b2d60118c10ad8a
+ll bin
+```
+
+![6task1](https://github.com/user-attachments/assets/d2c9d4cb-2b25-48fd-b2e8-a593f6298c1a)
+
+![6task2](https://github.com/user-attachments/assets/88f3394f-95af-418f-b740-f0dfafc394f8)
+
+![6task3](https://github.com/user-attachments/assets/3ced4e8b-9207-4d17-803c-c6c85f2629e1)
+
+![6task4](https://github.com/user-attachments/assets/e6091965-41a6-4e53-9ab8-bf4ad3c2dc20)
+
+
+---------------
 
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
