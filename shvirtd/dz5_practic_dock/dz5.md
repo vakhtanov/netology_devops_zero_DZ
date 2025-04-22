@@ -144,14 +144,13 @@ ll bin
 
 ```sh
 docker pull hashicorp/terraform:latest
-docker run --name terraform hashicorp/terraform:latest -d
+docker create --name terraform hashicorp/terraform:latest
 docker ps -a
 docker cp terraform:/bin/terraform terraform
 ```
 
-![61start](https://github.com/user-attachments/assets/8507a630-e023-438a-b7ac-716bd67909a0)
+![61main](https://github.com/user-attachments/assets/89330133-e3b1-4898-a20b-fe25f3381e4f)
 
-![61copy](https://github.com/user-attachments/assets/0e5c4df9-353e-44d2-aa2f-a71581aaf42b)
 
 
 ## Задача 6.2 (**)
