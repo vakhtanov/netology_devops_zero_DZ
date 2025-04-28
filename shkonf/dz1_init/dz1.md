@@ -59,13 +59,51 @@ interpreter_python:auto_silent
 
 
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
+
+![4task](https://github.com/user-attachments/assets/e412191d-3442-4f80-9495-6f47e59bdd3f)
+
+
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились значения: для `deb` — `deb default fact`, для `el` — `el default fact`.
 6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
+
+![6task](https://github.com/user-attachments/assets/1cfa822b-6109-4d73-a4df-db0d88c1ad0d)
+
+
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
+
+![7task](https://github.com/user-attachments/assets/cc7e6cd0-de8f-4fb9-8ba7-b0115f2b5ff3)
+
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
+
+![8task](https://github.com/user-attachments/assets/5b9dafaf-d206-4f27-ad20-c29fb327174f)
+
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
+
+![9task](https://github.com/user-attachments/assets/89dae807-c4d4-4c10-8639-07dff32fc181)
+
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
+
+*prod.yaml*
+```
+---
+  el:
+    hosts:
+      rockylinux9:
+        ansible_connection: docker
+  deb:
+    hosts:
+      ubuntu22:
+        ansible_connection: docker
+  local:
+    hosts:
+      localhost:
+        ansible_connection: local
+```
+
 11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь, что факты `some_fact` для каждого из хостов определены из верных `group_vars`.
+
+![11task](https://github.com/user-attachments/assets/9abda9f8-0d3b-4764-b16e-39dc21c95e6d)
+
 12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.
 13. Предоставьте скриншоты результатов запуска команд.
 
