@@ -114,6 +114,25 @@ interpreter_python:auto_silent
 3. Запустите `playbook`, убедитесь, что для нужных хостов применился новый `fact`.
 4. Добавьте новую группу хостов `fedora`, самостоятельно придумайте для неё переменную. В качестве образа можно использовать [этот вариант](https://hub.docker.com/r/pycontribs/fedora).
 5. Напишите скрипт на bash: автоматизируйте поднятие необходимых контейнеров, запуск ansible-playbook и остановку контейнеров.
+
+compose.yaml
+```
+version: "3"
+services:
+  rockylinux:
+    image: rockylinux:9
+    container_name: rockylinux9
+    command:  bash -c "dnf install -y python3 && sleep infinity"
+
+
+  ubuntu:
+    image: ubuntu:22.04
+    container_name: ubuntu22
+    command: bash -c "apt update && apt install -y python3 && sleep infinity"
+
+
+```
+
 6. Все изменения должны быть зафиксированы и отправлены в ваш личный репозиторий.
 
 ---
