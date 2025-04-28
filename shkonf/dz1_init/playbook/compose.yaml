@@ -1,0 +1,13 @@
+version: "3"
+services:
+  rockylinux:
+    image: rockylinux:9
+    container_name: rockylinux9
+    command:  bash -c "dnf install -y python3 && sleep infinity"
+
+
+  ubuntu:
+    image: ubuntu:22.04
+    container_name: ubuntu22
+    command: bash -c "apt update && apt install -y python3 && sleep infinity"
+
