@@ -48,7 +48,14 @@ prod.yaml
         ansible_connection: docker
 ```
 
-![3task](https://github.com/user-attachments/assets/aaebf3fe-e301-438b-8414-0bd8ad6017e8)
+*ansible.cfg*
+```
+[defaults]
+interpreter_python:auto_silent
+```
+
+![3task](https://github.com/user-attachments/assets/c16585aa-f6f4-435c-9a54-79243b9a9d1c)
+
 
 
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
