@@ -9,14 +9,48 @@
 ## Основная часть
 
 1. Попробуйте запустить playbook на окружении из `test.yml`, зафиксируйте значение, которое имеет факт `some_fact` для указанного хоста при выполнении playbook.
-2. Найдите файл с переменными (group_vars), в котором задаётся найденное в первом пункте значение, и поменяйте его на `all default fact`.
-3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 
+![1task](https://github.com/user-attachments/assets/1d998d9b-aad1-49b5-9b21-1c2a889db279)
+
+
+3. Найдите файл с переменными (group_vars), в котором задаётся найденное в первом пункте значение, и поменяйте его на `all default fact`.
+
+![2task](https://github.com/user-attachments/assets/09346fd9-c71f-4033-898e-dce7d9a60348)
+
+
+5. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
+
+*compose.yaml*
 ```
-docker run --name centos7 -d pycontribs/centos:7 sleep 36000000
-docker run --name ubuntu -d pycontribs/ubuntu sleep 36000000
+version: "3"
+services:
+  rockylinux:
+    image: rockylinux:9
+    container_name: rockylinux9
+    command:  bash -c "dnf install -y python3 && sleep infinity"
+
+
+  ubuntu:
+    image: ubuntu:22.04
+    container_name: ubuntu22
+    command: bash -c "apt update && apt install -y python3 && sleep infinity"
 ```
-   
+
+prod.yaml
+```
+  el:
+    hosts:
+      rockylinux9:
+        ansible_connection: docker
+  deb:
+    hosts:
+      ubuntu22:
+        ansible_connection: docker
+```
+
+![3task](https://github.com/user-attachments/assets/aaebf3fe-e301-438b-8414-0bd8ad6017e8)
+
+
 5. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
 6. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились значения: для `deb` — `deb default fact`, для `el` — `el default fact`.
 7.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
