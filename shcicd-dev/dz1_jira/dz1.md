@@ -45,7 +45,9 @@
 
 ![bug](https://github.com/user-attachments/assets/f2dd995f-6120-4e49-933b-69b8a799b33b)
 
+[bug_workflow.xml](bug_workflow.xml)
+
 ![tasks](https://github.com/user-attachments/assets/b5b7e2e7-331b-45dd-922b-7f86d038b0df)
 
-
+[bug_workflow.xml](bug_workflow.xml)
 
