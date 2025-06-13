@@ -71,6 +71,10 @@ _____
 
 * работающий код python3-скрипта;
 * конфигурацию cron-расписания;
+
+  ```
+  * * * * * python3 /home/user/sys_mon_python/monitoring.py >> /home/user/sys_mon_python/log.log 2>&1
+  ```
 * пример верно сформированного 'YY-MM-DD-awesome-monitoring.log', имеющий не меньше пяти записей.
 
 Дополнительная информация:
