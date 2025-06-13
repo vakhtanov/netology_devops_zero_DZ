@@ -70,12 +70,17 @@ _____
 Для успешного выполнения задания нужно привести:
 
 * работающий код python3-скрипта;
+
+[monitoring.py](monitoring.py)
+
 * конфигурацию cron-расписания;
 
   ```
   * * * * * python3 /home/user/sys_mon_python/monitoring.py >> /home/user/sys_mon_python/log.log 2>&1
   ```
 * пример верно сформированного 'YY-MM-DD-awesome-monitoring.log', имеющий не меньше пяти записей.
+
+[25-06-13-awesome-monitoring.log](25-06-13-awesome-monitoring.log)
 
 Дополнительная информация:
 
