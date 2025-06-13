@@ -1,0 +1,12 @@
+{"timestamp": 1749831061, "user": 2213, "nice": 556, "system": 5046, "idle": 496943, "MemTotal": 4005876, "MemFree": 2359464, "load1": 0.0}
+{"timestamp": 1749831121, "user": 2218, "nice": 556, "system": 5056, "idle": 508498, "MemTotal": 4005876, "MemFree": 2356944, "load1": 0.0}
+{"timestamp": 1749831182, "user": 2224, "nice": 556, "system": 5065, "idle": 520050, "MemTotal": 4005876, "MemFree": 2356188, "load1": 0.0}
+{"timestamp": 1749831241, "user": 2230, "nice": 556, "system": 5077, "idle": 531399, "MemTotal": 4005876, "MemFree": 2356188, "load1": 0.0}
+{"timestamp": 1749831301, "user": 2235, "nice": 556, "system": 5084, "idle": 542991, "MemTotal": 4005876, "MemFree": 2356188, "load1": 0.0}
+{"timestamp": 1749831361, "user": 2239, "nice": 556, "system": 5096, "idle": 554549, "MemTotal": 4005876, "MemFree": 2355432, "load1": 0.0}
+{"timestamp": 1749831421, "user": 2243, "nice": 556, "system": 5106, "idle": 566133, "MemTotal": 4005876, "MemFree": 2355432, "load1": 0.03}
+{"timestamp": 1749831481, "user": 2248, "nice": 556, "system": 5116, "idle": 577684, "MemTotal": 4005876, "MemFree": 2355432, "load1": 0.07}
+{"timestamp": 1749831541, "user": 2254, "nice": 556, "system": 5124, "idle": 589278, "MemTotal": 4005876, "MemFree": 2355432, "load1": 0.16}
+{"timestamp": 1749831601, "user": 2257, "nice": 556, "system": 5134, "idle": 600867, "MemTotal": 4005876, "MemFree": 2355536, "load1": 0.06}
+{"timestamp": 1749831661, "user": 2261, "nice": 556, "system": 5142, "idle": 612462, "MemTotal": 4005876, "MemFree": 2355180, "load1": 0.02}
+{"timestamp": 1749831721, "user": 2266, "nice": 556, "system": 5153, "idle": 624064, "MemTotal": 4005876, "MemFree": 2355184, "load1": 0.01}
