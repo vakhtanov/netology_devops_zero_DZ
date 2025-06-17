@@ -26,6 +26,9 @@
 1. Подключите поднятый вами prometheus, как источник данных.
 1. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
 
+![1_source](https://github.com/user-attachments/assets/b3f82ba9-f898-49f6-a0ca-805560f1310d)
+
+
 ## Задание 2
 
 Изучите самостоятельно ресурсы:
@@ -42,6 +45,26 @@
 - количество места на файловой системе.
 
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
+
+```promql
+- утилизация CPU для nodeexporter (в процентах, 100-idle)
+100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+
+
+- CPULA 1/5/15
+node_load1
+node_load5
+node_load15
+
+- количество свободной оперативной памяти
+node_memory_MemAvailable_bytes
+
+- количество места на файловой системе
+node_filesystem_avail_bytes{mountpoint="/",fstype!~"tmpfs|overlay"}
+```
+
+![2_dashboard](https://github.com/user-attachments/assets/404eab96-159f-44fc-a27e-84b1c60def75)
+
 
 ## Задание 3
 
