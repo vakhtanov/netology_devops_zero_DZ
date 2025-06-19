@@ -23,3 +23,9 @@ num_words = 5
 if __name__ == '__main__':
     for _ in range(num_words):
         print(random.choice(words))
+    #issue1
+    #print(some_text)
+    ##issue2
+    #rezult = 123/0
+    #issue3
+    #result = 123 + 1O
