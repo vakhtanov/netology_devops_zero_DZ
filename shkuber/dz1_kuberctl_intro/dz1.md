@@ -83,46 +83,24 @@
 
 https://habr.com/ru/articles/530352/
 
+
+**Если кластер Kubernetes запущен внутри виртуальной машины в VirtualBox,**
+доступ к Dashboard возможен с хостовой машины. Для этого нужно:
+Настроить сеть VirtualBox Host-Only или сетевой мост
+Изменить тип сервиса, который предоставляет доступ к pod kubernetes-dashboard:
+вместо установленного по-умолчанию ClusterIP нужно сделать NodePort. В результате Dashboard будет доступен на IP-адресе master-ноды. 
 ```
-Если кластер Kubernetes запущен внутри виртуальной машины в VirtualBox, доступ к Dashboard возможен с хостовой машины. Для этого нужно:
-Настроить сеть VirtualBox Host-Only — она будет использоваться для связи между нодами кластера и для доступа к кластеру с хостовой машины. 
-github.com
-Изменить тип сервиса, который предоставляет доступ к pod kubernetes-dashboard: вместо установленного по-умолчанию ClusterIP нужно сделать NodePort. В результате Dashboard будет доступен на IP-адресе master-ноды. 
-wiki.autosys.tk
-Получить порт, на котором доступен Dashboard: kubectl -n kubernetes-dashboard get svc kubernetes-dashboard-kong-proxy. Запомнить порт, сопоставленный с портом 443 (обычно это порт в диапазоне 30000–32767). 
-github.com
-Открыть Dashboard в браузере по адресу: https://IP_машины:<NODE_PORT>/. 
-github.com
-```
-
-```
-Чтобы изменить тип сервиса kubernetes-dashboard с ClusterIP на NodePort, нужно отредактировать манифест сервиса или изменить его напрямую через kubectl.
-
-▎Способ 1: Изменение существующего сервиса через kubectl
-
-1. Получите имя сервиса kubernetes-dashboard:
-
-Bash
-
 kubectl -n kubernetes-dashboard get svc
-
 Обычно сервис называется kubernetes-dashboard.
 
-2. Измените тип сервиса на NodePort:
-
-Bash
-
 kubectl -n kubernetes-dashboard patch svc kubernetes-dashboard -p '{"spec": {"type": "NodePort"}}'
-
-3. После этого можно посмотреть, на каком порту открылся NodePort:
-
-Bash
-
-kubectl -n kubernetes-dashboard get svc kubernetes-dashboard
-
-В выводе в столбце PORT(S) будет что-то вроде 443:XXXXX/TCP, где XXXXX — это порт NodePort.
-
-4. Теперь Dashboard будет доступен по IP-адресу любой ноды (в вашем случае master-ноды) и порту NodePort.
 ```
+Получить порт, на котором доступен Dashboard: kubectl -n kubernetes-dashboard get svc kubernetes-dashboard-kong-proxy. Запомнить порт, сопоставленный с портом 443 (обычно это порт в диапазоне 30000–32767). 
+```
+kubectl -n kubernetes-dashboard get svc kubernetes-dashboard
+В выводе в столбце PORT(S) будет что-то вроде 443:XXXXX/TCP, где XXXXX — это порт NodePort.
+```
+Открыть Dashboard в браузере по адресу: https://IP_машины:<NODE_PORT>/. 
+
 
 `kubectl -n kube-system get svc`
