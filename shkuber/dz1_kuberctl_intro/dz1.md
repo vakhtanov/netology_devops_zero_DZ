@@ -81,6 +81,14 @@
 
 <img width="670" height="201" alt="image" src="https://github.com/user-attachments/assets/114fac3a-402d-475a-a904-60917e3a306d" />
 
+генерация токена
+`microk8s kubectl create token default`
+
+<img width="709" height="70" alt="image" src="https://github.com/user-attachments/assets/31a6d1b6-044d-4828-b961-eb7b2d54c615" />
+
+
+
+<img width="979" height="983" alt="image" src="https://github.com/user-attachments/assets/64140144-500f-49a9-9db8-50cc977564a5" />
 
 
 
@@ -95,14 +103,14 @@ https://habr.com/ru/articles/530352/
 Изменить тип сервиса, который предоставляет доступ к pod kubernetes-dashboard:
 вместо установленного по-умолчанию ClusterIP нужно сделать NodePort. В результате Dashboard будет доступен на IP-адресе master-ноды. 
 ```
-kubectl -n kubernetes-dashboard get svc
+kubectl -n kube-system get svc
 Обычно сервис называется kubernetes-dashboard.
 
-kubectl -n kubernetes-dashboard patch svc kubernetes-dashboard -p '{"spec": {"type": "NodePort"}}'
+kubectl -n kube-system patch svc kubernetes-dashboard -p '{"spec": {"type": "NodePort"}}'
 ```
 Получить порт, на котором доступен Dashboard: kubectl -n kubernetes-dashboard get svc kubernetes-dashboard-kong-proxy. Запомнить порт, сопоставленный с портом 443 (обычно это порт в диапазоне 30000–32767). 
 ```
-kubectl -n kubernetes-dashboard get svc kubernetes-dashboard
+kubectl -n kube-system get svc kubernetes-dashboard
 В выводе в столбце PORT(S) будет что-то вроде 443:XXXXX/TCP, где XXXXX — это порт NodePort.
 ```
 Открыть Dashboard в браузере по адресу: https://IP_машины:<NODE_PORT>/. 
