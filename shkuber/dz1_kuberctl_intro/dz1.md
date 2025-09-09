@@ -94,3 +94,4 @@ github.com
 Открыть Dashboard в браузере по адресу: https://IP_машины:<NODE_PORT>/. 
 github.com
 ```
+`kubectl -n kube-system get svc`
