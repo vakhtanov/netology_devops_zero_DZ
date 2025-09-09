@@ -82,3 +82,15 @@
 
 
 https://habr.com/ru/articles/530352/
+
+```
+Если кластер Kubernetes запущен внутри виртуальной машины в VirtualBox, доступ к Dashboard возможен с хостовой машины. Для этого нужно:
+Настроить сеть VirtualBox Host-Only — она будет использоваться для связи между нодами кластера и для доступа к кластеру с хостовой машины. 
+github.com
+Изменить тип сервиса, который предоставляет доступ к pod kubernetes-dashboard: вместо установленного по-умолчанию ClusterIP нужно сделать NodePort. В результате Dashboard будет доступен на IP-адресе master-ноды. 
+wiki.autosys.tk
+Получить порт, на котором доступен Dashboard: kubectl -n kubernetes-dashboard get svc kubernetes-dashboard-kong-proxy. Запомнить порт, сопоставленный с портом 443 (обычно это порт в диапазоне 30000–32767). 
+github.com
+Открыть Dashboard в браузере по адресу: https://IP_машины:<NODE_PORT>/. 
+github.com
+```
