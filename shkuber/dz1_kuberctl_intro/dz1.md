@@ -94,4 +94,35 @@ github.com
 Открыть Dashboard в браузере по адресу: https://IP_машины:<NODE_PORT>/. 
 github.com
 ```
+
+```
+Чтобы изменить тип сервиса kubernetes-dashboard с ClusterIP на NodePort, нужно отредактировать манифест сервиса или изменить его напрямую через kubectl.
+
+▎Способ 1: Изменение существующего сервиса через kubectl
+
+1. Получите имя сервиса kubernetes-dashboard:
+
+Bash
+
+kubectl -n kubernetes-dashboard get svc
+
+Обычно сервис называется kubernetes-dashboard.
+
+2. Измените тип сервиса на NodePort:
+
+Bash
+
+kubectl -n kubernetes-dashboard patch svc kubernetes-dashboard -p '{"spec": {"type": "NodePort"}}'
+
+3. После этого можно посмотреть, на каком порту открылся NodePort:
+
+Bash
+
+kubectl -n kubernetes-dashboard get svc kubernetes-dashboard
+
+В выводе в столбце PORT(S) будет что-то вроде 443:XXXXX/TCP, где XXXXX — это порт NodePort.
+
+4. Теперь Dashboard будет доступен по IP-адресу любой ноды (в вашем случае master-ноды) и порту NodePort.
+```
+
 `kubectl -n kube-system get svc`
