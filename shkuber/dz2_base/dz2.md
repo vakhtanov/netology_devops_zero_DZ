@@ -31,10 +31,14 @@
 3. Подключиться локально к Pod с помощью `kubectl port-forward` и вывести значение (curl или в браузере).
 
 `kubectl apply -f ./task1.yml`
+
 `kubectl get pods`
+
 `kubectl port-forward pod/hello-world 8081:8443`
 
-<img width="559" height="189" alt="image" src="https://github.com/user-attachments/assets/f9ba3185-ee98-4233-9ca2-1fa47bf2f937" />
+<img width="695" height="125" alt="image" src="https://github.com/user-attachments/assets/e4253925-6472-4d49-a23d-ac8ac0df8248" />
+
+
 
 `curl -k https://127.0.0.1:8081'
 
