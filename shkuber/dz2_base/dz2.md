@@ -64,14 +64,15 @@
 <img width="622" height="164" alt="image" src="https://github.com/user-attachments/assets/9733d664-ae5f-45ac-b29c-3fec33738f45" />
 
 
-kubectl port-forward --addresses 0.0.0.0 service/netology-svc 10443:10443`
+`kubectl port-forward --addresses 0.0.0.0 service/netology-svc 10443:10443`
 
 <img width="736" height="148" alt="image" src="https://github.com/user-attachments/assets/f442c956-ad1e-4b24-8aac-b5b7574decfa" />
 
 
-<img width="649" height="167" alt="image" src="https://github.com/user-attachments/assets/ff291979-a148-4bb6-bdbe-21b092259529" />
-
 <img width="570" height="442" alt="image" src="https://github.com/user-attachments/assets/137735ac-36c3-4319-9c72-70f6dfb966c0" />
+
+
+<img width="690" height="665" alt="image" src="https://github.com/user-attachments/assets/6ae37c0b-9030-4d8a-964c-5c272e7d88f7" />
 
 
 ------
