@@ -46,13 +46,21 @@
 2. Использовать image — gcr.io/kubernetes-e2e-test-images/echoserver:2.2.
 3. Создать Service с именем netology-svc и подключить к netology-web.
 4. Подключиться локально к Service с помощью `kubectl port-forward` и вывести значение (curl или в браузере).
-5. 
+
+   
 `kubectl apply -f ./task2_pod.yml`
+
 `kubectl apply -f ./task_svc.yml`
 
 <img width="622" height="164" alt="image" src="https://github.com/user-attachments/assets/9733d664-ae5f-45ac-b29c-3fec33738f45" />
 
-`kubectl port-forward svc/netology-web 10443:8443`
+
+`kubectl port-forward svc/netology-web 10443:10443`
+
+<img width="649" height="167" alt="image" src="https://github.com/user-attachments/assets/ff291979-a148-4bb6-bdbe-21b092259529" />
+
+<img width="570" height="442" alt="image" src="https://github.com/user-attachments/assets/137735ac-36c3-4319-9c72-70f6dfb966c0" />
+
 
 ------
 
@@ -60,7 +68,10 @@
 
 1. Домашняя работа оформляется в своем Git-репозитории в файле README.md. Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 2. Файл README.md должен содержать скриншоты вывода команд `kubectl get pods`, а также скриншот результата подключения.
-3. Репозиторий должен содержать файлы манифестов и ссылки на них в файле README.md.
+
+   <img width="413" height="94" alt="image" src="https://github.com/user-attachments/assets/4bdd3c54-2588-4fba-81cf-090fe19aee2f" />
+
+4. Репозиторий должен содержать файлы манифестов и ссылки на них в файле README.md.
 
 ------
 
