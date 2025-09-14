@@ -68,7 +68,7 @@
 <img width="622" height="164" alt="image" src="https://github.com/user-attachments/assets/9733d664-ae5f-45ac-b29c-3fec33738f45" />
 
 
-`kubectl port-forward --addresses 0.0.0.0 service/netology-svc 10443:10443`
+`kubectl port-forward --address 0.0.0.0 service/netology-svc 10443:10443`
 
 <img width="736" height="148" alt="image" src="https://github.com/user-attachments/assets/f442c956-ad1e-4b24-8aac-b5b7574decfa" />
 
