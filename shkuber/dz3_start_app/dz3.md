@@ -25,10 +25,33 @@
 ### Задание 1. Создать Deployment и обеспечить доступ к репликам приложения из другого Pod
 
 1. Создать Deployment приложения, состоящего из двух контейнеров — nginx и multitool. Решить возникшую ошибку.
+
+[task1_depl1.yaml](task1/task1_depl1.yaml)
+
+
+
 2. После запуска увеличить количество реплик работающего приложения до 2.
+
+[task1_depl2.yaml](task1/task1_depl2.yaml)
+
 3. Продемонстрировать количество подов до и после масштабирования.
+
+![image](image/1start.JPG)
+
+![image](image/2start2.JPG)
+
 4. Создать Service, который обеспечит доступ до реплик приложений из п.1.
+
+[task1_service.yaml](task1/task1_service.yaml)
+
 5. Создать отдельный Pod с приложением multitool и убедиться с помощью `curl`, что из пода есть доступ до приложений из п.1.
+
+[task1_test_pod.yaml](task1/task1_test_pod.yaml)
+
+`kubectl exec network-multitool -- curl -k nginx-multitool-service:10080`
+
+![image](image/4nginx_work.JPG)
+
 
 ------
 
