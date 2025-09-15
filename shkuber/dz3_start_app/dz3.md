@@ -58,9 +58,22 @@
 ### Задание 2. Создать Deployment и обеспечить старт основного контейнера при выполнении условий
 
 1. Создать Deployment приложения nginx и обеспечить старт контейнера только после того, как будет запущен сервис этого приложения.
+
+[task2_depl_nginx.yaml](task2/task2_depl_nginx.yaml)
+
 2. Убедиться, что nginx не стартует. В качестве Init-контейнера взять busybox.
+
+![image](image/5get_init_pod.JPG)
+
 3. Создать и запустить Service. Убедиться, что Init запустился.
+
+[task2_service.yaml](task2/task2_service.yaml)
+
 4. Продемонстрировать состояние пода до и после запуска сервиса.
+
+![image](image/6_run_svc.JPG)
+
+![image](image/7_serv_work.JPG)
 
 ------
 
