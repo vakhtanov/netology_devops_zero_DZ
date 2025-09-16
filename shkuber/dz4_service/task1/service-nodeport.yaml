@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-multitool-service-node
+  namespace: netology
+spec:
+  ports:
+  - name: nginx
+    port: 80
+    protocol: TCP
+    nodePort: 30080
+
+  selector:
+    app: nginx-multi-app
+  type: NodePort
