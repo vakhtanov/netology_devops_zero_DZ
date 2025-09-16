@@ -92,6 +92,8 @@ kubectl get svc
 kubectl get ep - соединился ли сервис с подом
 kubectl delete service nginx-service
 
+kubectl delete -f nginx.yaml #Удалить то, что было создано файлом
+
 kubectl get po -n kube-system # поды в наймспеййсе
 
 kubectl exec -it nginx -- bash
