@@ -82,6 +82,7 @@ kubectl apply -f nginx.yaml
 kubectl get deploy #Деплои
 kubectl get rs #реплики
 kubectl get po #поды
+kubectl get po -w #поды с ожиданием
 kubectl get po -o wide #больше инфы в том числе IP
 kubectl describe po
 kubectl logs --tail 100 nginx
