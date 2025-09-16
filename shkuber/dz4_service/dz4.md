@@ -84,13 +84,15 @@
 
 [service-nodeport.yaml](task1/service-nodeport.yaml)
 
-`kubectl run test-pod -n netology --image=wbitt/network-multitool --rm -it -- sh`
+
 
 ![](image/t1_1stat.JPG)
 
 ![image](image/t1_2stat.JPG)
 
 ![](image/t1_3svc.JPG)
+
+`kubectl run test-pod -n netology --image=wbitt/network-multitool --rm -it -- sh`
 
 ![](image/t1_4nginx-mtool.JPG)
 
