@@ -79,7 +79,7 @@
 `kubectl create namespace netology`
 
 
-
+`kubectl run test-pod -n netology --image=wbitt/network-multitool --rm -it -- sh`
 
 
 ---
