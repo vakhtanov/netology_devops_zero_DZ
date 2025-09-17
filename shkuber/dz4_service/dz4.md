@@ -133,6 +133,12 @@
 - Скриншоты проверки доступа (`curl` или браузер).
 
 ---
+### решение задание 2
+
+`kubectl apply -f deployment-backend.yaml -f deployment-frontend.yaml -f service-backend.yaml -f service-frontend.yaml -n netology`
+
+
+---
 ## Шаблоны манифестов с учебными комментариями
 ### **1. Deployment (nginx + multitool)**
 ```yaml
