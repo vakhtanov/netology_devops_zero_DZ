@@ -86,17 +86,17 @@
 
 
 
-![](image/t1_1stat.JPG)
+![image](image/t1_1stat.JPG)
 
 ![image](image/t1_2stat.JPG)
 
-![](image/t1_3svc.JPG)
+![image](image/t1_3svc.JPG)
 
 `kubectl run test-pod -n netology --image=wbitt/network-multitool --rm -it -- sh`
 
-![](image/t1_4nginx-mtool.JPG)
+![image](image/t1_4nginx-mtool.JPG)
 
-![](image/t1_5nodeport.JPG)
+![image](image/t1_5nodeport.JPG)
 
 
 ---
@@ -135,8 +135,25 @@
 ---
 ### решение задание 2
 
+[deployment-frontend.yaml](task2/deployment-frontend.yaml)
+
+[deployment-backend.yaml](task2/deployment-backend.yaml)
+
+[service-frontend.yaml](task2/service-frontend.yaml)
+
+[service-backend.yaml](task2/service-backend.yaml)
+
+[ingress.yaml](task2/ingress.yaml)
+
 `kubectl apply -f deployment-backend.yaml -f deployment-frontend.yaml -f service-backend.yaml -f service-frontend.yaml -n netology`
 
+![image](image/t2_1run.JPG)
+
+![image](image/t2_2enable.JPG)
+
+![image](image/t2_3ingress.JPG)
+
+![image](image/t2_4curl.JPG)
 
 ---
 ## Шаблоны манифестов с учебными комментариями
