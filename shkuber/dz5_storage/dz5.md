@@ -92,6 +92,8 @@
 
 ------
 
+### решение задание 2
+
 [pv-pvc.yaml](pv-pvc.yaml)
 
 ![t2_1start.JPG](image/t2_1start.JPG)
