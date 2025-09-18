@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-exchange
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-exchange
+  template:
+    metadata:
+      labels:
+        app: data-exchange
+    spec:
+      containers:
+      - name: busybox-write
+        image: busybox
+        command: ["/bin/sh", "-c"] 
+        args: ["mkdir -p /tmpvol && while true; do echo $(date) >> /tmpvol/exchange; sleep 5; done"] # КЛЮЧЕВОЕ: Команда записи данных в файл в директории из секции volumeMounts контейнера
+        volumeMounts:
+        - name: exchange-vol
+          mountPath: /tmpvol
+      - name: multitool-read
+        image: wbitt/network-multitool
+        command: ["/bin/sh", "-c"]
+        args: ["mkdir -p /tmpvol && tail -f /tmpvol/exchange"] # КЛЮЧЕВОЕ: Команда для чтения данных из файла, расположенного в директории, указанной в volumeMounts контейнера
+        volumeMounts:
+        - name: exchange-vol
+          mountPath: /tmpvol
+      volumes:
+      - name: exchange-vol
+        emptyDir: {} # ИНФОРМАЦИЯ: Определяем эфемерное хранилище, которое работает только внутри пода

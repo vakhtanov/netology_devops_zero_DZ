@@ -58,6 +58,17 @@
   - вывод команды чтения файла (`tail -f <имя общего файла>`)
 
 ------
+### решение задание 1
+
+[containers-data-exchange.yaml](containers-data-exchange.yaml)
+
+![t1_1log.JPG](image/t1_1log.JPG)
+
+![t1_2desc.JPG](image/t1_2desc.JPG)
+
+![t1_3desc.JPG](image/t1_3desc.JPG)
+
+-----
 
 ## Задание 2. PV, PVC
 ### Задача
@@ -80,6 +91,28 @@
   - объяснение наблюдаемого поведения ресурсов в двух последних шагах.
 
 ------
+
+[pv-pvc.yaml](pv-pvc.yaml)
+
+![t2_1start.JPG](image/t2_1start.JPG)
+
+![t2_2read.JPG](image/t2_2read.JPG)
+
+![t2_3delete.JPG](image/t2_3delete.JPG)
+
+![t2_4volum.JPG](image/t2_4volum.JPG)
+
+![t2_5delvolum.JPG](image/t2_5delvolum.JPG)
+
+```
+После удаления деплоймента и pvc сохранился PV, поскольку задан параметр 
+persistentVolumeReclaimPolicy: Retain
+
+После удаления PV данные сохранились из-за особенностей работы контроллера PV с hostPath  
+```
+
+
+----
 
 ## Задание 3. StorageClass
 ### Задача
