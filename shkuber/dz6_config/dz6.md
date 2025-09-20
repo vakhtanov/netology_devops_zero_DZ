@@ -124,6 +124,7 @@ openssl x509 -req -in developer.csr -CA {CA серт вашего кластер
 ---
 ### Решение задание 3
 ```
+kubectl config use-context microk8s
 kubectl config set-credentials user --client-certificate=developer.crt --client-key=developer.key --embed-certs=true
 
 kubectl config set-context user --cluster=microk8s-cluster --user=user
