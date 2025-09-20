@@ -78,6 +78,12 @@ spec: # параметры объекта
 
 ## Некоторые комманды Kubernetes
 ```bash
+ОБНОВЛЕНИЕ СЕРТИИФКАТОВ!!!!
+
+работаем в домашней папке
+sudo vim /var/snap/microk8s/current/certs/csr.conf.template
+sudo microk8s refresh-certs --cert front-proxy-client.crt
+
 kubectl apply -f nginx.yaml
 kubectl get deploy #Деплои
 kubectl get rs #реплики
