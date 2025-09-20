@@ -64,6 +64,15 @@
 ---
 ### Решение задание 1
 
+[configmap-web.yaml](task1/configmap-web.yaml)
+[deployment.yaml](task1/deployment.yaml)
+[service-nodeport.yaml](task1/service-nodeport.yaml)
+
+
+![t1_1start.JPG](image/t1_1start.JPG)
+
+![t1_2curl.JPG](image/t1_2curl.JPG)
+
 
 ---
 
@@ -92,6 +101,28 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 `microk8s enable ingress`
 
+
+
+
+
+
+
+[configmap-web.yaml](task2/configmap-web.yaml)
+
+[secret-tls.yaml](task2/secret-tls.yaml)
+
+[deployment.yaml](task2/deployment.yaml)
+
+[service-clusterip.yaml](task2/service-clusterip.yaml)
+
+[ingress.yaml](task2/ingress.yaml)
+
+
+![t2_1cert.JPG](image/t2_1cert.JPG)
+
+![t2_2cert.JPG](image/t2_2cert.JPG)
+
+![t2_3start_work.JPG](image/t2_3start_work.JPG)
 
 ---
 
@@ -129,12 +160,19 @@ kubectl config set-credentials user --client-certificate=developer.crt --client-
 
 kubectl config set-context user --cluster=microk8s-cluster --user=user
 kubectl config use-context user
-
-
-
 kubectl get pods --as=user -n netology
 
 ```
+
+[role-pod-reader.yaml](task3/role-pod-reader.yaml)
+
+[rolebinding-developer.yaml](task3/rolebinding-developer.yaml)
+
+![t3_1sert.JPG](image/t3_1sert.JPG)
+
+![t3_2user.JPG](image/t3_2user.JPG)
+
+![t3_3check.JPG](image/t3_3check.JPG)
 
 ---
 ## Шаблоны манифестов с учебными комментариями

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-multi-app
+  namespace: netology
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-multi-app
+  template:
+    metadata:
+      labels:
+        app: nginx-multi-app
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+          name: nginx-port
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /usr/share/nginx/html
+      - name: multitool
+        image: wbitt/network-multitool
+        env:
+        - name: HTTP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: web-content
+              key: multi-http-port
+        ports:
+        - containerPort: 8080
+          name: mtool-port
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: web-content
