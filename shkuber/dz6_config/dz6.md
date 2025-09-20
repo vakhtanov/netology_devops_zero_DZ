@@ -129,6 +129,11 @@ kubectl config set-credentials user --client-certificate=developer.crt --client-
 
 kubectl config set-context user --cluster=microk8s-cluster --user=user
 kubectl config use-context user
+
+
+
+kubectl get pods --as=user -n netology
+
 ```
 
 ---
