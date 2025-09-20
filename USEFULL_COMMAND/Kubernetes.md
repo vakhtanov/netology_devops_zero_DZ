@@ -84,6 +84,10 @@ spec: # параметры объекта
 sudo vim /var/snap/microk8s/current/certs/csr.conf.template
 sudo microk8s refresh-certs --cert front-proxy-client.crt
 
+доступ к куберу по токену
+
+curl (асдрес кубера):16443 --header "Autorisation: Bearere ${TOKEN}
+
 kubectl apply -f nginx.yaml
 kubectl get deploy #Деплои
 kubectl get rs #реплики
