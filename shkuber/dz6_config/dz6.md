@@ -65,7 +65,9 @@
 ### Решение задание 1
 
 [configmap-web.yaml](task1/configmap-web.yaml)
+
 [deployment.yaml](task1/deployment.yaml)
+
 [service-nodeport.yaml](task1/service-nodeport.yaml)
 
 
@@ -100,11 +102,6 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 ### Решение задание 2
 
 `microk8s enable ingress`
-
-
-
-
-
 
 
 [configmap-web.yaml](task2/configmap-web.yaml)
@@ -173,6 +170,8 @@ kubectl get pods --as=user -n netology
 ![t3_2user.JPG](image/t3_2user.JPG)
 
 ![t3_3check.JPG](image/t3_3check.JPG)
+
+![t3_3check2.JPG](image/t3_3check2.JPG)
 
 ---
 ## Шаблоны манифестов с учебными комментариями
