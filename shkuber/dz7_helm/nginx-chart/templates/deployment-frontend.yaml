@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-front-app
+spec:
+  replicas: {{ .Values.application.frontend.replicas}}
+  selector:
+    matchLabels:
+      app: nginx-front-app
+  template:
+    metadata:
+      labels:
+        app: nginx-front-app
+    spec:
+      containers:
+      - name: nginx
+        image: {{ .Values.application.frontend.version}}
+        ports:
+        - containerPort: 80
+          name: nginx-port
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /usr/share/nginx/html
+          readOnly: true
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: web-content
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-content # ИЗМЕНИТЕ: Укажите имя ConfigMap
+data:
+
+  # КЛЮЧЕВОЙ МОМЕНТ: index.html будет подключен как файл
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Сформироана для HELM</title> # ИЗМЕНИТЕ: Заголовок страницы
+    </head>
+    <body>
+      <h1>HELM сработал</h1> # ДОБАВЬТЕ: Свой контент страницы
+    </body>
+    </html>

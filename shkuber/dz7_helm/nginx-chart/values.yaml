@@ -1,0 +1,14 @@
+ingress:
+  backend:
+    path: /api
+    port: 80
+  frontend:
+    path: /
+    port: 80
+application:
+  backend:
+    replicas: 1
+    version: wbitt/network-multitool
+  frontend:
+    replicas: 1
+    version: nginx:latest
