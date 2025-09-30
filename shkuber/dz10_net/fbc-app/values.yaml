@@ -1,0 +1,11 @@
+application:
+  version: wbitt/network-multitool
+  backend:
+    replicas: 1
+    port: 8080
+  frontend:
+    replicas: 1
+    port: 8080
+  cache:
+    replicas: 1
+    port: 8080

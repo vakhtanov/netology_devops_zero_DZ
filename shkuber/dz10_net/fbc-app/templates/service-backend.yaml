@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  ports:
+  - name: mtool-http
+    port: {{ .Values.application.backend.port}}
+    protocol: TCP
+
+  selector:
+    app: backend-app
+  type: ClusterIP

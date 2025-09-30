@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app
+spec:
+  replicas: {{ .Values.application.frontend.replicas}}
+  selector:
+    matchLabels:
+      app: frontend-app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+      - name: multitool
+        image: {{ .Values.application.version}}
+        env:
+        - name: HTTP_PORT
+          value: "8080" 
+        ports:
+        - containerPort: {{ .Values.application.frontend.port}}
+          name: mtool-port

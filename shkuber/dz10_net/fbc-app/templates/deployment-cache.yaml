@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cache-app
+spec:
+  replicas: {{ .Values.application.cache.replicas}}
+  selector:
+    matchLabels:
+      app: cache-app
+  template:
+    metadata:
+      labels:
+        app: cache-app
+    spec:
+      containers:
+      - name: multitool
+        image: {{ .Values.application.version}}
+        env:
+        - name: HTTP_PORT
+          value: "8080" 
+        ports:
+        - containerPort: {{ .Values.application.cache.port}}
+          name: mtool-port

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cache
+spec:
+  ports:
+  - name: mtool-http
+    port: {{ .Values.application.cache.port}}
+    protocol: TCP
+
+  selector:
+    app: cache-app
+  type: ClusterIP

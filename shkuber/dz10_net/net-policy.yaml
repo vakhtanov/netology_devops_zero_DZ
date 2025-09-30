@@ -1,0 +1,72 @@
+#Frontend: запрет входящих подключений, разрешить только исходящие к backend
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: frontend-policy
+  namespace: app
+spec:
+  podSelector:
+    matchLabels:
+      app: frontend-app
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress: []    # явно запрещаем все входящие подключения к frontend
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: backend-app
+  - to:
+    - ipBlock:
+        cidr: 10.1.152.160/32  # разрешаем исхдящий к DNS
+---
+#Backend: разрешить вход только от frontend, разрешить исходящие только к cache
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-policy
+  namespace: app
+spec:
+  podSelector:
+    matchLabels:
+      app: backend-app
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend-app
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: cache-app
+  - to:
+    - ipBlock:
+        cidr: 10.1.152.160/32  # разрешаем исхдящий к DNS
+---
+#Cache: разрешить вход только от backend, запретить все исходящие подключения
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cache-policy
+  namespace: app
+spec:
+  podSelector:
+    matchLabels:
+      app: cache-app
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: backend-app
+  egress: 
+  - to:
+    - ipBlock:
+        cidr: 10.1.152.160/32  # разрешаем исхдящий к DNS
