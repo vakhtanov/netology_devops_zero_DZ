@@ -1,6 +1,5 @@
 # Cluster
 ## Проверка API-сервера
-
 ### Проверить подключение к API-серверу (удалённо, локально)
 ```
 kubectl get nodes
@@ -11,63 +10,88 @@ The connection to the server 51.250.10.123:6443 was refused - did you specify th
 systemctl status kubelet
 systemctl status docker
 ```
-### Получить дамп системы3
+### Получить дамп системы
 `kubectl cluster-info dump`
 
 # Проверка Node
 ## Проверить состояние нод
+```
 kubectl get nodes
 kubectl get node node_name -o yaml
+```
+
 ## Проверить статус kubelet, container runtime на нодах
+```
 systemctl status kubelet
 kubectl describe nodes node_name
 systemctl status docker
+```
 
-Проверка состояния системных pod
-Проверить состояние pod в namespace kube-system1
+## Проверка состояния системных pod
+### Проверить состояние pod в namespace kube-system
+```
 kubectl get pods -n kube-system
 kubectl describe pod node_name -n kube-system
-Проверить статус сервисов на control plane, если они запущены в виде сервисов2
+```
+### Проверить статус сервисов на control plane, если они запущены в виде сервисов
+```
 systemctl status kube-apiserver
 systemctl status kube-scheduler
+```
 
 # Журналы логов
 ## Проверка логов
-Проверить логи сервисов kubelet, container runtime1
+### Проверить логи сервисов kubelet, container runtime
+```
 journalctl -u kubelet
 journalctl -u docker
-Проверить логи системы2
+```
+### Проверить логи системы
+```
 less /var/log/kube-apiserver.log
 less /var/log/kube-scheduler.log
 less /var/log/kube-controller-manager.log
+```
+
 ## Проверка логов системных подов
-Проверить логи системных подов, если они запущены как поды3
+### Проверить логи системных подов, если они запущены как поды
+```
 kubectl logs -n kube-system kube-apiserver-****
 kubectl logs -n kube-system kube-scheduler-****
 kubectl logs -n kube-system kube-controller-manager-****
+```
 
-# Application
-## Проверка работы приложения
-Проверить статус подов1
+
+# Application Проверка работы приложения
+## Проверить статус подов
+```
 kubectl get pods (-n namespace_name)
 kubectl get pods (-n namespace_name) -o wide
-Запуск команды внутри контейнера пода2
+```
+## Запуск команды внутри контейнера пода
+```
 kubectl exec pod_name (-n namespace_name) -- command
 kubectl describe pod pod_name (-n namespace_name)
 kubectl exec pod_name (-n namespace_name) -c container_name -- command
-Проверить лог подов
+```
+## Проверить лог подов
+```
 kubectl logs pod_name
 kubectl logs pod_name (-n namespace_name) -c container_name
-
-# Network
-## Проверка работы сети
-Проверить логи подов kube-proxy, coredns1
+```
+# Network Проверка работы сети
+## Проверить логи подов kube-proxy, coredns
+```
 kubectl logs -n kube-system kube-proxy-****
 kubectl describe kube-system coredns-****
-Используя специальные поды с сетевыми тулами, провести диагностику2
+```
+## Используя специальные поды с сетевыми тулами, провести диагностику
+```
 kubectl exec multitool -- command
 kubectl exec netshoot -- command
+```
+
 
 # Troubleshooting roadmap
 
-![road_map.png](road_map.png)
+![road_map.png](pict/road_map.png)
