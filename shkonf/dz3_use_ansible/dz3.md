@@ -25,3 +25,89 @@
 Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.
 
 ---
+
+### решение
+
+Проект по ссылке
+
+[playbook](./playbook/)
+
+Машины для работы
+
+![image](images/01virtm.JPG)
+
+Проверка `ansible-lint site.yml`
+
+![image](images/03lint1.JPG)
+
+Ошибки исправили
+
+![image](images/04lint2.JPG)
+
+Запуск первый раз
+
+![image](images/05play1.JPG)
+![image](images/06play2.JPG)
+![image](images/07play3.JPG)
+
+Проверка идемпотентности
+
+![image](images/08diff1.JPG)
+![image](images/09diff2.JPG)
+![image](images/10diff3.JPG)
+
+Проверка, что компонеты установены
+
+![image](images/11click.JPG)
+
+
+![image](images/12vector.JPG)
+
+
+![image](images/13lighth1.JPG)
+![image](images/14lighth2.JPG)
+
+
+### Описание playbook
+
+Устанавливает clickhouse, vector, lighthouse+nginx на разные машины
+
+####Начальные настройки
+Нужно задать 3 хоста в инвентори `prod.yml`
+
+- clickhouse
+- vector
+- lighthouse
+
+Задать имя пользователя и ключ для подключения - `ansible.cfg'
+
+####Запуск
+Запуск `ansible-playbook site.yml`
+
+####Теги
+- clickhouse
+- vector
+- lighthouse
+
+позволяют запускать стадии отдельно
+
+####Настройки
+
+clickhouse\
+
+clickhouse_version - версия кликхаус
+
+lighthouse\
+
+lighthouse_nginx_port - порт для обращения к лайтхаус
+
+
+nginx_user_name: "nginx" - имя зависит от операционной системы
+
+for RHL system name - `nginx`  
+for deb system name -  `www-data`  
+
+
+vector\
+
+vector_version - версия вектора

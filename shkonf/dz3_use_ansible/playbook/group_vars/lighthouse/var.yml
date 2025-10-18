@@ -1,0 +1,9 @@
+---
+lighthouse_source: "https://github.com/VKCOM/lighthouse.git"
+lighthouse_loc_dir: /etc/lighthouse
+lighthouse_nginx_port: 8080
+lighthouse_nginx_conf: "lighthouse.conf"
+
+# for RHL system name - nginx
+# for deb system name -  www-data
+nginx_user_name: "nginx"

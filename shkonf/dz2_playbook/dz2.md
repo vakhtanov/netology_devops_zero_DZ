@@ -27,3 +27,22 @@
 Приложите ссылку на ваше решение в поле "Ссылка на решение" и нажмите "Отправить решение"
 
 ---
+
+### Решение
+
+[playbook](./playbook/)
+
+[image](images/01_1lint.JPG)
+
+[image](images/01_2lint.JPG)
+
+[image](images/01_3ping.JPG)
+
+[image](images/01_4inst.JPG)
+
+[image](images/01_5inst.JPG)
+
+[image](images/01_6inst.JPG)
+
+[image](images/01_7work.JPG)
+
