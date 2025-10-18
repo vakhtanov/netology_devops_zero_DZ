@@ -93,11 +93,11 @@
 
 #### Настройки
 
-*clickhouse\*
+*clickhouse*
 
 `clickhouse_version` - версия кликхаус
 
-*lighthouse\*
+*lighthouse*
 
 `lighthouse_nginx_port` - порт для обращения к лайтхаус
 
@@ -108,6 +108,6 @@ for RHL system name - `nginx`
 for deb system name -  `www-data`  
 
 
-*vector\*
+*vector*
 
 `vector_version` - версия вектора
