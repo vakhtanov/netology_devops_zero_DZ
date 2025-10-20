@@ -48,7 +48,7 @@ Resource Terraform для Yandex Cloud:
 
 #### проверяемя интернет на приватной машине
 
-![image](images/4_privat_inet.JPG)
+![image](images/04_privat_inet.JPG)
 
 
 
