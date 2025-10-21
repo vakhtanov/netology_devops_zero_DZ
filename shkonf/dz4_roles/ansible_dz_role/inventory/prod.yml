@@ -1,0 +1,19 @@
+---
+# Тестировано на системе CentOS Stream 9
+all:
+  hosts:
+    ya-vm-01:
+      ansible_host: 84.201.140.166
+    ya-vm-02:
+      ansible_host: 89.169.189.245
+    ya-vm-03:
+      ansible_host: 89.169.186.184
+clickhouse:
+  hosts:
+    ya-vm-01
+vector:
+  hosts:
+    ya-vm-02
+lighthouse:
+  hosts:
+    ya-vm-03

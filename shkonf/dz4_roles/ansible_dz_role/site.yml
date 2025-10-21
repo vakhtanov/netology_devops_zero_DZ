@@ -1,0 +1,58 @@
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  remote_user: root
+  tags: clickhouse
+  roles:
+    - role: clickhouse
+
+
+- name: Install Vector 
+  hosts: vector
+  remote_user: root
+  tags: vector
+  roles:
+    - role: vector-role
+
+- name: Install nginx 
+  hosts: lighthouse
+  become: true
+  tags: nginx
+
+  handlers:
+    - name: Start Nginx
+      become: true
+      ansible.builtin.service:
+        name: nginx
+        state: started
+
+    - name: Reload Nginx
+      become: true
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
+
+  pre_tasks:
+    - name: NGINX | Install epel-release
+      become: true
+      ansible.builtin.apt:
+        name: epel-release
+        state: present
+    - name: NGINX | Install nginx
+      become: true
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+      notify: Start Nginx
+
+    - name: NGINX | Create config
+      become: true
+      ansible.builtin.template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        mode: '0644'
+      notify: Reload Nginx
+
+  roles:
+    - role: lighthouse-role
+    

@@ -39,6 +39,14 @@
 
 ---
 
+### Решение
+
+[новый playbook](./ansible_dz_role/)
+
+[роль vector-role](https://github.com/vakhtanov/vector-role.git)
+
+[роль lighthouse-role](https://github.com/vakhtanov/lighthouse-role.git)
+
 ### Как оформить решение задания
 
 Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.

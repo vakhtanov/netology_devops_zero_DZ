@@ -1,0 +1,4 @@
+---
+# for RHL system name - nginx
+# for deb system name -  www-data
+nginx_user_name: "www-data"
