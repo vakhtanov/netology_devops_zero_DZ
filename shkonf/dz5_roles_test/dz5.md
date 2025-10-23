@@ -383,5 +383,235 @@ WARNING  Molecule executed 1 scenario (1 missing files)
       msg: "Vector is not installed"
 ```
 
+#### 5
+
+<details>
+  
+<summary> Повторно результат выполнения команды: molecule test с проверками  </summary>
+
+```shell
+(venv) user@ubuntusrv:~/ansible_dz5_role_test/playbook/roles/vector-role$ molecule test
+WARNING  Driver docker does not provide a schema.
+WARNING  Driver docker does not provide a schema.
+INFO     default ➜ discovery: scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     default ➜ prerun: Performing prerun with role_name_check=0...
+INFO     default ➜ dependency: Executing
+WARNING  default ➜ dependency: Missing roles requirements file: requirements.yml
+WARNING  default ➜ dependency: Missing collections requirements file: collections.yml
+WARNING  default ➜ dependency: Executed: 2 missing (Remove from test_sequence to suppress)
+INFO     default ➜ cleanup: Executing
+WARNING  default ➜ cleanup: Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     default ➜ destroy: Executing
+INFO     Sanity checks: 'docker'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Set async_dir for HOME env] **********************************************
+ok: [localhost]
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=instance_ubuntu)
+changed: [localhost] => (item=instance_debian)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+ok: [localhost] => (item=instance_ubuntu)
+ok: [localhost] => (item=instance_debian)
+
+TASK [Delete docker networks(s)] ***********************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     default ➜ destroy: Executed: Successful
+INFO     default ➜ syntax: Executing
+
+playbook: /home/user/ansible_dz5_role_test/playbook/roles/vector-role/molecule/default/converge.yml
+INFO     default ➜ syntax: Executed: Successful
+INFO     default ➜ create: Executing
+
+PLAY [Create] ******************************************************************
+
+TASK [Set async_dir for HOME env] **********************************************
+ok: [localhost]
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None)
+skipping: [localhost] => (item=None)
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item=instance_ubuntu)
+ok: [localhost] => (item=instance_debian)
+
+TASK [Create Dockerfiles from image names] *************************************
+skipping: [localhost] => (item=instance_ubuntu)
+skipping: [localhost] => (item=instance_debian)
+skipping: [localhost]
+
+TASK [Synchronization the context] *********************************************
+skipping: [localhost] => (item=instance_ubuntu)
+skipping: [localhost] => (item=instance_debian)
+skipping: [localhost]
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item=unix://var/run/docker.sock)
+ok: [localhost] => (item=unix://var/run/docker.sock)
+
+TASK [Create docker network(s)] ************************************************
+skipping: [localhost]
+
+TASK [Build an Ansible compatible image (new)] *********************************
+skipping: [localhost] => (item=molecule_local/geerlingguy/docker-ubuntu2204-ansible:latest)
+skipping: [localhost] => (item=molecule_local/geerlingguy/docker-debian13-ansible:latest)
+skipping: [localhost]
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item=instance_ubuntu)
+ok: [localhost] => (item=instance_debian)
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=instance_ubuntu)
+changed: [localhost] => (item=instance_debian)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+changed: [localhost] => (item=instance_ubuntu)
+FAILED - RETRYING: [localhost]: Wait for instance(s) creation to complete (300 retries left).
+changed: [localhost] => (item=instance_debian)
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=6    changed=2    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0
+
+INFO     default ➜ create: Executed: Successful
+INFO     default ➜ prepare: Executing
+WARNING  default ➜ prepare: Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     default ➜ converge: Executing
+
+PLAY [Converge] ****************************************************************
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Get vector distrib] ***
+changed: [instance_ubuntu]
+changed: [instance_debian]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Update apt cache] ***
+changed: [instance_debian]
+changed: [instance_ubuntu]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Install vector] ***
+ok: [instance_debian]
+ok: [instance_ubuntu]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Deploy vector configuration] ***
+changed: [instance_debian]
+changed: [instance_ubuntu]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Flush handlers] ***
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Flush handlers] ***
+
+RUNNING HANDLER [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Start vector service] ***
+changed: [instance_ubuntu]
+changed: [instance_debian]
+
+PLAY RECAP *********************************************************************
+instance_debian            : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+instance_ubuntu            : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     default ➜ converge: Executed: Successful
+INFO     default ➜ idempotence: Executing
+
+PLAY [Converge] ****************************************************************
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Get vector distrib] ***
+ok: [instance_ubuntu]
+ok: [instance_debian]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Update apt cache] ***
+ok: [instance_debian]
+ok: [instance_ubuntu]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Install vector] ***
+ok: [instance_debian]
+ok: [instance_ubuntu]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Deploy vector configuration] ***
+ok: [instance_ubuntu]
+ok: [instance_debian]
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Flush handlers] ***
+
+TASK [/home/user/ansible_dz5_role_test/playbook/roles/vector-role : Flush handlers] ***
+
+PLAY RECAP *********************************************************************
+instance_debian            : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+instance_ubuntu            : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     default ➜ idempotence: Executed: Successful
+INFO     default ➜ side_effect: Executing
+WARNING  default ➜ side_effect: Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     default ➜ verify: Executing
+
+PLAY [Verify] ******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [instance_debian]
+ok: [instance_ubuntu]
+
+TASK [Check if vector is installed] ********************************************
+ok: [instance_debian]
+ok: [instance_ubuntu]
+
+TASK [Assert Vector is installed] **********************************************
+ok: [instance_debian] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [instance_ubuntu] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+instance_debian            : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+instance_ubuntu            : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     default ➜ verify: Executed: Successful
+INFO     default ➜ cleanup: Executing
+WARNING  default ➜ cleanup: Executed: Missing playbook (Remove from test_sequence to suppress)
+INFO     default ➜ destroy: Executing
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Set async_dir for HOME env] **********************************************
+ok: [localhost]
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=instance_ubuntu)
+changed: [localhost] => (item=instance_debian)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=instance_ubuntu)
+changed: [localhost] => (item=instance_debian)
+
+TASK [Delete docker networks(s)] ***********************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     default ➜ destroy: Executed: Successful
+INFO     default ➜ scenario: Pruning extra files from scenario ephemeral directory
+WARNING  Molecule executed 1 scenario (1 missing files)
+(venv) user@ubuntusrv:~/ansible_dz5_role_test/playbook/roles/vector-role$
+```
+</details>
+
+#### 6
+[новый коммит](https://github.com/vakhtanov/vector-role)
+
+
+[теги](https://github.com/vakhtanov/vector-role/tags)
+
 ### РЕШЕНИЕ ЗАДАЧА 2
 
