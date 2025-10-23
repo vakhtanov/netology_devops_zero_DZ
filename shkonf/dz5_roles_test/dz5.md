@@ -103,12 +103,13 @@ molecule test
 ```
 
 #### 1
-[images](images/01_test_clichouce.JPG)
+![images](images/01_test_clichouce.JPG)
 
 #### 2
 
-[images](images/02_new_sc.JPG)
-[images](images/03_def_sc.JPG)
+![images](images/02_new_sc.JPG)
+
+![images](images/03_def_sc.JPG)
 
 
 <details>
