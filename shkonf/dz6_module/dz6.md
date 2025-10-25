@@ -253,8 +253,6 @@ payload.json
 
 **Шаг 8.** Инициализируйте новую collection: `ansible-galaxy collection init my_own_namespace.yandex_cloud_elk`.
 
-![image](images/)
-
 **Шаг 9.** В эту collection перенесите свой module в соответствующую директорию.
 
 **Шаг 10.** Single task playbook преобразуйте в single task role и перенесите в collection. У role должны быть default всех параметров module.
@@ -281,10 +279,14 @@ payload.json
 
 **Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
 
-![image](images/)
+![image](images/04_install.JPG)
 
 **Шаг 16.** Запустите playbook, убедитесь, что он работает.
 
-![image](images/)
+![image](images/05_play.JPG)
 
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
+
+[repo](https://github.com/vakhtanov/vah_netology_collection)
+
+[коллекция](./netology-vakhtanov-1.0.0.tar.gz)
