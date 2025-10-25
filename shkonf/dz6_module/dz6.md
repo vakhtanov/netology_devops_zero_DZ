@@ -227,23 +227,49 @@ payload.json
 }
 ```
 
-
+![image](images/01_local_test.JPG)
 
 **Шаг 5.** Напишите single task playbook и используйте module в нём.
 
+```yaml
+---
+- name: Test module
+  hosts: localhost
+  tasks:
+    - name Satrt test module
+      vakhtanov_module: 
+        path: "/home/user/test/some_file1"
+        content: "netology ansible module dz"
+```
+
+
+![image](images/02_play1.JPG)
+
 **Шаг 6.** Проверьте через playbook на идемпотентность.
+
+![image](images/03_play2.JPG)
 
 **Шаг 7.** Выйдите из виртуального окружения.
 
 **Шаг 8.** Инициализируйте новую collection: `ansible-galaxy collection init my_own_namespace.yandex_cloud_elk`.
 
+![image](images/)
+
 **Шаг 9.** В эту collection перенесите свой module в соответствующую директорию.
 
 **Шаг 10.** Single task playbook преобразуйте в single task role и перенесите в collection. У role должны быть default всех параметров module.
 
+
+
+
 **Шаг 11.** Создайте playbook для использования этой role.
 
+
+
+
 **Шаг 12.** Заполните всю документацию по collection, выложите в свой репозиторий, поставьте тег `1.0.0` на этот коммит.
+
+
 
 **Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
 
@@ -251,6 +277,10 @@ payload.json
 
 **Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
 
+![image](images/)
+
 **Шаг 16.** Запустите playbook, убедитесь, что он работает.
+
+![image](images/)
 
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
