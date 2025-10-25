@@ -259,17 +259,19 @@ payload.json
 
 **Шаг 10.** Single task playbook преобразуйте в single task role и перенесите в collection. У role должны быть default всех параметров module.
 
-
-
-
 **Шаг 11.** Создайте playbook для использования этой role.
 
-
-
+```yaml
+---
+- name: Test role
+  hosts: localhost
+  roles:
+    - role: file-role
+```
 
 **Шаг 12.** Заполните всю документацию по collection, выложите в свой репозиторий, поставьте тег `1.0.0` на этот коммит.
 
-
+[repo](https://github.com/vakhtanov/vah_netology_collection)
 
 **Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
 
