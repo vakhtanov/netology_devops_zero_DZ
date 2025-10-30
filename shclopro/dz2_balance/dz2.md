@@ -46,19 +46,19 @@
 
 #### 1. Создать бакет Object Storage и разместить в нём файл с картинкой
 
-[images](./image/01_obj_stor.JPG)
+![images](./images/01_obj_stor.JPG)
 
-![images](./image/02_acl.JPG)
+![images](./images/02_acl.JPG)
 
-![images](./image/03_link.JPG)
+![images](./images/03_link.JPG)
 
 #### 2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:
 
-![images](./image/04_wms.JPG)
+![images](./images/04_wms.JPG)
 
-![images](./image/05_groupe.JPG)
+![images](./images/05_groupe.JPG)
 
-![images](./image/06_wms.JPG)
+![images](./images/06_wms.JPG)
 
 ####3. Подключить группу к сетевому балансировщику:
 
@@ -68,13 +68,13 @@
 
 **Картинка**
 
-![images](./image/09_image.JPG)
+![images](./images/09_image.JPG)
 
 **Останавливаем машину**
 
-![images](./image/10_stop_vm.JPG)
+![images](./images/10_stop_vm.JPG)
 
-![images](./image/11_image.JPG)
+![images](./images/11_image.JPG)
 
 ## Задание 2*. AWS (задание со звёздочкой)
 
