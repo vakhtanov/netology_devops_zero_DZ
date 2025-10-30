@@ -82,6 +82,11 @@ resource "yandex_compute_instance_group" "ig-1" {
     target_group_description = "Целевая группа Network Load Balancer"
   }
 
+  depends_on = [
+    yandex_resourcemanager_folder_iam_member.compute_editor,
+    yandex_iam_service_account.ig-sa,
+  ]
+
 }
 
 resource "yandex_lb_network_load_balancer" "lb-1" {
@@ -106,4 +111,10 @@ resource "yandex_lb_network_load_balancer" "lb-1" {
       }
     }
   }
+
+depends_on = [
+    yandex_resourcemanager_folder_iam_member.load-balancer-editor,
+    yandex_iam_service_account.ig-sa,
+  ]
+
 }
