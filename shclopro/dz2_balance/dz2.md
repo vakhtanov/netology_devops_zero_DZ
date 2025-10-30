@@ -60,11 +60,11 @@
 
 ![images](./images/06_wms.JPG)
 
-####3. Подключить группу к сетевому балансировщику:
+#### 3. Подключить группу к сетевому балансировщику:
 
-![images](./image/07_load_ball.JPG)
+![images](./images/07_load_ball.JPG)
 
-![images](./image/08_load_ball_groupe.JPG)
+![images](./images/08_load_ball_groupe.JPG)
 
 **Картинка**
 
