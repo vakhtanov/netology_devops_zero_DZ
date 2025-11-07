@@ -11,7 +11,7 @@
  - с помощью ключа зашифровать содержимое бакета, созданного ранее.
 
 -----
-### РЕШЕНИЕ
+### РЕШЕНИЕ 1
 
 [terraform_project](./terraform_project/)
 
@@ -44,6 +44,21 @@
 - [Настройка HTTPS статичного сайта](https://cloud.yandex.ru/docs/storage/operations/hosting/certificate).
 - [Object Storage bucket](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_bucket).
 - [KMS key](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kms_symmetric_key).
+
+-----
+### РЕШЕНИЕ 2
+
+![image](./t2_1obj.JPG)
+
+![image](./t2_2_web.JPG)
+
+![image](./t2_3_sert.JPG)
+
+![image](./t2_4_https.JPG)
+
+![image](./t2_5_dns.JPG)
+
+-----------
 
 --- 
 ## Задание 2*. AWS (задание со звёздочкой)
