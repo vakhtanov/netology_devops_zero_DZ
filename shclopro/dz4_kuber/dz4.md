@@ -37,6 +37,40 @@
 - [K8S node group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group).
 
 --- 
+
+### РЕШЕНИЕ 1
+
+[Terraform project](./terraform_project/)
+
+** СКРИНШОТЫ **
+
+#### часть 1
+
+![image](./images/t1_1terraoutput.JPG)
+
+![image](./images/t1_2connection.JPG)
+
+![image](./images/t1_3pinghost.JPG)
+
+![image](./images/t1_4connect_mysql.JPG)
+
+#### часть 2
+
+![image](./images/t2_1kubectl.JPG)
+
+![image](./images/t2_2nodes.JPG)
+
+![image](./images/t2_3master.JPG)
+
+![image](./images/t2_4master_key.JPG)
+
+#### часть 2 со звездочкой
+
+[запуск деплоя phpmyadmin](./phpmyadmin/phpmyadmin.yaml)
+
+![image](./images/t3_phpmyadd.JPG)
+![image](./images/t3_2external.JPG)
+
 ## Задание 2*. Вариант с AWS (задание со звёздочкой)
 
 Это необязательное задание. Его выполнение не влияет на получение зачёта по домашней работе.

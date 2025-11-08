@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+      - name: phpmyadmin-app
+        image: phpmyadmin
+        env:
+        - name: PMA_HOST
+          value: rc1a-2pvso25iu0tula93.mdb.yandexcloud.net
+        env:
+        - name: PMA_PORT
+          value: 3306
+        env: 
+        - name: PMA_ARBITRARY
+          value: 1
+        env:
+        - name: PMA_USER
+          value: user
+        env:
+        - name: PMA_PASSWORD
+          value: password
+        env:
+        - name: PMA_PMADB
+          value: netology_db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin-svc-lb
+spec:
+  ports:
+  - port: 8888 # Порт сетевого балансировщика, на котором будут обслуживаться пользовательские запросы.
+    name: phpmyadmin 
+    targetPort: 80 # Порт контейнера, на котором доступно приложение.
+  selector: # Метки селектора, использованные в шаблоне подов при создании объекта Deployment.
+    app: phpmyadmin
+  type: LoadBalancer
