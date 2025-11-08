@@ -44,17 +44,19 @@
 
 ** СКРИНШОТЫ **
 
-#### часть 1
+#### часть 1 MYSQL
 
 ![image](./images/t1_1terraoutput.JPG)
 
 ![image](./images/t1_2connection.JPG)
 
+** подключаемся к машине в публичной сети **
+
 ![image](./images/t1_3pinghost.JPG)
 
 ![image](./images/t1_4connect_mysql.JPG)
 
-#### часть 2
+#### часть 2 KUBERNETES
 
 ![image](./images/t2_1kubectl.JPG)
 
