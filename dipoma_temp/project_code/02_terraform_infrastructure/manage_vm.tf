@@ -1,4 +1,7 @@
+
+
 resource "yandex_compute_instance" "manage_vm" {
+  count = var.manage_vm.create_vm ? 1 : 0 
   #depends_on = [ yandex_compute_instance.for-each ]
   name        = "manage-vm"
   platform_id = var.manage_vm.platform_id
@@ -14,7 +17,7 @@ resource "yandex_compute_instance" "manage_vm" {
   }
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.ubuntu-2404.id
+      image_id = data.yandex_compute_image.ubuntu-2204.id
       size     = var.manage_vm.disk_volume
     }
   }

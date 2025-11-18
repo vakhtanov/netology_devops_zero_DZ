@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-multi-ingress
+  annotations:  # ВАЖНО: Эта аннотация нужна для rewrite правил
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-front-app-service-ip
+            port:
+              number: 80
+      - path: /api # КЛЮЧЕВОЙ ПУТЬ: API endpoint
+        pathType: Prefix
+        backend:
+          service:
+            name: multi-back-service-ip
+            port:
+              number: 80

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <title>Vakhtanov App</title>
+</head>
+<body>
+  <h1>Тестовое приложение для диплома</h1>
+  <p>Это простой статический сайт. Вахтанов А.С.</p>
+  <p>Версия: <span id="ver"></span></p>
+  <script>
+    fetch('/version.txt').then(r=>r.text()).then(t=>document.getElementById('ver').textContent = t.trim());
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "helm_enabled" : true,
+    "ingress_nginx_enabled" : true,
+    "cluster_name" : "cluster.local",
+    "kubectl_localhost" : true,
+    "kubeconfig_localhost" : true,
+}

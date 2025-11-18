@@ -1,0 +1,45 @@
+# This inventory describe a HA typology with stacked etcd (== same nodes as control plane)
+# and 3 worker nodes
+# See https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html
+# for tips on building your # inventory
+
+# Configure 'ip' variable to bind kubernetes services on a different ip than the default iface
+# We should set etcd_member_name for etcd cluster. The node that are not etcd members do not need to set the value,
+# or can set the empty string value.
+
+[all]
+
+[kube_control_plane]
+
+%{~ for i in control_node ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} #fqdn=${i["fqdn"]}
+
+%{~ endfor ~}
+
+
+
+[etcd:children]
+
+kube_control_plane
+
+
+[kube_node]
+
+%{~ for i in worker_node ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} #fqdn=${i["fqdn"]}
+
+%{~ endfor ~}
+
+
+[calico_rr]
+
+
+[k8s_cluster:children]
+kube_control_plane
+kube_node
+calico_rr
+
+[kube_control_plane:vars]
+#IP control_node
+supplementary_addresses_in_ssl_keys = [ "${control_node[0]["network_interface"][0]["nat_ip_address"]}" ]
+

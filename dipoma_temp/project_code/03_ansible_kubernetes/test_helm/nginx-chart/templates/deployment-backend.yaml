@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-back-app
+spec:
+  replicas: {{ .Values.application.backend.replicas}}
+  selector:
+    matchLabels:
+      app: multi-back-app
+  template:
+    metadata:
+      labels:
+        app: multi-back-app
+    spec:
+      containers:
+      - name: multitool
+        image: {{ .Values.application.backend.version}}
+        env:
+        - name: HTTP_PORT
+          value: "8080" 
+        ports:
+        - containerPort: 8080
+          name: mtool-port

@@ -57,9 +57,14 @@ variable "nodes_subnets" {
 }
 
 
-data "yandex_compute_image" "ubuntu-2404" {
-  family = "ubuntu-2404-lts-oslogin"
+data "yandex_compute_image" "ubuntu-2204" {
+  family = "ubuntu-2204-lts-oslogin"
 }
+
+data "yandex_compute_image" "rocky" {
+  family = "rocky-9-oslogin"
+}
+
 
 #control_node_params
 #IPv4 forwarding
@@ -80,14 +85,16 @@ variable "control_node" {
     cpu           = 2,
     core_fraction = 20,
     ram           = 2,
-    disk_volume   = 30,
+    disk_volume   = 40,
     nat           = true,
   }
 }
 
-# public manage vm
-variable "manage_vm" {
+#worker_node_params
+#IPv4 forwarding
+variable "worker_node" {
   type = object({
+    vm_num        = number,
     platform_id   = string,
     preemptible   = bool,
     cpu           = number,
@@ -98,6 +105,33 @@ variable "manage_vm" {
   })
 
   default = {
+    vm_num = 2
+    platform_id   = "standard-v3",
+    preemptible   = true,
+    cpu           = 2,
+    core_fraction = 20,
+    ram           = 2,
+    disk_volume   = 40,
+    nat           = true,
+  }
+}
+
+
+# public manage vm
+variable "manage_vm" {
+  type = object({
+    create_vm = bool,
+    platform_id   = string,
+    preemptible   = bool,
+    cpu           = number,
+    core_fraction = number,
+    ram           = number,
+    disk_volume   = number,
+    nat           = bool,
+  })
+
+  default = {
+    create_vm = false
     platform_id   = "standard-v3",
     preemptible   = true,
     cpu           = 2,
@@ -111,6 +145,7 @@ variable "manage_vm" {
 data "yandex_compute_image" "ubuntu" {
   family = "ubuntu-2204-lts-oslogin"
 }
+
 
 variable "vm_nat" {
   type = object({
