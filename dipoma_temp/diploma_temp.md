@@ -259,7 +259,7 @@ kubectl get nodes
 
 -------------------------
 #### РЕШЕНИЕ 4
-
+Репозиторий  
 [https://github.com/vakhtanov/netology-diploma-app](https://github.com/vakhtanov/netology-diploma-app)
 
 [nginx_app](project_code/04_nginx_app/nginx_app/)
@@ -271,6 +271,8 @@ Yandex Container Registry - создается в первой стадии ин
 ![](images/)
 ![](images/)
 
+
+[Yandex Container Registry nginx-app](https://console.yandex.cloud/folders/b1g0jl4hsmsh89fu01vr/container-registry/registries/crpefno6d2dqdrf96gqk/overview/nginx-app/image)
 
 ----------------------
 
