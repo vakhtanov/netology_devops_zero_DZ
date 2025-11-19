@@ -39,7 +39,7 @@
 1. Создайте сервисный аккаунт, который будет в дальнейшем использоваться Terraform для работы с инфраструктурой с необходимыми и достаточными правами. Не стоит использовать права суперпользователя ✔️
 2. Подготовьте [backend](https://developer.hashicorp.com/terraform/language/backend) для Terraform:  
    а. Рекомендуемый вариант: S3 bucket в созданном ЯО аккаунте(создание бакета через TF) ✔️  
-  **<не используется>** б. Альтернативный вариант:  [Terraform Cloud](https://app.terraform.io/)  **</не используется>**
+  **<не используется>**  б. Альтернативный вариант:  [Terraform Cloud](https://app.terraform.io/)  **</не используется>**  
 3. Создайте конфигурацию Terrafrom, используя созданный бакет ранее как бекенд для хранения стейт файла. Конфигурации Terraform для создания сервисного аккаунта и бакета и основной инфраструктуры следует сохранить в разных папках. ✔️
 4. Создайте VPC с подсетями в разных зонах доступности. ✔️
 5. Убедитесь, что теперь вы можете выполнить команды `terraform destroy` и `terraform apply` без дополнительных ручных действий. ✔️
@@ -51,14 +51,14 @@
 
 Ожидаемые результаты:
 
-1. Terraform сконфигурирован и создание инфраструктуры посредством Terraform возможно без дополнительных ручных действий, стейт основной конфигурации сохраняется в бакете или Terraform Cloud ✔️
+1. Terraform сконфигурирован и создание инфраструктуры посредством Terraform возможно без дополнительных ручных действий, стейт основной конфигурации сохраняется в бакете или Terraform Cloud ✔️  
 2. Полученная конфигурация инфраструктуры является предварительной, поэтому в ходе дальнейшего выполнения задания возможны изменения. ✔️
 
 -------------------------
 #### РЕШЕНИЕ 1,2
 
 
-Конфигурация терраформ для первоначальной настройки [project_code/01_terraform_init/](project_code/01_terraform_init/)
+Конфигурация терраформ для первоначальной настройки [project_code/01_terraform_init/](project_code/01_terraform_init/)  
 хранится в папке 01_terraform_init, запускается в самом начале
 
 получаем файл доступа к сервисному аккаунту
@@ -74,7 +74,7 @@
 
 ключи доступа к сервисному аккаунту сохраняются в *home*
 
-Переходим в папку создания инфраструктуры *02_terraform_infrastructure*
+Переходим в папку создания инфраструктуры *02_terraform_infrastructure*  
 [project_code/02_terraform_infrastructure/]
 
 запускаем комманду `terraform init -backend-config="access_key=******" -backend-config="secret_key=*****"`
@@ -103,7 +103,7 @@
    б. Подготовить [ansible](https://www.ansible.com/) конфигурации, можно воспользоваться, например [Kubespray](https://kubernetes.io/docs/setup/production-environment/tools/kubespray/)  ✔️
    в. Задеплоить Kubernetes на подготовленные ранее инстансы, в случае нехватки каких-либо ресурсов вы всегда можете создать их при помощи Terraform. ✔️  
 
-**<не используется>**
+**<не используется>**  
 2. Альтернативный вариант: воспользуйтесь сервисом [Yandex Managed Service for Kubernetes](https://cloud.yandex.ru/services/managed-kubernetes)  
   а. С помощью terraform resource для [kubernetes](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster) создать **региональный** мастер kubernetes с размещением нод в разных 3 подсетях      
   б. С помощью terraform resource для [kubernetes node group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group)
@@ -214,11 +214,11 @@ kubectl get nodes
 
 `sh start.sh`
 
-![t2_06deploy.JPG](images/t2_06deploy.JPG)
-![t2_06nginx.JPG](images/t2_06nginx.JPG)
-![t2_08multitool.JPG](images/t2_08multitool.JPG)
-![t2_09nginx2.JPG](images/t2_09nginx2.JPG)
-![t2_10multitool2.JPG](images/t2_10multitool2.JPG)
+![t2_06deploy.JPG](images/t2_06deploy.JPG)  
+![t2_06nginx.JPG](images/t2_06nginx.JPG)  
+![t2_08multitool.JPG](images/t2_08multitool.JPG)  
+![t2_09nginx2.JPG](images/t2_09nginx2.JPG)  
+![t2_10multitool2.JPG](images/t2_10multitool2.JPG)  
 
 `stop.sh`
 
@@ -248,7 +248,7 @@ kubectl get nodes
    
    **<не используется>**  
 2. Альтернативный вариант:  
-   а. Используйте любой другой код, главное, чтобы был самостоятельно создан Dockerfile.
+   а. Используйте любой другой код, главное, чтобы был самостоятельно создан Dockerfile.  
    **</не используется>**
 
    
@@ -264,13 +264,38 @@ kubectl get nodes
 
 [nginx_app](project_code/04_nginx_app/nginx_app/)
 
-Yandex Container Registry - создается в первой стадии иницализации [project_code/01_terraform_init/](project_code/01_terraform_init/)
+Yandex Container Registry - создается в первой стадии иницализации [project_code/01_terraform_init/](project_code/01_terraform_init/)  
+на первом этапе terraform выдет комманду для docker build с ID реджистри  
 
-![](images/)
-![](images/)
-![](images/)
-![](images/)
+комманды для создания image и загрузки в реджистри. YC заранее настроен
+```bash
+# настраиваем репозиторий
+yc iam create-token | docker login --username iam --password-stdin cr.yandex
+yc config set folder-id b1g0jl4hsmsh89fu01vr
+yc container registry configure-docker
 
+# собираем образ
+docker build . -t cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
+
+#проверяем, что запускается
+docker run --name nginx-app  -p 8080:80 cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
+
+# отправляем в реджистри
+docker push cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
+```
+
+
+
+
+
+
+
+
+![t4_02build.JPG](images/t4_02build.JPG)  
+![t4_03push.JPG](images/t4_03push.JPG)  
+![t4_04registry.JPG](images/t4_04registry.JPG)  
+![t4_04run.JPG](images/t4_04run.JPG)  
+![t4_06app.JPG](images/t4_06app.JPG)  
 
 [Yandex Container Registry nginx-app](https://console.yandex.cloud/folders/b1g0jl4hsmsh89fu01vr/container-registry/registries/crpefno6d2dqdrf96gqk/overview/nginx-app/image)
 

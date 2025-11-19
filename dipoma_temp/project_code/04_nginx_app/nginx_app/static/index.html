@@ -11,5 +11,6 @@
   <script>
     fetch('/version.txt').then(r=>r.text()).then(t=>document.getElementById('ver').textContent = t.trim());
   </script>
+  <!--# echo var="host" default="unknown_host" -->:<!--# echo var="server_port" default="unknown_port" -->
 </body>
 </html>
