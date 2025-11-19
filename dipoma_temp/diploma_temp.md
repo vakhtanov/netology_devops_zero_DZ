@@ -264,6 +264,8 @@ kubectl get nodes
 
 [nginx_app](project_code/04_nginx_app/nginx_app/)
 
+Yandex Container Registry - создается в первой стадии иницализации [project_code/01_terraform_init/](project_code/01_terraform_init/)
+
 ![](images/)
 ![](images/)
 ![](images/)
