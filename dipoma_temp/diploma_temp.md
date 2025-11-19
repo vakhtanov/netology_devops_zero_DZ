@@ -243,8 +243,8 @@ kubectl get nodes
 Способ подготовки:
 
 1. Рекомендуемый вариант:  
-   а. Создайте отдельный git репозиторий с простым nginx конфигом, который будет отдавать статические данные.  
-   б. Подготовьте Dockerfile для создания образа приложения.  
+   а. Создайте отдельный git репозиторий с простым nginx конфигом, который будет отдавать статические данные.✔️    
+   б. Подготовьте Dockerfile для создания образа приложения.✔️    
    
    **<не используется>**  
 2. Альтернативный вариант:  
@@ -253,8 +253,8 @@ kubectl get nodes
 
    
 Ожидаемый результат:  
-1. Git репозиторий с тестовым приложением и Dockerfile.  
-2. Регистри с собранным docker image. В качестве регистри может быть **<не используется>** DockerHub **</не используется>** или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.  
+1. Git репозиторий с тестовым приложением и Dockerfile.✔️    
+2. Регистри с собранным docker image. В качестве регистри может быть **<не используется>** DockerHub **</не используется>** или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.✔️    
 
 
 -------------------------
@@ -283,13 +283,6 @@ docker run --name nginx-app  -p 8080:80 cr.yandex/crpefno6d2dqdrf96gqk/nginx-app
 # отправляем в реджистри
 docker push cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
 ```
-
-
-
-
-
-
-
 
 ![t4_02build.JPG](images/t4_02build.JPG)  
 ![t4_03push.JPG](images/t4_03push.JPG)  
