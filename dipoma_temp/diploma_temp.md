@@ -61,10 +61,15 @@
 Конфигурация терраформ для первоначальной настройки [project_code/01_terraform_init/](project_code/01_terraform_init/)
 хранится в папке 01_terraform_init, запускается в самом начале
 
-в output получаем комманду для настройки бекенда во втором наборе файлов
-`terraform init -backend-config=access_key=****** -backend-config= secret_key=*****`
+получаем файл доступа к сервисному аккаунту
 
-надо поставить ковычки в нужных местах 
+`terraform output -json terraform-account-key > ~/.terraform-account-key.json`
+
+в output получаем комманду для настройки бекенда во втором наборе файлов
+
+`terraform output -raw terraform-backend-key`
+
+примерный вид  
 `terraform init -backend-config="access_key=******" -backend-config="secret_key=*****"`
 
 ключи доступа к сервисному аккаунту сохраняются в *home*
