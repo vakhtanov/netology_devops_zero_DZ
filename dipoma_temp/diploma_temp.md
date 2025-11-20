@@ -192,6 +192,8 @@ ansible-playbook -i inventory/mycluster/inventory.ini -u wahha -b -v --private-k
 копируем конфиг kubectl
 cp  inventory/mycluster/artifacts/admin.conf ~/.kube/config
 
+в ~/.kube/config меняем адрес подключения на внешний адрес первой ноды
+
 проверяем работу
 kubectl cluster-info
 kubectl get po -A
