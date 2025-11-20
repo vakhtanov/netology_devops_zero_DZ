@@ -175,7 +175,9 @@ python3 -m venv venv
 source venv/bin/activate
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-git checkout v2.29.0
+#git checkout v2.29.0 ??
+#git checkout v2.28.1 ??
+#git checkout 5488e7d805851249c3d1813a736ad6027c3a2bc1???
 pip install -r requirements.txt
 
 *настройка инвентори* 
