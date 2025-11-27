@@ -361,7 +361,7 @@ kubectl get po -n monitoring
 
 чтобы дать доступ черех внешний IP control node сохраняем сонфиг сервиса графаны
 
-`kubectl -n monitoring get svc grafana -o yaml > grafana-svc.yaml'
+`kubectl -n monitoring get svc grafana -o yaml > grafana-svc.yaml`
 
 ```
 редактируем grafana-svc.yaml: 
@@ -373,7 +373,7 @@ nodePort: 30080
 [grafana-svc.yaml](project_code/05_monitoring_app/01kube-prometheus/grafana-svc.yaml)
 
 применяем
-`kubectl apply -f grafana-svc.yaml'
+`kubectl apply -f grafana-svc.yaml`
 
 получаем доступ из вне
 
