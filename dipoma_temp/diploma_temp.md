@@ -321,7 +321,7 @@ https://github.com/prometheus-operator/kube-prometheus.git
 и инструкцией
 https://prometheus-operator.dev/docs/getting-started/installation/
 
-Заходим в дирректорию ** 05_monitoring_app/01kube-prometheus ** и выполняем комманды
+Заходим в дирректорию **05_monitoring_app/01kube-prometheus** и выполняем комманды
 
 ``` bash
 git clone https://github.com/prometheus-operator/kube-prometheus.git
