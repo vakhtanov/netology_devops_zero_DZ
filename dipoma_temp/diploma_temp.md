@@ -175,7 +175,9 @@ python3 -m venv venv
 source venv/bin/activate
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-git checkout v2.29.0
+#git 9975b5d525e38b40ec3ca415f7b00d68d3df4782 !!!
+#git checkout v2.29.0 ??
+#git checkout 5488e7d805851249c3d1813a736ad6027c3a2bc1???
 pip install -r requirements.txt
 
 *настройка инвентори* 
@@ -189,6 +191,8 @@ ansible-playbook -i inventory/mycluster/inventory.ini -u wahha -b -v --private-k
 
 копируем конфиг kubectl
 cp  inventory/mycluster/artifacts/admin.conf ~/.kube/config
+
+в ~/.kube/config меняем адрес подключения на внешний адрес первой ноды
 
 проверяем работу
 kubectl cluster-info
