@@ -315,10 +315,75 @@ docker push cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
 -------------------------
 #### РЕШЕНИЕ 5
 
-![](images/)
-![](images/)
-![](images/)
-![](images/)
+Для мониторнига воспользуемся репозиторием
+https://github.com/prometheus-operator/kube-prometheus.git
+
+и инструкцией
+https://prometheus-operator.dev/docs/getting-started/installation/
+
+Заходим в дирректорию ** 05_monitoring_app/01kube-prometheus ** и выполняем комманды
+
+``` bash
+git clone https://github.com/prometheus-operator/kube-prometheus.git
+
+у нас версия кубера 1.33 - можно ипользовать версию пакета kube-prometheus v0.15.0 или v0.16.0
+
+git checkout v0.15.0
+
+подготовительный этапа
+kubectl create -f manifests/setup
+
+ждем завершения работы 
+until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
+
+запускаем сервисы
+kubectl create -f manifests/
+
+проверяем, что сервисы все развернулись
+
+kubectl get po -n monitoring
+
+```
+
+![](images/t5_1monitor.JPG)
+
+* есть особенность pod графаны долго стартует и не сразу проходит проверки доступности, причинц пока не нашел *
+
+через управляющую машину даем доступ к графане
+
+`kubectl port-forward --namespace=monitoring svc/grafana 3000:3000 --address 0.0.0.0`
+
+проверяем, переключаем дашборды
+
+![](images/t5_2grafana.JPG)
+
+![](images/t5_3grafana2.JPG)
+
+чтобы дать доступ черех внешний IP control node сохраняем сонфиг сервиса графаны
+
+`kubectl -n monitoring get svc grafana -o yaml > grafana-svc.yaml'
+
+```
+редактируем grafana-svc.yaml: 
+spec.type: NodePort
+добавляем 
+nodePort: 30080
+```
+
+[grafana-svc.yaml](project_code/05_monitoring_app/01kube-prometheus/grafana-svc.yaml)
+
+применяем
+`kubectl apply -f grafana-svc.yaml'
+
+получаем доступ из вне
+
+для деплоя тестового приложения выполняем комплексный манифест
+
+[nginx.deploy.yaml](project_code/05_monitoring_app/02nginx-app-deploy/nginx.deploy.yaml)
+
+проверяем
+
+![t5_4app_in_cluster.JPG](images/t5_4app_in_cluster.JPG)
 
 ----------------------
 
