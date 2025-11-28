@@ -370,15 +370,23 @@ spec.type: NodePort
 nodePort: 30080
 ```
 
+По умолчанию создается networkpolicies для grafana, которая не позволяет получить доступ извне. Удалим её командой: 
+`kubectl -n monitoring delete networkpolicies.networking.k8s.io grafana`
+
+почуяаем что-то типа:
+
 [grafana-svc.yaml](project_code/05_monitoring_app/01kube-prometheus/grafana-svc.yaml)
 
-применяем
+применяем  
 `kubectl apply -f grafana-svc.yaml`
 
-получаем доступ из вне
+получаем доступ из вне по  IP controlNode
 
-для деплоя тестового приложения выполняем комплексный манифест
+![t5_4app_in_cluster.JPG](images/t5_4app_in_cluster.JPG)
 
+
+
+для деплоя тестового приложения выполняем комплексный манифест  
 [nginx.deploy.yaml](project_code/05_monitoring_app/02nginx-app-deploy/nginx.deploy.yaml)
 
 проверяем
