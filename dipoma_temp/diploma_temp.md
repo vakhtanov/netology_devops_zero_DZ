@@ -382,7 +382,7 @@ nodePort: 30080
 
 получаем доступ из вне по  IP controlNode
 
-![t5_4app_in_cluster.JPG](images/t5_4app_in_cluster.JPG)
+![t5_3grafana3.JPG](images/t5_3grafana3.JPG)
 
 
 
