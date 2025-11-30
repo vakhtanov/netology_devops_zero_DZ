@@ -328,7 +328,7 @@ git clone https://github.com/prometheus-operator/kube-prometheus.git
 
 у нас версия кубера 1.33 - можно ипользовать версию пакета kube-prometheus v0.15.0 или v0.16.0
 
-git checkout v0.15.0
+git checkout v0.16.0
 
 подготовительный этапа
 kubectl create -f manifests/setup
