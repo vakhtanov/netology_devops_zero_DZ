@@ -410,6 +410,10 @@ nodePort: 30080
 
 -------------------------
 #### РЕШЕНИЕ 6
+[Репозиторий с кодом Terraform для инициализации облака](https://github.com/vakhtanov/netology-diploma-terraform-stage1.git)
+
+[Репозиторий с кодом Terraform для инфраструктуры](https://github.com/vakhtanov/netology-diploma-terraform-stage2.git)
+
 
 ![](images/)
 ![](images/)
