@@ -124,17 +124,21 @@
 [all]
 
 [kube_control_plane]
-control-node-subnet-a   ansible_host=84.252.131.244 #fqdn=fhmlhttrpa66lq6dqi7t.auto.internal
-control-node-subnet-b   ansible_host=89.169.178.13 #fqdn=epdkdotq2eqdrupa9mle.auto.internal
-control-node-subnet-d   ansible_host=158.160.202.167 #fqdn=fv4t4c60ro46a03udjnt.auto.internal
+control-node-subnet-a   ansible_host=158.160.110.213 #fqdn=control-node-subnet-a.ru-central1.internal
+control-node-subnet-b   ansible_host=51.250.19.103 #fqdn=control-node-subnet-b.ru-central1.internal
+control-node-subnet-d   ansible_host=51.250.34.28 #fqdn=control-node-subnet-d.ru-central1.internal
+
+
 
 [etcd:children]
 
 kube_control_plane
 
+
 [kube_node]
-worker-node-1   ansible_host=158.160.54.203 #fqdn=fhma1lo64680boh17us1.auto.internal
-worker-node-2   ansible_host=51.250.100.170 #fqdn=epdnjdq12rchc3djr3ok.auto.internal
+worker-node-1   ansible_host=84.201.175.124 #fqdn=worker-node-1.ru-central1.internal
+worker-node-2   ansible_host=89.169.182.144 #fqdn=worker-node-2.ru-central1.internal
+
 
 [calico_rr]
 
@@ -146,8 +150,7 @@ calico_rr
 
 [kube_control_plane:vars]
 #IP control_node
-supplementary_addresses_in_ssl_keys = [ "84.252.131.244" ]
-
+supplementary_addresses_in_ssl_keys = [ "158.160.110.213" ]
 ```
 
 создан файл `parameters.json` в *home*
@@ -159,7 +162,10 @@ supplementary_addresses_in_ssl_keys = [ "84.252.131.244" ]
     "cluster_name" : "cluster.local",
     "kubectl_localhost" : true,
     "kubeconfig_localhost" : true,
+    "persistent_volumes_enabled" : true,
+    "dashboard_enabled" : true,
 }
+
 ```
 
 Дополнительные настройки нужны для установки ingress, helm, kubectl, копирвоание файла конфигруации, добавления в сертификат внешнего IP control node
