@@ -4,4 +4,6 @@
     "cluster_name" : "cluster.local",
     "kubectl_localhost" : true,
     "kubeconfig_localhost" : true,
+    "persistent_volumes_enabled" : true,
+    "dashboard_enabled" : true,
 }

@@ -13,6 +13,17 @@ output "terraform-account-key" {
 ### terraform output -json terraform-account-key > ~/.terraform-account-key.json
 
 output "terraform-backend-key" {
-  value = "terraform init -backend-config=access_key=${yandex_iam_service_account_static_access_key.terraform-account-key.access_key} -backend-config= secret_key=${yandex_iam_service_account_static_access_key.terraform-account-key.secret_key}" 
+  value = "terraform init -backend-config=\"access_key=${yandex_iam_service_account_static_access_key.terraform-account-key.access_key}\" -backend-config=\"secret_key=${yandex_iam_service_account_static_access_key.terraform-account-key.secret_key}\"" 
   sensitive = true
+}
+
+output "docker_build_command" {
+  value = "docker build . -t cr.yandex/${yandex_container_registry.default.id}/nginx-app:v0.0.0" 
+  #sensitive = true
+}
+
+output "docker_pull_command" {
+  value = "docker pull cr.yandex/${yandex_container_registry.default.id}/nginx-app:v0.0.0" 
+  #sensitive = true
+
 }

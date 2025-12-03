@@ -1,3 +1,13 @@
+variable "access_key" {
+  type        = string
+  default     = ""
+}
+
+variable "secret_key" {
+  type        = string
+  default     = ""
+}
+
 variable "cloud_id" {
   type        = string
   default     = "b1gbnkafeirsgsvi0dtd"
