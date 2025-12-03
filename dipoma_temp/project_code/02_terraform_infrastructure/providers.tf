@@ -8,16 +8,14 @@ terraform {
 
   backend "s3" {
     endpoints = {
-      s3 = "https://storage.yandexcloud.net"
+    s3 = "https://storage.yandexcloud.net"
     }
     bucket       = "netology-vakhtanov-diploma-state-bucket"
     region       = "ru-central1"
     key          = "terraform.tfstate"
-    access_key   = "..." #Только для примера. Секретные данные нельзя хардкодить
-    secret_key   = "..." #Только для примера. Секретные данные нельзя хардкодить
     use_lockfile = true
     #   encrypt = true #Шифрование state сервером Terraform
-    #   force_path_style            = true
+    #use_path_style            = true
     skip_region_validation      = true
     skip_credentials_validation = true
     skip_requesting_account_id  = true # Необходимая опция Terraform для версии 1.6.1 и старше.

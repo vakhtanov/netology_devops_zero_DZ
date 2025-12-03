@@ -2,8 +2,9 @@ resource "yandex_compute_instance" "worker_node" {
   count       = var.worker_node.vm_num
   depends_on  = [yandex_compute_instance.control_node]
   name        = "worker-node-${count.index + 1}"
+  hostname    = "worker-node-${count.index + 1}"
   platform_id = var.worker_node.platform_id
-  #allow_stopping_for_update = true  
+  allow_stopping_for_update = var.worker_node.allow_stopping_for_update
   zone = var.nodes_subnets[count.index - floor(count.index / length(var.nodes_subnets)) * length(var.nodes_subnets)].zone
   scheduling_policy {
     preemptible = var.worker_node.preemptible

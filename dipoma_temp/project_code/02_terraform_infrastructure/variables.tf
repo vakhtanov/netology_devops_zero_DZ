@@ -1,10 +1,12 @@
 variable "cloud_id" {
   type        = string
+  default     = "b1gbnkafeirsgsvi0dtd"
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
 }
 
 variable "folder_id" {
   type        = string
+  default     = "b1g0jl4hsmsh89fu01vr"
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
@@ -71,6 +73,7 @@ data "yandex_compute_image" "rocky" {
 variable "control_node" {
   type = object({
     platform_id   = string,
+    allow_stopping_for_update = bool,
     preemptible   = bool,
     cpu           = number,
     core_fraction = number,
@@ -81,10 +84,11 @@ variable "control_node" {
 
   default = {
     platform_id   = "standard-v3",
+    allow_stopping_for_update = true,
     preemptible   = true,
     cpu           = 2,
     core_fraction = 20,
-    ram           = 2,
+    ram           = 4,
     disk_volume   = 40,
     nat           = true,
   }
@@ -96,6 +100,7 @@ variable "worker_node" {
   type = object({
     vm_num        = number,
     platform_id   = string,
+    allow_stopping_for_update = bool,
     preemptible   = bool,
     cpu           = number,
     core_fraction = number,
@@ -107,10 +112,11 @@ variable "worker_node" {
   default = {
     vm_num = 2
     platform_id   = "standard-v3",
+    allow_stopping_for_update = true,
     preemptible   = true,
     cpu           = 2,
-    core_fraction = 20,
-    ram           = 2,
+    core_fraction = 50,
+    ram           = 6,
     disk_volume   = 40,
     nat           = true,
   }

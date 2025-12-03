@@ -312,14 +312,28 @@ docker push cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
 Теперь необходимо подготовить конфигурационные файлы для настройки нашего Kubernetes кластера.
 
 Цель:
-1. Задеплоить в кластер [prometheus](https://prometheus.io/), [grafana](https://grafana.com/), [alertmanager](https://github.com/prometheus/alertmanager), [экспортер](https://github.com/prometheus/node_exporter) основных метрик Kubernetes.
-2. Задеплоить тестовое приложение, например, [nginx](https://www.nginx.com/) сервер отдающий статическую страницу.
+1. Задеплоить в кластер [prometheus](https://prometheus.io/), [grafana](https://grafana.com/), [alertmanager](https://github.com/prometheus/alertmanager), [экспортер](https://github.com/prometheus/node_exporter) основных метрик Kubernetes. ✔️
+2. Задеплоить тестовое приложение, например, [nginx](https://www.nginx.com/) сервер отдающий статическую страницу. ✔️
 
 Способ выполнения:
 1. Воспользоваться пакетом [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus), который уже включает в себя [Kubernetes оператор](https://operatorhub.io/) для [grafana](https://grafana.com/), [prometheus](https://prometheus.io/), [alertmanager](https://github.com/prometheus/alertmanager) и [node_exporter](https://github.com/prometheus/node_exporter). Альтернативный вариант - использовать набор helm чартов от [bitnami](https://github.com/bitnami/charts/tree/main/bitnami).
 
+
+### 6. Деплой инфраструктуры в terraform pipeline
+
+1. Если на первом этапе вы не воспользовались [Terraform Cloud](https://app.terraform.io/), то задеплойте и настройте в кластере [atlantis](https://www.runatlantis.io/) для отслеживания изменений инфраструктуры. Альтернативный вариант 3 задания: вместо Terraform Cloud или atlantis настройте на автоматический запуск и применение конфигурации terraform из вашего git-репозитория в выбранной вами CI-CD системе при любом комите в main ветку. Предоставьте скриншоты работы пайплайна из CI/CD системы.
+
+Ожидаемый результат:
+1. Git репозиторий с конфигурационными файлами для настройки Kubernetes.
+2. Http доступ на 80 порту к web интерфейсу grafana.
+3. Дашборды в grafana отображающие состояние Kubernetes кластера.
+4. Http доступ на 80 порту к тестовому приложению.
+5. Atlantis или terraform cloud или ci/cd-terraform
+
 -------------------------
 #### РЕШЕНИЕ 5
+
+##### ЗАДАЧА 1
 
 Для мониторнига воспользуемся репозиторием
 https://github.com/prometheus-operator/kube-prometheus.git
@@ -353,18 +367,8 @@ kubectl get po -n monitoring
 
 ![](images/t5_1monitor.JPG)
 
-*есть особенность pod графаны долго стартует и не сразу проходит проверки доступности, причинц пока не нашел*
-
-через управляющую машину даем доступ к графане
-
-`kubectl port-forward --namespace=monitoring svc/grafana 3000:3000 --address 0.0.0.0`
-
-проверяем, переключаем дашборды
-
-![](images/t5_2grafana.JPG)
-
-![](images/t5_3grafana2.JPG)
-
+*есть особенность pod графаны долго стартует и не сразу проходит проверки доступности, причин пока не нашел*
+**Делаем NodePort**  
 чтобы дать доступ черех внешний IP control node сохраняем сонфиг сервиса графаны
 
 `kubectl -n monitoring get svc grafana -o yaml > grafana-svc.yaml`
@@ -376,21 +380,21 @@ spec.type: NodePort
 nodePort: 30080
 ```
 
-По умолчанию создается networkpolicies для grafana, которая не позволяет получить доступ извне. Удалим её командой: 
-`kubectl -n monitoring delete networkpolicies.networking.k8s.io grafana`
+По умолчанию создается networkpolicies для grafana, которая не позволяет получить доступ извне. Удалим её командой:  
+`kubectl -n monitoring delete networkpolicies.networking.k8s.io grafana`  
 
-почуяаем что-то типа:
-
-[grafana-svc.yaml](project_code/05_monitoring_app/01kube-prometheus/grafana-svc.yaml)
+полуяаем что-то типа:  
+[grafana-svc.yaml](project_code/05_monitoring_app/01kube-prometheus/grafana-svc.yaml)  
 
 применяем  
-`kubectl apply -f grafana-svc.yaml`
-
-получаем доступ из вне по  IP controlNode
-
+`kubectl apply -f grafana-svc.yaml`  
+получаем доступ из вне по  IP controlNode  
 ![t5_3grafana3.JPG](images/t5_3grafana3.JPG)
 
+**TODO** **ДОСТУП ЧЕРЕЗ INGRESS или NLB пока в работе**
 
+
+##### ЗАДАЧА 2
 
 для деплоя тестового приложения выполняем комплексный манифест  
 [nginx.deploy.yaml](project_code/05_monitoring_app/02nginx-app-deploy/nginx.deploy.yaml)
@@ -399,32 +403,115 @@ nodePort: 30080
 
 ![t5_4app_in_cluster.JPG](images/t5_4app_in_cluster.JPG)
 
-----------------------
-
-
-
-### 6. Деплой инфраструктуры в terraform pipeline
-
-1. Если на первом этапе вы не воспользовались [Terraform Cloud](https://app.terraform.io/), то задеплойте и настройте в кластере [atlantis](https://www.runatlantis.io/) для отслеживания изменений инфраструктуры. Альтернативный вариант 3 задания: вместо Terraform Cloud или atlantis настройте на автоматический запуск и применение конфигурации terraform из вашего git-репозитория в выбранной вами CI-CD системе при любом комите в main ветку. Предоставьте скриншоты работы пайплайна из CI/CD системы.
-
-Ожидаемый результат:
-1. Git репозиторий с конфигурационными файлами для настройки Kubernetes.
-2. Http доступ на 80 порту к web интерфейсу grafana.
-3. Дашборды в grafana отображающие состояние Kubernetes кластера.
-4. Http доступ на 80 порту к тестовому приложению.
-5. Atlantis или terraform cloud или ci/cd-terraform
 
 -------------------------
-#### РЕШЕНИЕ 6
+#### РЕШЕНИЕ 6 ATLANTIS
 [Репозиторий с кодом Terraform для инициализации облака](https://github.com/vakhtanov/netology-diploma-terraform-stage1.git)
 
 [Репозиторий с кодом Terraform для инфраструктуры](https://github.com/vakhtanov/netology-diploma-terraform-stage2.git)
 
+**ДЕПЛОЙ ATLANTIS - это прям челендж!!! Главным образом из-за пробелов в документации**
 
-![](images/)
-![](images/)
-![](images/)
-![](images/)
+Базовая установка особых вопросов не вызывает
+[Руководство по установке](https://www.runatlantis.io/docs/installation-guide.html)
+
+[метод деплоя через HELM](https://www.runatlantis.io/docs/deployment.html#kubernetes-helm-chart)
+
+переходим в папку для atlantis - `project_code\05_monitoring_app\03atlantis\`
+
+Генерируем Webhook Secret [https://www.browserling.com/tools/random-string](https://www.browserling.com/tools/random-string)  
+и сохраняем в файл `webhook-secret`  
+в github генерируем токен доступа и сохраняем в файл `token`  
+создаем отдельный намеспейс `kubectl create namespace atlantis`  
+
+Клонируем и обновляем репозиторий  
+`helm repo add runatlantis https://runatlantis.github.io/helm-charts`
+`helm repo update`
+
+Создаем файл параметров `values.yaml`  
+`helm inspect values runatlantis/atlantis > values.yaml`  
+
+Задаем свои параметры в файле  
+Основные настройки:
+- git репозиторий и доступ к нему
+- вебхук
+- доступ к бекэнду терраформ
+- доступ к яндекс облаку
+
+итого меняем:
+```
+github:
+  user: vakhtanov
+  token: ********
+  secret: ********
+
+orgAllowlist: "github.com/vakhtanov/netology-diploma-terraform-stage2"
+
+внешний порт доступа
+service:
+  type: NodePort
+  annotations: {}
+  port: 80
+  portName: atlantis
+  nodePort: 30041
+
+креды к backend yandexcloud
+aws:
+   credentials: |
+     [default]
+     AWS_ACCESS_KEY_ID=*********
+     AWS_SECRET_ACCESS_KEY=*******
+     region=ru-central1
+
+```
+
+итого получим value.yaml приблидительн такого вида:  
+[values_nocred.yaml](project_code/05_monitoring_app/03atlantis/values_nocred.yaml)
+
+Для работы atlantis нужен PV, создаем его (вариант для тестов)  
+`kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml`
+
+определяем дефолтный storageclass:  
+`kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'`
+
+Запускаем приложение и ждем пока поднимется  
+`helm install atlantis runatlantis/atlantis -f values.yaml -n atlantis`
+
+пару параметров (зеркало terraform и доступ к яндекс облаку) не удалось красиво передать, копируем прямо в POD  
+```
+kubectl cp ./.terraformrc atlantis/atlantis-0:/home/atlantis/
+kubectl cp /home/user/.terraform-account-key.json atlantis/atlantis-0:/home/atlantis/
+```
+
+на сайте github настраиваем вебхук по инструкции [https://www.runatlantis.io/docs/configuring-webhooks.html](https://www.runatlantis.io/docs/configuring-webhooks.html)
+
+если что-то пошло не так можно удалить или обновить приложение или посмотреть статус:  
+```
+helm delete atlantis  -n atlantis
+helm upgrade atlantis runatlantis/atlantis -f values.yaml -n atlantis
+helm describe po atlantis  -n atlantis
+```
+
+проверяем, что доступно снаружи  
+![](images/t6_0app.JPG)
+
+Теперь в локальной копии репоитория с инфраструктурой создаем новую ветку, вносим нужные изменения, коммитим, отправляем в github. На сайте создаем pull request на мердж в мастер. Atlantis получает сигнал скачать код, запустить terraform plan и выложить результат в комментарий. В комментах пуллрекеста получаем:  
+![t6_1test_pass1.JPG](images/t6_1test_pass1.JPG)  
+![t6_2test_pass2.JPG](images/t6_2test_pass2.JPG)  
+
+все прошло успешно, смотрим какие машины в облаке. Эта ветка для примера создает новую VM
+![t6_3cloud1.JPG](images/t6_3cloud1.JPG)  
+смотрим, что на сайте atlantis  
+![t6_4atlantis.JPG](images/t6_4atlantis.JPG)  
+в комментах ревеста пишем `atlantis apply d .` Пошли применяться изменения  
+![t6_5apply.JPG](images/t6_5apply.JPG)  
+проверяем облако - машина есть
+![t6_6cloud.JPG](images/t6_6cloud.JPG)  
+подтверждаем пулл реквест, обновляем локальный репозиторий, смотрим историю:  
+![t6_7git.JPG](images/t6_7git.JPG)  
+![](images/)  
+
+ГОТОВО!
 
 ----------------------
 

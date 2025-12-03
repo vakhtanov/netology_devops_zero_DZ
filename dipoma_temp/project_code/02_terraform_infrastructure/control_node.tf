@@ -2,9 +2,10 @@ resource "yandex_compute_instance" "control_node" {
   count = length(var.nodes_subnets)
   #depends_on = [ yandex_compute_instance.for-each ]
   name        = "control-node-${var.nodes_subnets[count.index].name}"
+  hostname    = "control-node-${var.nodes_subnets[count.index].name}"
   platform_id = var.control_node.platform_id
   zone        = var.nodes_subnets[count.index].zone
-  #allow_stopping_for_update = true  
+  allow_stopping_for_update = var.control_node.allow_stopping_for_update  
   scheduling_policy {
     preemptible = var.control_node.preemptible
   }
