@@ -1,0 +1,12 @@
+grafana:
+  env:
+    GF_SERVER_ROOT_URL: http://netology.local/grafana
+    GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+  ingress:
+    ## If true, Grafana Ingress will be created
+    ##
+    enabled: true
+    ingressClassName: nginx
+    hosts: 
+      - netology.local
+    path: /grafana

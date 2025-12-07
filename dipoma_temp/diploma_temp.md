@@ -335,63 +335,58 @@ docker push cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
 
 ##### ЗАДАЧА 1
 
-Для мониторнига воспользуемся репозиторием
-https://github.com/prometheus-operator/kube-prometheus.git
+Для мониторнига воспользуемся Prometheus Community Kubernetes Helm Charts
+https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 
-и инструкцией
-https://prometheus-operator.dev/docs/getting-started/installation/
+и дополнительной статьей
+https://dev.to/tinhtq97/configuring-access-to-prometheus-and-grafana-via-sub-paths-55n7?ysclid=miqmg1xc5n283448603
 
-Заходим в дирректорию **05_monitoring_app/01kube-prometheus** и выполняем комманды
+Заходим в дирректорию **05_monitoring_app/01kube-prometheus-stack** 
+
+создаем файл [values_grafana.yaml](project_code/05_monitoring_app/01kube-prometheus-stack/values_grafana.yaml) с настройками для доступа к Grafana снаружи (включаем ingress и настраиваем адреса
+
+```yaml
+grafana:
+  env:
+    GF_SERVER_ROOT_URL: http://netology.local/grafana
+    GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+  ingress:
+    ## If true, Grafana Ingress will be created
+    ##
+    enabled: true
+    ingressClassName: nginx
+    hosts: 
+      - netology.local
+    path: /grafana
+```
+
+на машине с которой будем заходить в grafana прописываем в файле hosts IP нашего домена `netology.local`
+в моем случае `84.201.175.124 netology.local`
+
+Выполняем комманд для запуска системы мониторинга
 
 ``` bash
-git clone https://github.com/prometheus-operator/kube-prometheus.git
-
-у нас версия кубера 1.33 - можно ипользовать версию пакета kube-prometheus v0.15.0 или v0.16.0
-
-git checkout v0.16.0
-
-подготовительный этапа
-kubectl create -f manifests/setup
-
-ждем завершения работы 
-until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
-
-запускаем сервисы
-kubectl create -f manifests/
+helm install kube-monitoring oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack -f values_grafana.yaml -n monitoring  --create-namespace
 
 проверяем, что сервисы все развернулись
-
 kubectl get po -n monitoring
 
+получаем пароль от admin
+kubectl --namespace monitoring get secrets monitoring-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+
+если надо удалить мониторниг 
+helm uninstall kube-monitoring -n monitoring
 ```
+
+
+проверка подов
 
 ![](images/t5_1monitor.JPG)
 
-*есть особенность pod графаны долго стартует и не сразу проходит проверки доступности, причин пока не нашел*
-**Делаем NodePort**  
-чтобы дать доступ черех внешний IP control node сохраняем сонфиг сервиса графаны
-
-`kubectl -n monitoring get svc grafana -o yaml > grafana-svc.yaml`
-
-```
-редактируем grafana-svc.yaml: 
-spec.type: NodePort
-добавляем 
-nodePort: 30080
-```
-
-По умолчанию создается networkpolicies для grafana, которая не позволяет получить доступ извне. Удалим её командой:  
-`kubectl -n monitoring delete networkpolicies.networking.k8s.io grafana`  
-
-полуяаем что-то типа:  
-[grafana-svc.yaml](project_code/05_monitoring_app/01kube-prometheus/grafana-svc.yaml)  
-
-применяем  
-`kubectl apply -f grafana-svc.yaml`  
-получаем доступ из вне по  IP controlNode  
+Проверяем доступ снаружи  
 ![t5_3grafana3.JPG](images/t5_3grafana3.JPG)
 
-**TODO** **ДОСТУП ЧЕРЕЗ INGRESS или NLB пока в работе**
+**TODO** **ДОСТУП NLB пока в работе**
 
 
 ##### ЗАДАЧА 2
