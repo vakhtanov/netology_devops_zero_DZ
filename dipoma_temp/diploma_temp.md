@@ -72,6 +72,10 @@
 примерный вид  
 `terraform init -backend-config="access_key=******" -backend-config="secret_key=*****"`
 
+получаем файл доступа к аккаунту для cicd
+
+`terraform output -json cicd-account-key > ~/.cicd-account-key.json`
+
 ключи доступа к сервисному аккаунту сохраняются в *home*
 
 Переходим в папку создания инфраструктуры *02_terraform_infrastructure*  
@@ -277,12 +281,10 @@ kubectl get nodes
 Yandex Container Registry - создается в первой стадии иницализации [project_code/01_terraform_init/](project_code/01_terraform_init/)  
 на первом этапе terraform выдет комманду для docker build с ID реджистри  
 
-комманды для создания image и загрузки в реджистри. YC заранее настроен
+комманды для создания image и загрузки в реджистри. 
 ```bash
-# настраиваем репозиторий
-yc iam create-token | docker login --username iam --password-stdin cr.yandex
-yc config set folder-id b1g0jl4hsmsh89fu01vr
-yc container registry configure-docker
+# настраиваем репозиторий (docker установлен и настроен заранее)
+cat ~/.cicd-account-key.json | docker login --username json_key --password-stdin cr.yandex
 
 # собираем образ
 docker build . -t cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
