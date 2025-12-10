@@ -687,8 +687,8 @@ Events:
 
 доступ к grafana 
 
-[grafana](http://www.knit-tale.ru/grafana)
-admin
-vW6iSeVHY8yQGxztk0WjrvfwgJs6DIhEfyHgKJhU
+[grafana](http://www.knit-tale.ru/grafana)  
+admin  
+vW6iSeVHY8yQGxztk0WjrvfwgJs6DIhEfyHgKJhU  
 
 7. Все репозитории рекомендуется хранить на одном ресурсе (github, gitlab)
