@@ -534,14 +534,60 @@ helm describe po atlantis  -n atlantis
 -------------------------
 #### РЕШЕНИЕ 7
 
-![](images/)
-![](images/)
-![](images/)
-![](images/)
-![](images/)
+В качестве CI CD системы используем **GitHub Actions**, поскольку репозиторий с кодом приложения находится на **github**
+
+[https://github.com/vakhtanov/netology-diploma-app/actions](https://github.com/vakhtanov/netology-diploma-app/actions)
+
+На первом этапе создан пользователь для загрузки и получения образов из реджистри и ключ доступа `.cicd-account-key.json`
+
+В настройках репозитория прописываем секретные переменные для доступа:
+
+* YC_REGISTRY_ID - ID реджистри в YandexCloud
+* YC_SA_KEY - ключ доступа к реджистри в формате json содержимое `.cicd-account-key.json`
+* KUBE_CONFIG доступ к кластеру `cat ~/.kube/config | base64 > ~/.kube/kubeconfig64` закодированный в BASE64 для удобства передачи 
+
+![](images/t7_2secret.JPG)
+
+в репозитории с приложением в корне создаем файл `.github/workflows/main.yaml` - описание workflows для двух стадий build и deploy
+
+такого вида
+[.github/workflows/main.yml](.github/workflows/main.yml)
+
+файл в репозитории приложения
+[.github/workflows/main.yml](https://github.com/vakhtanov/netology-diploma-app/blob/983905c9d8c699fb2a92d00248219f5b3ee4fae0/.github/workflows/main.yml)
+
+на стадии build проходим шаги:
+- получение кода из репозитория
+- установка докера
+- логирование  в реджистри
+- сборка образа и выкладка в реджистри
+
+на стадии deploy проходим шаги:
+- проверяем выполнился ли build и есть ли тег
+- установка kubectl
+- настройка kubeconfig
+- определение текущей версии приложения
+- деплой (обновление) приложения в кластере из образа в реджистри
+
+Коммитим изменения в репозиторий без тега.  
+![](images/t7_3buid_ci.JPG)
+
+Билд прошел успешно, артефакт в регистри  
+![](images/t7_4registry.JPG)
+
+Приложение заранее задеплоино в кластер (версия 1.0.0):  
+![](images/t7_4befor_depl.JPG)
+
+Коммитим изменение в репозиторий с тегом `git push origin main --tags`  
+workflows успешно выполнился  
+![](images/t7_5act_deploy.JPG)  
+![](images/t7_6act_deploy_suc.JPG)  
+
+Новая версия приложения  
+![](images/t7_7newv.JPG)
 
 
-deployed pod
+Описание пода
 
 ```bash
 user@ubuntusrv:~/diploma/05_monitoring_app/02nginx-app-deploy$ kubectl describe po nginx-app-depl-68c967d755-84gsl
