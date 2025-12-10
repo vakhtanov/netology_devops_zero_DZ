@@ -185,9 +185,7 @@ python3 -m venv venv
 source venv/bin/activate
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-#git 9975b5d525e38b40ec3ca415f7b00d68d3df4782 !!!
-#git checkout v2.29.0 ??
-#git checkout 5488e7d805851249c3d1813a736ad6027c3a2bc1???
+git checkout v2.29.0 
 pip install -r requirements.txt
 
 *настройка инвентори* 
@@ -326,11 +324,11 @@ docker push cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.1
 1. Если на первом этапе вы не воспользовались [Terraform Cloud](https://app.terraform.io/), то задеплойте и настройте в кластере [atlantis](https://www.runatlantis.io/) для отслеживания изменений инфраструктуры. Альтернативный вариант 3 задания: вместо Terraform Cloud или atlantis настройте на автоматический запуск и применение конфигурации terraform из вашего git-репозитория в выбранной вами CI-CD системе при любом комите в main ветку. Предоставьте скриншоты работы пайплайна из CI/CD системы.
 
 Ожидаемый результат:
-1. Git репозиторий с конфигурационными файлами для настройки Kubernetes.
-2. Http доступ на 80 порту к web интерфейсу grafana.
-3. Дашборды в grafana отображающие состояние Kubernetes кластера.
-4. Http доступ на 80 порту к тестовому приложению.
-5. Atlantis или terraform cloud или ci/cd-terraform
+1. Git репозиторий с конфигурационными файлами для настройки Kubernetes. ✔️
+2. Http доступ на 80 порту к web интерфейсу grafana. ✔️
+3. Дашборды в grafana отображающие состояние Kubernetes кластера. ✔️
+4. Http доступ на 80 порту к тестовому приложению. ✔️
+5. Atlantis или terraform cloud или ci/cd-terraform ✔️
 
 -------------------------
 #### РЕШЕНИЕ 5
@@ -520,8 +518,8 @@ helm describe po atlantis  -n atlantis
 
 Цель:
 
-1. Автоматическая сборка docker образа при коммите в репозиторий с тестовым приложением.
-2. Автоматический деплой нового docker образа.
+1. Автоматическая сборка docker образа при коммите в репозиторий с тестовым приложением. ✔️
+2. Автоматический деплой нового docker образа. ✔️
 
 Можно использовать **<не используется>**  [teamcity](https://www.jetbrains.com/ru-ru/teamcity/), [jenkins](https://www.jenkins.io/), [GitLab CI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/) **</не используется>**  или GitHub Actions.
 
@@ -657,9 +655,40 @@ Events:
 ## Что необходимо для сдачи задания?
 
 1. Репозиторий с конфигурационными файлами Terraform и готовность продемонстрировать создание всех ресурсов с нуля.
+
+[Репозиторий с кодом Terraform для инициализации облака](https://github.com/vakhtanov/netology-diploma-terraform-stage1.git)
+
+[Репозиторий с кодом Terraform для инфраструктуры](https://github.com/vakhtanov/netology-diploma-terraform-stage2.git)
+
+
 2. Пример pull request с комментариями созданными atlantis'ом или снимки экрана из Terraform Cloud или вашего CI-CD-terraform pipeline.
+
+![t6_1test_pass1.JPG](images/t6_1test_pass1.JPG)  
+![t6_2test_pass2.JPG](images/t6_2test_pass2.JPG)  
+
 3. Репозиторий с конфигурацией ansible, если был выбран способ создания Kubernetes кластера при помощи ansible.
+
+был выбран пакет Kubespray v2.29.0 - описание комманд в [#### РЕШЕНИЕ 3](#### РЕШЕНИЕ 3)
+
+
 4. Репозиторий с Dockerfile тестового приложения и ссылка на собранный docker image.
+
+[https://github.com/vakhtanov/netology-diploma-app](https://github.com/vakhtanov/netology-diploma-app)
+
+`docker pull cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:main`
+
 5. Репозиторий с конфигурацией Kubernetes кластера.
+
+
+
 6. Ссылка на тестовое приложение и веб интерфейс Grafana с данными доступа.
+
+[app](http://84.201.175.124/)
+
+доступ к grafana 
+
+[grafana](http://www.knit-tale.ru/grafana)
+admin
+vW6iSeVHY8yQGxztk0WjrvfwgJs6DIhEfyHgKJhU
+
 7. Все репозитории рекомендуется хранить на одном ресурсе (github, gitlab)
