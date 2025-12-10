@@ -59,8 +59,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: netology.local
-    http: 
+  - http:
       paths:
       - path: "/"
         pathType: Prefix
