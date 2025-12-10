@@ -540,6 +540,72 @@ helm describe po atlantis  -n atlantis
 ![](images/)
 ![](images/)
 
+
+deployed pod
+
+```bash
+user@ubuntusrv:~/diploma/05_monitoring_app/02nginx-app-deploy$ kubectl describe po nginx-app-depl-7cc9c5558-26gxk
+Name:             nginx-app-depl-7cc9c5558-26gxk
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             worker-node-1/192.168.10.29
+Start Time:       Wed, 10 Dec 2025 18:55:57 +0000
+Labels:           app=nginx-app
+                  pod-template-hash=7cc9c5558
+Annotations:      cni.projectcalico.org/containerID: 438275627ad93fe75e2bd5fe020d9ad01b0a5fbf90c97b1ed32227486441195b
+                  cni.projectcalico.org/podIP: 10.233.84.213/32
+                  cni.projectcalico.org/podIPs: 10.233.84.213/32
+Status:           Running
+IP:               10.233.84.213
+IPs:
+  IP:           10.233.84.213
+Controlled By:  ReplicaSet/nginx-app-depl-7cc9c5558
+Containers:
+  nginx-app-c:
+    Container ID:   containerd://8a21e56c1ebf80700513cc24712c00f588bf257263cb20e641852f9d77fa4c99
+    Image:          cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.9
+    Image ID:       cr.yandex/crpefno6d2dqdrf96gqk/nginx-app@sha256:02623cf798546e23ce9756e15494b130ba8d6ea784aaf6dbf49b9b1826b9c537
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 10 Dec 2025 18:56:00 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:80/healthz delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-s46mh (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-s46mh:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  5m51s  default-scheduler  Successfully assigned default/nginx-app-depl-7cc9c5558-26gxk to worker-node-1
+  Normal  Pulling    5m50s  kubelet            Pulling image "cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.9"
+  Normal  Pulled     5m48s  kubelet            Successfully pulled image "cr.yandex/crpefno6d2dqdrf96gqk/nginx-app:v0.0.9" in 2.091s (2.091s including waiting). Image size: 22998606 bytes.
+  Normal  Created    5m48s  kubelet            Created container: nginx-app-c
+  Normal  Started    5m48s  kubelet            Started container nginx-app-c
+user@ubuntusrv:~/diploma/05_monitoring_app/02nginx-app-deploy$
+```
+
+
 ----------------------
 
 ---
