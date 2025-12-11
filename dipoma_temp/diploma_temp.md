@@ -362,6 +362,7 @@ grafana:
 
 на машине с которой будем заходить в grafana прописываем в файле hosts IP нашего домена `netology.local`
 в моем случае `84.201.175.124 netology.local`
+'c:\Windows\System32\drivers\etc\hosts'
 
 Выполняем комманд для запуска системы мониторинга
 
