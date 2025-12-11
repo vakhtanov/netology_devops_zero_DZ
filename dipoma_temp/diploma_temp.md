@@ -79,11 +79,14 @@
 ключи доступа к сервисному аккаунту сохраняются в *home*
 
 Переходим в папку создания инфраструктуры *02_terraform_infrastructure*  
-[project_code/02_terraform_infrastructure/]
+[project_code/02_terraform_infrastructure/](project_code/02_terraform_infrastructure/)
 
 запускаем комманду `terraform init -backend-config="access_key=******" -backend-config="secret_key=*****"`
 
 запускаем apply проверяем инфаструктуру (скрины приведены из первоначальной конфирурации настроек, дальше добавились машины)
+
+**дополнительно создан зарезервирован внешний IP адрес для настройки кубер кластера и для  NLB** 
+**дополнительно создан NLP для доступа к воркенодам снаружи**
 
 ![t1_01tera_apply.JPG](images/t1_01tera_apply.JPG)
 
@@ -92,6 +95,11 @@
 ![t1_03tera_destroy.JPG](images/t1_03tera_destroy.JPG)
 
 ![t1_04tera_state2.JPG](images/t1_04tera_state2.JPG)
+
+
+![t2_01resurs.JPG](images/t2_01resurs.JPG)
+
+![t2_02infrastruct.JPG](images/t2_02infrastruct.JPG)
 
 ----------------------
 
@@ -208,9 +216,6 @@ kubectl get po -A
 kubectl get nodes
 ```
 
-![t2_01resurs.JPG](images/t2_01resurs.JPG)
-
-![t2_02infrastruct.JPG](images/t2_02infrastruct.JPG)
 
 ![t2_03install_fin.JPG](images/t2_03install_fin.JPG)
 
@@ -683,6 +688,8 @@ Events:
 
 
 6. Ссылка на тестовое приложение и веб интерфейс Grafana с данными доступа.
+
+   **ДОСТУП ЧЕРЕЗ NLB**
 
 [nginx_app](http://www.knit-tale.ru/)
 
