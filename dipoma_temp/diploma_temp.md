@@ -684,7 +684,7 @@ Events:
 
 6. Ссылка на тестовое приложение и веб интерфейс Grafana с данными доступа.
 
-[app](http://84.201.175.124/)
+[nginx_app](http://www.knit-tale.ru/)
 
 доступ к grafana 
 
