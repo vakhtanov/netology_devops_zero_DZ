@@ -423,10 +423,19 @@ helm uninstall kube-monitoring -n monitoring
 
 переходим в папку для atlantis - `project_code\05_monitoring_app\03atlantis\`
 
+в github генерируем токен доступа и сохраняем в файл `github_token`  
+
+
 Генерируем Webhook Secret [https://www.browserling.com/tools/random-string](https://www.browserling.com/tools/random-string)  
-и сохраняем в файл `webhook-secret`  
-в github генерируем токен доступа и сохраняем в файл `token`  
-создаем отдельный намеспейс `kubectl create namespace atlantis`  
+и сохраняем в файл `github_secret`  
+
+создаем отдельный намеспейс  
+`kubectl create namespace atlantis`  
+
+создаем секреты для github  
+`kubectl create secret generic atlantis-github-secrets -n atlantis --from-file=github_token --from-file=github_secret'  
+проверяем  
+`kubectl get secret atlantis-github-secrets -n atlantis -o yaml`  
 
 Клонируем и обновляем репозиторий  
 `helm repo add runatlantis https://runatlantis.github.io/helm-charts`
@@ -444,12 +453,14 @@ helm uninstall kube-monitoring -n monitoring
 
 итого меняем:
 ```
+orgAllowlist: "github.com/vakhtanov/netology-diploma-terraform-stage2"
+
 github:
   user: vakhtanov
-  token: ********
-  secret: ********
+  token: ""
+  secret: ""
 
-orgAllowlist: "github.com/vakhtanov/netology-diploma-terraform-stage2"
+vcsSecretName: "atlantis-github-secrets"
 
 внешний порт доступа
 service:
@@ -469,7 +480,7 @@ aws:
 
 ```
 
-итого получим value.yaml приблидительн такого вида:  
+итого получим value.yaml приблизительно такого вида:  
 [values_nocred.yaml](project_code/05_monitoring_app/03atlantis/values_nocred.yaml)
 
 Для работы atlantis нужен PV, создаем его (вариант для тестов)  
@@ -489,7 +500,7 @@ kubectl cp /home/user/.terraform-account-key.json atlantis/atlantis-0:/home/atla
 
 на сайте github настраиваем вебхук по инструкции [https://www.runatlantis.io/docs/configuring-webhooks.html](https://www.runatlantis.io/docs/configuring-webhooks.html)
 
-`http://51.250.77.76:30041/events`
+`http://51.250.77.76:30041/events` - этот IP привязан к балансировщику яндекс NLB
 
 если что-то пошло не так можно удалить или обновить приложение или посмотреть статус:  
 ```
