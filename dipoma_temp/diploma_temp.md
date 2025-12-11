@@ -396,7 +396,6 @@ helm uninstall kube-monitoring -n monitoring
 Проверяем доступ снаружи  
 ![t5_3grafana3.JPG](images/t5_3grafana3.JPG)
 
-**TODO** **ДОСТУП NLB пока в работе**
 
 
 ##### ЗАДАЧА 2
