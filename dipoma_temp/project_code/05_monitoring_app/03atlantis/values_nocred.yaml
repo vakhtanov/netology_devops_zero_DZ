@@ -11,7 +11,7 @@ nameOverride: ""
 # -- An option to override the atlantis url,
 # if not using an ingress, set it to the external IP.
 # Check values.yaml for examples.
-atlantisUrl: ""
+atlantisUrl: "http://51.250.77.76"
 # Example:  http://10.0.0.0
 
 # -- Replace this with your own repo allowlist.
@@ -31,12 +31,12 @@ logLevel: ""
 
 github:
   user: vakhtanov
-  token: github_pat_11*********
-  secret: **************
+  token: ""
+  secret: ""
 #  hostname: github.your.org
 
 # -- If managing secrets outside the chart for the webhook, use this variable to reference the secret name
-vcsSecretName: ""
+vcsSecretName: "atlantis-github-secrets"
 
 # -- When referencing Terraform modules in private repositories, it may be helpful
 # (necessary?) to use redirection in a .gitconfig.
@@ -78,8 +78,8 @@ netrcSecretName: ""
 aws:
    credentials: |
      [default]
-     AWS_ACCESS_KEY_ID=YCA*********
-     AWS_SECRET_ACCESS_KEY=YCP************
+     AWS_ACCESS_KEY_ID=**********
+     AWS_SECRET_ACCESS_KEY=*********************
      region=ru-central1
 #   config: |
 #     [profile a_role_to_assume]

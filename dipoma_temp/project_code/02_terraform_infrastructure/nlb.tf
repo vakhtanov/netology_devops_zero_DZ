@@ -44,6 +44,16 @@ resource "yandex_lb_network_load_balancer" "worker_node_nlb" {
     }
   }
 
+  listener {
+    name        = var.worker_node_nlb.listener_atlantis_name
+    port        = var.worker_node_nlb.listener_atlantis_port
+    target_port = var.worker_node_nlb.listener_atlantis_target_port
+    external_address_spec {
+      address    = var.worker_node_nlb.listener_atlantis_address
+      ip_version = "ipv4"
+    }
+  }
+
   attached_target_group {
     target_group_id = yandex_lb_target_group.worker_node_tg.id
 

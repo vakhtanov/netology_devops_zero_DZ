@@ -257,6 +257,12 @@ variable "worker_node_nlb" {
     listener_protocol = string,
     listener_target_port = number,
     listener_address    = string,
+    listener_atlantis_name   = string,
+    listener_atlantis_port    = number,
+    listener_atlantis_protocol = string,
+    listener_atlantis_target_port = number,
+    listener_atlantis_address    = string,
+
   })
 
   default = {
@@ -264,10 +270,15 @@ variable "worker_node_nlb" {
     healt_name   = "http",
     healt_port   = 80,
     healt_path   = "/",
-    listener_name   = "worker-node-istener",
+    listener_name   = "worker-node-listener",
     listener_port   = 80,
     listener_protocol = "TCP",
     listener_target_port = 80,
     listener_address   = "51.250.77.76",
+    listener_atlantis_name   = "worker-node-atlantis-listener",
+    listener_atlantis_port    = 30041,
+    listener_atlantis_protocol = "TCP",
+    listener_atlantis_target_port = 30041,
+    listener_atlantis_address    = "51.250.77.76",
   }
 }

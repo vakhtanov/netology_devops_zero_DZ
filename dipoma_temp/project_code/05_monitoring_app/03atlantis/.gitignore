@@ -1,1 +1,4 @@
 values.yaml
+github_secret
+github_token
+values_good.yaml
