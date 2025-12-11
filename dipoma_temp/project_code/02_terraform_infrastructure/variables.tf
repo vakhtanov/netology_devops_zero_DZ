@@ -239,4 +239,35 @@ variable "vm_private" {
   }
 }
 
+### NLB
 
+variable "worker_node_tg_name" {
+  type        = string
+  default     = "worker-node-tg"
+}
+
+variable "worker_node_nlb" {
+  type = object({
+    name          = string,
+    healt_name   = string,
+    healt_port    = number,
+    healt_path    = string,
+    listener_name   = string,
+    listener_port    = number,
+    listener_protocol = string,
+    listener_target_port = number,
+    listener_address    = string,
+  })
+
+  default = {
+    name          = "worker-node-nlb",
+    healt_name   = "http",
+    healt_port   = 80,
+    healt_path   = "/",
+    listener_name   = "worker-node-istener",
+    listener_port   = 80,
+    listener_protocol = "TCP",
+    listener_target_port = 80,
+    listener_address   = "51.250.77.76",
+  }
+}

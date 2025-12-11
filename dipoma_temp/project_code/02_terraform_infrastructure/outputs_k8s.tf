@@ -7,7 +7,7 @@ output "control_node_info" {
       fqdn          = instance.fqdn
     }
   ]
-  depends_on = [ yandex_compute_instance.control_node ]
+  depends_on = [yandex_compute_instance.control_node]
 }
 
 output "worker_node_info" {
@@ -19,5 +19,5 @@ output "worker_node_info" {
       fqdn          = instance.fqdn
     }
   ]
-  depends_on = [ yandex_compute_instance.worker_node ]
+  depends_on = [yandex_compute_instance.worker_node]
 }
