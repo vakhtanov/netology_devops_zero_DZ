@@ -365,6 +365,7 @@ grafana:
     ingressClassName: nginx
     hosts: 
       - netology.local
+      - www.knit-tale.ru
     path: /grafana
 ```
 
