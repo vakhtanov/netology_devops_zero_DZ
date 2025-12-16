@@ -437,6 +437,9 @@ helm uninstall kube-monitoring -n monitoring
 проверяем  
 `kubectl get secret atlantis-github-secrets -n atlantis -o yaml`  
 
+создаем конфигмап с настройками терраформ для доступа из России и ключем доступа к яндек облаку **configmap.yaml**  
+[пример файла](configmap_nocred.yaml)
+
 Клонируем и обновляем репозиторий  
 `helm repo add runatlantis https://runatlantis.github.io/helm-charts`
 `helm repo update`
@@ -478,6 +481,14 @@ aws:
      AWS_SECRET_ACCESS_KEY=*******
      region=ru-central1
 
+extraVolumes:
+  - name: terraform-sets
+    configMap:
+      name: terraform-sets
+
+extraVolumeMounts:
+  - name: terraform-sets
+    mountPath: /home/atlantis/
 ```
 
 итого получим value.yaml приблизительно такого вида:  
@@ -489,14 +500,12 @@ aws:
 определяем дефолтный storageclass:  
 `kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'`
 
+применяем конфигмап
+`kubectl apply -f configmap.yaml`
+
 Запускаем приложение и ждем пока поднимется  
 `helm install atlantis runatlantis/atlantis -f values.yaml -n atlantis`
 
-пару параметров (зеркало terraform и доступ к яндекс облаку) не удалось красиво передать, копируем прямо в POD  
-```
-kubectl cp ./.terraformrc atlantis/atlantis-0:/home/atlantis/
-kubectl cp /home/user/.terraform-account-key.json atlantis/atlantis-0:/home/atlantis/
-```
 
 на сайте github настраиваем вебхук по инструкции [https://www.runatlantis.io/docs/configuring-webhooks.html](https://www.runatlantis.io/docs/configuring-webhooks.html)
 

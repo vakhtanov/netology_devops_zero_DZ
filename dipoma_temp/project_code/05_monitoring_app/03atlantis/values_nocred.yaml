@@ -78,8 +78,8 @@ netrcSecretName: ""
 aws:
    credentials: |
      [default]
-     AWS_ACCESS_KEY_ID=**********
-     AWS_SECRET_ACCESS_KEY=*********************
+     AWS_ACCESS_KEY_ID=YCA*****
+     AWS_SECRET_ACCESS_KEY=YCP*******
      region=ru-central1
 #   config: |
 #     [profile a_role_to_assume]
@@ -485,17 +485,22 @@ googleServiceAccountSecrets: []
 
 # -- Optionally specify additional volumes for the pod.
 # Check values.yaml for examples.
-extraVolumes: []
-# extraVolumes:
+# extraVolumes: []
+extraVolumes:
+  - name: terraform-sets
+    configMap:
+      name: terraform-sets
 #   - name: some-volume-name
 #     emptyDir: {}
-
 # -- Optionally specify additional volume mounts for the container.
 # Check values.yaml for examples.
-extraVolumeMounts: []
-# extraVolumeMounts:
+# extraVolumeMounts: []
+extraVolumeMounts:
+  - name: terraform-sets
+    mountPath: /home/atlantis/
 #   - name: some-volume-name
 #     mountPath: /path/in/container
+
 
 # -- Optionally specify additional manifests to be created.
 # Check values.yaml for examples.

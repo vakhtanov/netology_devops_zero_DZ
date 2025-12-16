@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: terraform-sets
+  namespace: atlantis
+data:
+  .terraformrc: |
+    provider_installation {
+      network_mirror {
+        url = "https://terraform-mirror.yandexcloud.net/"
+        include = ["registry.terraform.io/*/*"]
+      }
+      direct {
+        exclude = ["registry.terraform.io/*/*"]
+      }
+    }
+
+  .terraform-account-key.json: |
+    {"created_at":"2025-11-12T19:48:09Z","id":"ajem3b9sej8a3fiv6h3p","key_algorithm":"RSA_2048","private_key":"PLEASE DO NOT REMOVE THIS LINE! Yandex.Cloud SA Key ID ***********}
+
